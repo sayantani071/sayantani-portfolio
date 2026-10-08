@@ -126,7 +126,7 @@ const Hero = () => {
                 }}
               >
                 <img 
-                  src="/profile.jpg" 
+                  src="/profile.png" 
                   alt="Sayantani Sinha" 
                   className="object-contain w-[70%] md:w-[65%] lg:w-[80%] h-[90%] lg:h-[95%] grayscale-[0.6] contrast-125 brightness-110 sepia-[0.1] mix-blend-lighten"
                   style={{ objectPosition: 'center bottom' }}

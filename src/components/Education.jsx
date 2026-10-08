@@ -100,13 +100,21 @@ const Education = () => {
 
                 <div className="flex md:justify-end mb-6">
                   <span className="flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 text-blue-400 px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-mono tracking-wider">
-                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+                    </span>
                     CURRENTLY STUDYING
                   </span>
                 </div>
 
-                <div className="w-full bg-white/5 h-1 rounded-full overflow-hidden">
-                  <div className="bg-blue-500 w-[20%] h-full"></div>
+                <div className="w-full bg-white/5 h-1.5 rounded-full overflow-hidden relative">
+                  <motion.div 
+                    initial={{ x: "-100%" }}
+                    animate={{ x: "250%" }}
+                    transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+                    className="absolute top-0 left-0 h-full w-[40%] bg-gradient-to-r from-transparent via-blue-500 to-transparent shadow-[0_0_10px_rgba(59,130,246,0.8)]"
+                  ></motion.div>
                 </div>
                 <p className="md:text-right text-left text-[10px] text-gray-500 font-mono mt-2 uppercase tracking-widest">IN PROGRESS</p>
               </motion.div>

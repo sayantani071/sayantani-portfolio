@@ -14,15 +14,15 @@ const BackgroundGlitters = () => {
     canvas.height = height;
 
     const particles = [];
-    // Number of glitters
-    const particleCount = 120;
+    // Number of glitters (increased for more dense effect)
+    const particleCount = 350;
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        // Very small size for glitter effect
-        radius: Math.random() * 1.5 + 0.2,
+        // Varied sizes for deeper effect
+        radius: Math.random() * 2.0 + 0.2,
         // Slow drifting movement
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,

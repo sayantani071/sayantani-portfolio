@@ -75,23 +75,27 @@ const BackgroundGlitters = () => {
           p.fadeDirection *= -1;
         }
 
+        // Core particle
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        // Slightly bluish-white glitters
-        ctx.fillStyle = `rgba(200, 230, 255, ${p.opacity})`;
-        ctx.shadowBlur = p.glow * 1.5; // Enhanced glow
-        ctx.shadowColor = `rgba(150, 200, 255, ${p.opacity})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
         ctx.fill();
 
-        // Draw a subtle "star/cross" shape for bright particles to create a real twinkle effect
+        // Simulated Glow (Much faster than shadowBlur)
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius * 3, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(150, 200, 255, ${p.opacity * 0.3})`;
+        ctx.fill();
+
+        // Fast twinkle cross
         if (p.opacity > 0.7) {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y - p.radius * 3);
           ctx.lineTo(p.x, p.y + p.radius * 3);
           ctx.moveTo(p.x - p.radius * 3, p.y);
           ctx.lineTo(p.x + p.radius * 3, p.y);
-          ctx.strokeStyle = `rgba(255, 255, 255, ${p.opacity - 0.5})`;
-          ctx.lineWidth = 0.8;
+          ctx.strokeStyle = `rgba(255, 255, 255, ${p.opacity * 0.5})`;
+          ctx.lineWidth = 0.5;
           ctx.stroke();
         }
       });
@@ -130,19 +134,8 @@ const BackgroundGlitters = () => {
               star.y - Math.sin(star.angle) * star.length
             );
             
-            // Gradient tail
-            const gradient = ctx.createLinearGradient(
-              star.x, star.y, 
-              star.x - Math.cos(star.angle) * star.length, 
-              star.y - Math.sin(star.angle) * star.length
-            );
-            gradient.addColorStop(0, `rgba(255, 255, 255, ${star.opacity})`);
-            gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
-            
-            ctx.strokeStyle = gradient;
-            ctx.lineWidth = 2;
-            ctx.shadowBlur = 15;
-            ctx.shadowColor = `rgba(100, 150, 255, ${star.opacity})`;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${star.opacity})`;
+            ctx.lineWidth = 1.5;
             ctx.stroke();
           }
         }

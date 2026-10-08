@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import Hero from './components/Hero';
 import About from './components/About';
@@ -12,14 +12,13 @@ import Footer from './components/Footer';
 import BackgroundGlitters from './components/BackgroundGlitters';
 
 function App() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const glowRef = useRef(null);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
+      if (glowRef.current) {
+        glowRef.current.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`;
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -37,10 +36,9 @@ function App() {
 
         {/* Interactive glow following mouse */}
         <div
-          className="absolute w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px] transition-transform duration-300 ease-out pointer-events-none"
-          style={{
-            transform: `translate(${mousePosition.x - 250}px, ${mousePosition.y - 250}px)`,
-          }}
+          ref={glowRef}
+          className="absolute w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px] transition-transform duration-75 ease-out pointer-events-none will-change-transform"
+          style={{ transform: `translate(-250px, -250px)` }}
         ></div>
       </div>
 
@@ -51,8 +49,6 @@ function App() {
           <About />
           <Education />
           <Projects />
-
-
           <Contact />
         </main>
         <Footer />

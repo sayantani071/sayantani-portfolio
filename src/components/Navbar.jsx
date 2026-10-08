@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navLinks = [
   { name: 'HOME', href: '#home' },
   { name: 'ABOUT', href: '#about' },
-  { name: 'EDUCATION', href: '#skills' }, // Linking to existing skills/achievements areas
+  { name: 'EDUCATION', href: '#education' },
   { name: 'PROJECTS', href: '#projects' },
   { name: 'CONTACT', href: '#contact' },
 ];

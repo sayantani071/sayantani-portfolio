@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Hero from './components/Hero';
 import About from './components/About';
-import Skills from './components/Skills';
+import Education from './components/Education';
 import Projects from './components/Projects';
 
 
@@ -47,7 +47,7 @@ function App() {
         <main className="flex-grow">
           <Hero />
           <About />
-          <Skills />
+          <Education />
           <Projects />
 
 

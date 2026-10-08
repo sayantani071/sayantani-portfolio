@@ -65,20 +65,20 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="h-10 md:h-12 flex justify-center items-center w-full mb-10"
             >
-              <div className="text-xl md:text-2xl text-gray-300 font-light flex justify-center gap-2 w-full max-w-[400px]">
-                <span className="text-blue-500 font-bold">&gt;</span>
-                <div className="relative overflow-hidden w-[300px] h-[40px]">
+              <div className="text-xl md:text-2xl text-gray-300 font-light flex justify-center w-full">
+                <div className="relative overflow-hidden w-full max-w-[400px] h-[40px]">
                   <AnimatePresence mode="wait">
-                    <motion.span
+                    <motion.div
                       key={currentRoleIndex}
                       initial={{ y: 20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: -20, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="absolute left-0 top-0 w-full text-left"
+                      className="absolute left-0 top-0 w-full flex justify-center items-center gap-2"
                     >
-                      {roles[currentRoleIndex]}
-                    </motion.span>
+                      <span className="text-blue-500 font-bold">&gt;</span>
+                      <span>{roles[currentRoleIndex]}</span>
+                    </motion.div>
                   </AnimatePresence>
                 </div>
               </div>

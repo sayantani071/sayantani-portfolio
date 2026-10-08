@@ -1,8 +1,16 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
 
 const Education = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+  
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
   return (
     <section id="education" className="py-24 relative z-10 font-sans">
       <div className="container mx-auto px-6 md:px-12">
@@ -19,9 +27,15 @@ const Education = () => {
           <div className="w-24 h-[1px] bg-white/20 mt-6"></div>
         </motion.div>
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-[2px] h-full bg-gradient-to-b from-blue-500/50 via-blue-500/20 to-transparent hidden md:block"></div>
+        <div ref={containerRef} className="relative max-w-4xl mx-auto">
+          {/* Subtle background line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-[2px] h-full bg-white/5 hidden md:block"></div>
+          
+          {/* Dynamic Glowy Line */}
+          <motion.div 
+            style={{ height: lineHeight }}
+            className="absolute left-1/2 transform -translate-x-1/2 w-[2px] bg-gradient-to-b from-blue-400 via-blue-600 to-transparent hidden md:block origin-top shadow-[0_0_20px_rgba(59,130,246,1)] z-0"
+          ></motion.div>
 
           {/* Born */}
           <div className="relative flex flex-col md:flex-row justify-between items-center w-full mb-16">

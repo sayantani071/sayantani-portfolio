@@ -21,8 +21,8 @@ const BackgroundGlitters = () => {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        // Medium-small sizes for nice visible glitters
-        radius: Math.random() * 1.2 + 0.3,
+        // Make the stars a little smaller
+        radius: Math.random() * 0.9 + 0.2,
         // Slow drifting movement
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
@@ -90,12 +90,12 @@ const BackgroundGlitters = () => {
         // Fast twinkle cross
         if (p.opacity > 0.7) {
           ctx.beginPath();
-          ctx.moveTo(p.x, p.y - p.radius * 3);
-          ctx.lineTo(p.x, p.y + p.radius * 3);
-          ctx.moveTo(p.x - p.radius * 3, p.y);
-          ctx.lineTo(p.x + p.radius * 3, p.y);
+          ctx.moveTo(p.x, p.y - p.radius * 2.5);
+          ctx.lineTo(p.x, p.y + p.radius * 2.5);
+          ctx.moveTo(p.x - p.radius * 2.5, p.y);
+          ctx.lineTo(p.x + p.radius * 2.5, p.y);
           ctx.strokeStyle = `rgba(255, 255, 255, ${p.opacity * 0.5})`;
-          ctx.lineWidth = 0.5;
+          ctx.lineWidth = 0.4;
           ctx.stroke();
         }
       });
@@ -135,7 +135,7 @@ const BackgroundGlitters = () => {
             );
             
             ctx.strokeStyle = `rgba(255, 255, 255, ${star.opacity})`;
-            ctx.lineWidth = 1.5;
+            ctx.lineWidth = 1.0;
             ctx.stroke();
           }
         }

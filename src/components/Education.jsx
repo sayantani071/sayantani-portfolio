@@ -89,7 +89,7 @@ const Education = () => {
                   <GraduationCap className="text-blue-500 w-8 h-8" />
                 </div>
                 
-                <p className="text-blue-500 font-mono text-sm tracking-widest mb-3 uppercase">2024 - PRESENT</p>
+                <p className="text-blue-500 font-mono text-sm tracking-widest mb-3 uppercase">2025 - PRESENT</p>
                 <h3 className="text-2xl text-white font-medium mb-2">B.Tech CSE (AI & ML)</h3>
                 <p className="text-gray-300 font-mono text-sm mb-6">JIS COLLEGE OF ENGINEERING</p>
                 

@@ -21,8 +21,8 @@ const BackgroundGlitters = () => {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        // Smaller sizes for finer glitter effect
-        radius: Math.random() * 0.8 + 0.1,
+        // Medium-small sizes for nice visible glitters
+        radius: Math.random() * 1.2 + 0.3,
         // Slow drifting movement
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,

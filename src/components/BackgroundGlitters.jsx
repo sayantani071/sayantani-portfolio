@@ -33,6 +33,22 @@ const BackgroundGlitters = () => {
       });
     }
 
+    const shootingStars = [];
+    const shootingStarCount = 4;
+
+    for (let i = 0; i < shootingStarCount; i++) {
+      shootingStars.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        length: Math.random() * 80 + 30,
+        speed: Math.random() * 10 + 6,
+        opacity: 0,
+        active: false,
+        angle: Math.PI / 4, // 45 degrees downward
+        waitTimer: Math.random() * 300 + 50 // frames to wait before firing
+      });
+    }
+
     let animationFrameId;
 
     const render = () => {
@@ -65,6 +81,58 @@ const BackgroundGlitters = () => {
         ctx.shadowBlur = p.glow;
         ctx.shadowColor = `rgba(150, 200, 255, ${p.opacity})`;
         ctx.fill();
+      });
+
+      // Render Shooting Stars
+      shootingStars.forEach(star => {
+        if (!star.active) {
+          star.waitTimer--;
+          if (star.waitTimer <= 0) {
+            star.active = true;
+            // Start from top or left edge randomly
+            if (Math.random() > 0.5) {
+              star.x = Math.random() * width;
+              star.y = -50;
+            } else {
+              star.x = -50;
+              star.y = Math.random() * (height / 2);
+            }
+            star.opacity = 1;
+            star.waitTimer = Math.random() * 300 + 100;
+            star.speed = Math.random() * 15 + 10;
+            star.length = Math.random() * 100 + 50;
+          }
+        } else {
+          star.x += Math.cos(star.angle) * star.speed;
+          star.y += Math.sin(star.angle) * star.speed;
+          star.opacity -= 0.012; // Fade out gradually
+
+          if (star.opacity <= 0 || star.x > width + 100 || star.y > height + 100) {
+            star.active = false;
+          } else {
+            ctx.beginPath();
+            ctx.moveTo(star.x, star.y);
+            ctx.lineTo(
+              star.x - Math.cos(star.angle) * star.length, 
+              star.y - Math.sin(star.angle) * star.length
+            );
+            
+            // Gradient tail
+            const gradient = ctx.createLinearGradient(
+              star.x, star.y, 
+              star.x - Math.cos(star.angle) * star.length, 
+              star.y - Math.sin(star.angle) * star.length
+            );
+            gradient.addColorStop(0, `rgba(255, 255, 255, ${star.opacity})`);
+            gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
+            
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 2;
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = `rgba(100, 150, 255, ${star.opacity})`;
+            ctx.stroke();
+          }
+        }
       });
 
       animationFrameId = requestAnimationFrame(render);

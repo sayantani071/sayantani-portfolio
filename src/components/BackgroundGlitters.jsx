@@ -27,9 +27,10 @@ const BackgroundGlitters = () => {
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
         opacity: Math.random(),
-        // Soft glow blur
-        glow: Math.random() * 5 + 2,
-        fadeDirection: Math.random() > 0.5 ? 0.005 : -0.005
+        // Stronger glow base
+        glow: Math.random() * 10 + 5,
+        // Faster and randomized fade speed for twinkle
+        fadeDirection: Math.random() > 0.5 ? (Math.random() * 0.015 + 0.005) : -(Math.random() * 0.015 + 0.005)
       });
     }
 
@@ -69,8 +70,8 @@ const BackgroundGlitters = () => {
         if (p.opacity <= 0.1) {
           p.opacity = 0.1;
           p.fadeDirection *= -1;
-        } else if (p.opacity >= 0.8) {
-          p.opacity = 0.8;
+        } else if (p.opacity >= 1) {
+          p.opacity = 1;
           p.fadeDirection *= -1;
         }
 
@@ -78,9 +79,21 @@ const BackgroundGlitters = () => {
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         // Slightly bluish-white glitters
         ctx.fillStyle = `rgba(200, 230, 255, ${p.opacity})`;
-        ctx.shadowBlur = p.glow;
+        ctx.shadowBlur = p.glow * 1.5; // Enhanced glow
         ctx.shadowColor = `rgba(150, 200, 255, ${p.opacity})`;
         ctx.fill();
+
+        // Draw a subtle "star/cross" shape for bright particles to create a real twinkle effect
+        if (p.opacity > 0.7) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y - p.radius * 3);
+          ctx.lineTo(p.x, p.y + p.radius * 3);
+          ctx.moveTo(p.x - p.radius * 3, p.y);
+          ctx.lineTo(p.x + p.radius * 3, p.y);
+          ctx.strokeStyle = `rgba(255, 255, 255, ${p.opacity - 0.5})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
       });
 
       // Render Shooting Stars

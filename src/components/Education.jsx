@@ -85,13 +85,6 @@ const Education = () => {
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-blue-400"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                {/* Glitter Particles */}
-                <div className="absolute top-[20%] left-[15%] w-1 h-1 bg-white rounded-full animate-ping opacity-40 shadow-[0_0_8px_rgba(255,255,255,1)]"></div>
-                <div className="absolute top-[40%] right-[20%] w-0.5 h-0.5 bg-blue-200 rounded-full animate-pulse opacity-60 shadow-[0_0_5px_rgba(59,130,246,1)]" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute bottom-[30%] left-[10%] w-1.5 h-1.5 bg-white/60 rounded-full animate-pulse shadow-[0_0_10px_rgba(255,255,255,0.8)]" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute top-[60%] right-[10%] w-1 h-1 bg-blue-400 rounded-full animate-ping opacity-30 shadow-[0_0_8px_rgba(59,130,246,1)]" style={{ animationDelay: '0.2s' }}></div>
-                <div className="absolute bottom-[10%] left-[40%] w-0.5 h-0.5 bg-white rounded-full animate-ping opacity-50 shadow-[0_0_5px_rgba(255,255,255,1)]" style={{ animationDelay: '0.8s' }}></div>
-                
                 <div className="flex md:justify-end mb-4">
                   <GraduationCap className="text-blue-500 w-8 h-8" />
                 </div>

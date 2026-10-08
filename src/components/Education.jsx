@@ -109,12 +109,7 @@ const Education = () => {
                 </div>
 
                 <div className="w-full bg-white/5 h-1.5 rounded-full overflow-hidden relative">
-                  <motion.div 
-                    initial={{ x: "-100%" }}
-                    animate={{ x: "250%" }}
-                    transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-                    className="absolute top-0 left-0 h-full w-[40%] bg-gradient-to-r from-transparent via-blue-500 to-transparent shadow-[0_0_10px_rgba(59,130,246,0.8)]"
-                  ></motion.div>
+                  <div className="absolute top-0 left-0 h-full w-[40%] bg-gradient-to-r from-transparent via-blue-500 to-transparent shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-slide"></div>
                 </div>
                 <p className="md:text-right text-left text-[10px] text-gray-500 font-mono mt-2 uppercase tracking-widest">IN PROGRESS</p>
               </motion.div>

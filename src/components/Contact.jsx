@@ -32,7 +32,7 @@ const Contact = () => {
             <a href="https://github.com/sayantani071" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300">
               <Github size={24} />
             </a>
-            <a href="https://linkedin.com/in/sayantanisinha" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300">
+            <a href="https://www.linkedin.com/in/sayantani-sinha-a81a44424/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300">
               <Linkedin size={24} />
             </a>
             <a href="https://instagram.com/sayantanisinha" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300">

@@ -73,8 +73,8 @@ const Education = () => {
               </motion.div>
             </div>
             <motion.div 
-              style={{ scale: dot1Scale }} 
-              className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-4 h-4 bg-blue-500 rounded-full z-10 shadow-[0_0_10px_rgba(59,130,246,0.8)]"
+              style={{ x: "-50%", scale: dot1Scale }} 
+              className="hidden md:block absolute left-1/2 top-[50px] w-3 h-3 bg-blue-500 rounded-full z-10 shadow-[0_0_10px_rgba(59,130,246,0.8)]"
             ></motion.div>
             <div className="hidden md:block w-5/12 pl-8"></div>
           </div>
@@ -82,7 +82,7 @@ const Education = () => {
           {/* Higher Secondary */}
           <div className="relative flex flex-col md:flex-row justify-between w-full mb-16 items-start">
             <div className="hidden md:block w-5/12 pr-8"></div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-4 h-4 bg-[#111315] border-2 border-blue-500 rounded-full z-10 overflow-hidden">
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-[#111315] border-[1.5px] border-blue-500 rounded-full z-10 overflow-hidden">
               <motion.div style={{ opacity: dot2Opacity }} className="w-full h-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
             </div>
             <div className="md:w-5/12 md:pl-8 w-full">
@@ -145,8 +145,8 @@ const Education = () => {
               </motion.div>
             </div>
             <motion.div 
-              style={{ scale: dot3Scale }}
-              className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-4 h-4 bg-blue-500 rounded-full z-10 shadow-[0_0_15px_rgba(59,130,246,1)]"
+              style={{ x: "-50%", scale: dot3Scale }}
+              className="hidden md:block absolute left-1/2 top-[50px] w-3 h-3 bg-blue-500 rounded-full z-10 shadow-[0_0_15px_rgba(59,130,246,1)]"
             ></motion.div>
             <div className="hidden md:block w-5/12 pl-8"></div>
           </div>
@@ -154,7 +154,7 @@ const Education = () => {
           {/* End of Journey */}
           <div className="relative flex flex-col md:flex-row justify-between w-full items-start">
             <div className="hidden md:block w-5/12 pr-8"></div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-4 h-4 bg-[#111315] border-2 border-gray-600 rounded-full z-10 overflow-hidden">
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-[#111315] border-[1.5px] border-gray-600 rounded-full z-10 overflow-hidden">
               <motion.div style={{ opacity: dot4Opacity }} className="w-full h-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
             </div>
             <div className="md:w-5/12 md:pl-8 w-full">

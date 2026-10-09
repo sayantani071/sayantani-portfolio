@@ -20,6 +20,7 @@ export default {
         'blob': 'blob 7s infinite',
         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
         'slide': 'slide 2s linear infinite',
+        'text-flow': 'textFlow 5s linear infinite',
       },
       keyframes: {
         blob: {
@@ -35,6 +36,10 @@ export default {
         slide: {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(250%)' },
+        },
+        textFlow: {
+          '0%': { backgroundPosition: '0% center' },
+          '100%': { backgroundPosition: '200% center' },
         }
       }
     },

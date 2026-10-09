@@ -71,8 +71,8 @@ const Education = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 <div className="flex md:justify-end justify-start mb-4">
-                  <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
-                    <Baby className="text-blue-400 w-6 h-6" />
+                  <div className="w-16 h-16 rounded-xl overflow-hidden border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                    <img src="/born_baby.jpg" alt="Born" className="w-full h-full object-cover" />
                   </div>
                 </div>
 

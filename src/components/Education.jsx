@@ -15,25 +15,25 @@ const Education = () => {
   const dot1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.5]);
   const box1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.15]);
   const box1Border = useTransform(scrollYProgress, [0, 0.05], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
-  const box1Shadow = useTransform(scrollYProgress, [0, 0.05], ["0px 0px 0px rgba(59,130,246,0)", "0px 0px 50px rgba(59,130,246,0.4)"]);
+  const box1Shadow = useTransform(scrollYProgress, [0, 0.05], ["0px 0px 0px rgba(59,130,246,0)", "0px 0px 30px rgba(59,130,246,0.2)"]);
 
   // Transforms for Step 2
   const dot2Opacity = useTransform(scrollYProgress, [0.2, 0.35], [0, 1]);
   const box2Scale = useTransform(scrollYProgress, [0.2, 0.35], [1, 1.15]);
   const box2Border = useTransform(scrollYProgress, [0.2, 0.35], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
-  const box2Shadow = useTransform(scrollYProgress, [0.2, 0.35], ["0px 0px 0px rgba(59,130,246,0)", "0px 0px 50px rgba(59,130,246,0.4)"]);
+  const box2Shadow = useTransform(scrollYProgress, [0.2, 0.35], ["0px 0px 0px rgba(59,130,246,0)", "0px 0px 30px rgba(59,130,246,0.2)"]);
 
   // Transforms for Step 3
   const dot3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.3]);
   const box3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.15]);
   const box3Border = useTransform(scrollYProgress, [0.55, 0.7], ["rgba(59,130,246,0.3)", "rgba(59,130,246,0.8)"]);
-  const box3Shadow = useTransform(scrollYProgress, [0.55, 0.7], ["0px 0px 10px rgba(59,130,246,0.1)", "0px 0px 60px rgba(59,130,246,0.5)"]);
+  const box3Shadow = useTransform(scrollYProgress, [0.55, 0.7], ["0px 0px 10px rgba(59,130,246,0.1)", "0px 0px 40px rgba(59,130,246,0.3)"]);
 
   // Transforms for Step 4
   const dot4Opacity = useTransform(scrollYProgress, [0.85, 1], [0, 1]);
   const box4Scale = useTransform(scrollYProgress, [0.85, 1], [1, 1.15]);
   const box4Border = useTransform(scrollYProgress, [0.85, 1], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
-  const box4Shadow = useTransform(scrollYProgress, [0.85, 1], ["0px 0px 0px rgba(59,130,246,0)", "0px 0px 50px rgba(59,130,246,0.4)"]);
+  const box4Shadow = useTransform(scrollYProgress, [0.85, 1], ["0px 0px 0px rgba(59,130,246,0)", "0px 0px 30px rgba(59,130,246,0.2)"]);
 
   return (
     <section id="education" className="py-24 relative z-10 font-sans">

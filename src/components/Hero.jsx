@@ -18,7 +18,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative w-full h-screen min-h-[700px] bg-black overflow-hidden flex items-center pt-16">
+    <section id="home" className="relative w-full h-screen min-h-[700px] bg-transparent overflow-hidden flex items-center pt-16">
       
       {/* --- BACKGROUND ELEMENTS --- */}
       {/* Subtle ambient glows */}
@@ -29,7 +29,9 @@ const Hero = () => {
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]" 
            style={{ 
              backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
-             backgroundSize: '100px 100px'
+             backgroundSize: '100px 100px',
+             maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
+             WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)'
            }}>
       </div>
       

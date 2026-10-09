@@ -25,15 +25,7 @@ const Hero = () => {
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-900/20 rounded-full blur-[150px] pointer-events-none"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-blue-800/10 rounded-full blur-[120px] pointer-events-none"></div>
       
-      {/* Futuristic Network Lines Grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]" 
-           style={{ 
-             backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
-             backgroundSize: '100px 100px',
-             maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
-             WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)'
-           }}>
-      </div>
+
       
       <div className="container mx-auto px-6 md:px-12 relative z-10 h-full flex flex-col justify-center">
         <div className="grid lg:grid-cols-2 gap-12 items-center h-full">

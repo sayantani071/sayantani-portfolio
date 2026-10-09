@@ -29,16 +29,16 @@ const Education = () => {
 
         <div ref={containerRef} className="relative max-w-4xl mx-auto">
           {/* Subtle background line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-[2px] h-full bg-white/5 hidden md:block"></div>
+          <div className="absolute left-1/2 transform -translate-x-1/2 top-[50px] bottom-[50px] w-[2px] bg-white/5 hidden md:block"></div>
           
           {/* Dynamic Glowy Line */}
           <motion.div 
             style={{ height: lineHeight }}
-            className="absolute left-1/2 transform -translate-x-1/2 w-[2px] bg-gradient-to-b from-blue-400 via-blue-600 to-transparent hidden md:block origin-top shadow-[0_0_20px_rgba(59,130,246,1)] z-0"
+            className="absolute left-1/2 transform -translate-x-1/2 top-[50px] max-h-[calc(100%-100px)] w-[2px] bg-gradient-to-b from-blue-400 via-blue-600 to-transparent hidden md:block origin-top shadow-[0_0_20px_rgba(59,130,246,1)] z-0"
           ></motion.div>
 
           {/* Born */}
-          <div className="relative flex flex-col md:flex-row justify-between items-center w-full mb-16">
+          <div className="relative flex flex-col md:flex-row justify-between w-full mb-16 items-start">
             <div className="md:w-5/12 md:pr-8 w-full text-left md:text-right mb-8 md:mb-0">
               <motion.div 
                 initial={{ opacity: 0, x: -30 }}
@@ -51,14 +51,14 @@ const Education = () => {
                 <p className="text-gray-400 font-mono text-sm">The beginning of the journey.</p>
               </motion.div>
             </div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full z-10 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-4 h-4 bg-blue-500 rounded-full z-10 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
             <div className="hidden md:block w-5/12 pl-8"></div>
           </div>
 
           {/* Higher Secondary */}
-          <div className="relative flex flex-col md:flex-row justify-between items-center w-full mb-16">
+          <div className="relative flex flex-col md:flex-row justify-between w-full mb-16 items-start">
             <div className="hidden md:block w-5/12 pr-8"></div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#111315] border-2 border-blue-500 rounded-full z-10"></div>
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-[#111315] border-2 border-blue-500 rounded-full z-10"></div>
             <div className="md:w-5/12 md:pl-8 w-full">
               <motion.div 
                 initial={{ opacity: 0, x: 30 }}
@@ -74,7 +74,7 @@ const Education = () => {
           </div>
 
           {/* B.Tech */}
-          <div className="relative flex flex-col md:flex-row justify-between items-center w-full mb-16">
+          <div className="relative flex flex-col md:flex-row justify-between w-full mb-16 items-start">
             <div className="md:w-5/12 md:pr-8 w-full text-left md:text-right flex md:justify-end mb-8 md:mb-0">
               <motion.div 
                 initial={{ opacity: 0, x: -30 }}
@@ -116,14 +116,14 @@ const Education = () => {
                 <p className="md:text-right text-left text-[10px] text-gray-500 font-mono mt-2 uppercase tracking-widest">IN PROGRESS</p>
               </motion.div>
             </div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full z-10 shadow-[0_0_15px_rgba(59,130,246,1)]"></div>
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-4 h-4 bg-blue-500 rounded-full z-10 shadow-[0_0_15px_rgba(59,130,246,1)]"></div>
             <div className="hidden md:block w-5/12 pl-8"></div>
           </div>
 
           {/* End of Journey */}
-          <div className="relative flex flex-col md:flex-row justify-between items-center w-full">
+          <div className="relative flex flex-col md:flex-row justify-between w-full items-start">
             <div className="hidden md:block w-5/12 pr-8"></div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-transparent border border-gray-600 rounded-full z-10"></div>
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-transparent border border-gray-600 rounded-full z-10"></div>
             <div className="md:w-5/12 md:pl-8 w-full">
               <motion.div 
                 initial={{ opacity: 0, x: 30 }}

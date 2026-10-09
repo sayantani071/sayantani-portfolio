@@ -90,18 +90,22 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
               className="flex flex-wrap justify-center items-center gap-4 md:gap-6"
             >
-              <a href="#projects" className="group relative px-8 py-3.5 rounded-full overflow-hidden bg-blue-600 hover:bg-blue-500 transition-colors duration-300 shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]">
-                <span className="relative z-10 text-xs md:text-sm font-semibold tracking-widest text-white">VIEW MY WORK</span>
+              {/* Button 1: View My Work */}
+              <a href="#projects" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden transition-all duration-300 shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:shadow-[0_0_40px_rgba(139,92,246,0.6)] hover:-translate-y-1">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <span className="relative z-10 text-sm md:text-base font-semibold tracking-[0.2em] text-white">VIEW MY WORK</span>
               </a>
               
-              <a href="#" className="group relative px-8 py-3.5 rounded-full overflow-hidden bg-white/5 border border-white/10 hover:border-blue-500/50 transition-all duration-300">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div className="absolute inset-0 shadow-[0_0_20px_rgba(59,130,246,0)] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-shadow duration-300 rounded-full"></div>
-                <span className="relative z-10 text-xs md:text-sm font-semibold tracking-widest text-white group-hover:text-blue-100 transition-colors">DOWNLOAD CV</span>
+              {/* Button 2: Download CV */}
+              <a href="#" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden bg-[#0a0f1a]/80 backdrop-blur-sm border border-indigo-500/40 hover:border-purple-500/80 transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:-translate-y-1">
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <span className="relative z-10 text-sm md:text-base font-semibold tracking-[0.2em] text-white">DOWNLOAD CV</span>
               </a>
 
-              <a href="#contact" className="group relative px-8 py-3.5 rounded-full overflow-hidden bg-blue-600 hover:bg-blue-500 transition-colors duration-300 shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]">
-                <span className="relative z-10 text-xs md:text-sm font-semibold tracking-widest text-white">LET&apos;S CONNECT</span>
+              {/* Button 3: Let's Connect */}
+              <a href="#contact" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden transition-all duration-300 shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:shadow-[0_0_40px_rgba(139,92,246,0.6)] hover:-translate-y-1">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <span className="relative z-10 text-sm md:text-base font-semibold tracking-[0.2em] text-white">LET&apos;S CONNECT</span>
               </a>
             </motion.div>
           </div>

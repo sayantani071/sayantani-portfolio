@@ -34,7 +34,7 @@ const GithubActivity = () => {
             <div className="overflow-x-auto overflow-y-hidden pb-4 custom-scrollbar">
               <div className="min-w-[800px] flex justify-center">
                 <img 
-                  src="https://ghchart.rshah.org/3b82f6/sayantani071" 
+                  src="https://ghchart.rshah.org/sayantani071" 
                   alt="Sayantani Sinha's Github Activity" 
                   className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
                   style={{ filter: 'invert(1) hue-rotate(180deg) brightness(1.2) contrast(1.2)' }}

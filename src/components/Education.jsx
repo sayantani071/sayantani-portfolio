@@ -13,22 +13,22 @@ const Education = () => {
 
   // Transforms for Step 1
   const dot1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.5]);
-  const box1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.1]);
+  const box1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.15]);
   const box1Border = useTransform(scrollYProgress, [0, 0.05], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
 
   // Transforms for Step 2
   const dot2Opacity = useTransform(scrollYProgress, [0.2, 0.35], [0, 1]);
-  const box2Scale = useTransform(scrollYProgress, [0.2, 0.35], [1, 1.1]);
+  const box2Scale = useTransform(scrollYProgress, [0.2, 0.35], [1, 1.15]);
   const box2Border = useTransform(scrollYProgress, [0.2, 0.35], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
 
   // Transforms for Step 3
   const dot3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.3]);
-  const box3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.1]);
+  const box3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.15]);
   const box3Border = useTransform(scrollYProgress, [0.55, 0.7], ["rgba(59,130,246,0.3)", "rgba(59,130,246,0.8)"]);
 
   // Transforms for Step 4
   const dot4Opacity = useTransform(scrollYProgress, [0.85, 1], [0, 1]);
-  const box4Scale = useTransform(scrollYProgress, [0.85, 1], [1, 1.1]);
+  const box4Scale = useTransform(scrollYProgress, [0.85, 1], [1, 1.15]);
   const box4Border = useTransform(scrollYProgress, [0.85, 1], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
 
   return (
@@ -94,9 +94,12 @@ const Education = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 style={{ scale: box2Scale, borderColor: box2Border }}
-                className="bg-[#111315]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]"
+                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden group"
               >
-                <p className="text-blue-500 font-mono text-sm tracking-widest mb-3 uppercase">2010 - 2024</p>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <p className="text-blue-500 font-mono text-sm tracking-widest mb-3">2010 - 2024</p>
                 <h3 className="text-2xl text-white font-medium mb-3">Higher Secondary<br/>Education</h3>
                 <p className="text-gray-400 font-mono text-sm">Gaighata High School</p>
               </motion.div>
@@ -166,9 +169,12 @@ const Education = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 style={{ scale: box4Scale, borderColor: box4Border }}
-                className="bg-[#111315]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]"
+                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden group"
               >
-                <p className="text-blue-500 font-mono text-sm tracking-widest mb-3 uppercase">TBD</p>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <p className="text-blue-500 font-mono text-sm tracking-widest mb-3">TBD</p>
                 <h3 className="text-2xl text-white font-medium mb-3">End of Journey</h3>
                 <p className="text-gray-400 font-mono text-sm leading-relaxed">To be continued — hopefully after a very long changelog.</p>
               </motion.div>

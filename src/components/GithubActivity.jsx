@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github } from 'lucide-react';
+import GitHubCalendar from 'react-github-calendar';
 
 const GithubActivity = () => {
   return (
@@ -32,12 +33,13 @@ const GithubActivity = () => {
           {/* Contribution Graph */}
           <div>
             <div className="overflow-x-auto overflow-y-hidden pb-4 custom-scrollbar">
-              <div className="min-w-[800px] flex justify-center">
-                <img 
-                  src="https://ghchart.rshah.org/sayantani071" 
-                  alt="Sayantani Sinha's Github Activity" 
-                  className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
-                  style={{ filter: 'invert(1) hue-rotate(180deg) brightness(1.2) contrast(1.2)' }}
+              <div className="flex justify-center p-4">
+                <GitHubCalendar 
+                  username="sayantani071" 
+                  colorScheme="dark"
+                  blockSize={14}
+                  blockMargin={5}
+                  fontSize={14}
                 />
               </div>
             </div>

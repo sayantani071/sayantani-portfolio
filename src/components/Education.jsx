@@ -11,6 +11,26 @@ const Education = () => {
   
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
+  // Transforms for Step 1
+  const dot1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.5]);
+  const box1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.05]);
+  const box1Border = useTransform(scrollYProgress, [0, 0.05], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
+
+  // Transforms for Step 2
+  const dot2Opacity = useTransform(scrollYProgress, [0.2, 0.35], [0, 1]);
+  const box2Scale = useTransform(scrollYProgress, [0.2, 0.35], [1, 1.05]);
+  const box2Border = useTransform(scrollYProgress, [0.2, 0.35], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
+
+  // Transforms for Step 3
+  const dot3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.3]);
+  const box3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.05]);
+  const box3Border = useTransform(scrollYProgress, [0.55, 0.7], ["rgba(59,130,246,0.3)", "rgba(59,130,246,0.8)"]);
+
+  // Transforms for Step 4
+  const dot4Opacity = useTransform(scrollYProgress, [0.85, 1], [0, 1]);
+  const box4Scale = useTransform(scrollYProgress, [0.85, 1], [1, 1.05]);
+  const box4Border = useTransform(scrollYProgress, [0.85, 1], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
+
   return (
     <section id="education" className="py-24 relative z-10 font-sans">
       <div className="container mx-auto px-6 md:px-12">
@@ -43,28 +63,35 @@ const Education = () => {
               <motion.div 
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-[#111315]/80 backdrop-blur-sm border border-white/5 p-8 rounded-2xl inline-block w-full max-w-sm"
+                viewport={{ once: true, margin: "-100px" }}
+                style={{ scale: box1Scale, borderColor: box1Border }}
+                className="bg-[#111315]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]"
               >
                 <p className="text-blue-500 font-mono text-sm tracking-widest mb-3 uppercase">1st August 2005</p>
                 <h3 className="text-2xl text-white font-medium mb-3">Born</h3>
                 <p className="text-gray-400 font-mono text-sm">The beginning of the journey.</p>
               </motion.div>
             </div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-4 h-4 bg-blue-500 rounded-full z-10 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
+            <motion.div 
+              style={{ scale: dot1Scale }} 
+              className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-4 h-4 bg-blue-500 rounded-full z-10 shadow-[0_0_10px_rgba(59,130,246,0.8)]"
+            ></motion.div>
             <div className="hidden md:block w-5/12 pl-8"></div>
           </div>
 
           {/* Higher Secondary */}
           <div className="relative flex flex-col md:flex-row justify-between w-full mb-16 items-start">
             <div className="hidden md:block w-5/12 pr-8"></div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-[#111315] border-2 border-blue-500 rounded-full z-10"></div>
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-4 h-4 bg-[#111315] border-2 border-blue-500 rounded-full z-10 overflow-hidden">
+              <motion.div style={{ opacity: dot2Opacity }} className="w-full h-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
+            </div>
             <div className="md:w-5/12 md:pl-8 w-full">
               <motion.div 
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-[#111315]/80 backdrop-blur-sm border border-white/5 p-8 rounded-2xl inline-block w-full max-w-sm"
+                viewport={{ once: true, margin: "-100px" }}
+                style={{ scale: box2Scale, borderColor: box2Border }}
+                className="bg-[#111315]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]"
               >
                 <p className="text-blue-500 font-mono text-sm tracking-widest mb-3 uppercase">2010 - 2024</p>
                 <h3 className="text-2xl text-white font-medium mb-3">Higher Secondary<br/>Education</h3>
@@ -79,8 +106,9 @@ const Education = () => {
               <motion.div 
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-[#0a0f1a]/80 backdrop-blur-sm border border-blue-500/30 p-8 rounded-2xl w-full max-w-md relative overflow-hidden group"
+                viewport={{ once: true, margin: "-100px" }}
+                style={{ scale: box3Scale, borderColor: box3Border }}
+                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl w-full max-w-md relative overflow-hidden group transition-shadow duration-300 shadow-[0_0_30px_rgba(59,130,246,0.05)] hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]"
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-blue-400"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -116,20 +144,26 @@ const Education = () => {
                 <p className="md:text-right text-left text-[10px] text-gray-500 font-mono mt-2 uppercase tracking-widest">IN PROGRESS</p>
               </motion.div>
             </div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-4 h-4 bg-blue-500 rounded-full z-10 shadow-[0_0_15px_rgba(59,130,246,1)]"></div>
+            <motion.div 
+              style={{ scale: dot3Scale }}
+              className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-4 h-4 bg-blue-500 rounded-full z-10 shadow-[0_0_15px_rgba(59,130,246,1)]"
+            ></motion.div>
             <div className="hidden md:block w-5/12 pl-8"></div>
           </div>
 
           {/* End of Journey */}
           <div className="relative flex flex-col md:flex-row justify-between w-full items-start">
             <div className="hidden md:block w-5/12 pr-8"></div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-transparent border border-gray-600 rounded-full z-10"></div>
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-4 h-4 bg-[#111315] border-2 border-gray-600 rounded-full z-10 overflow-hidden">
+              <motion.div style={{ opacity: dot4Opacity }} className="w-full h-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
+            </div>
             <div className="md:w-5/12 md:pl-8 w-full">
               <motion.div 
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-[#111315]/80 backdrop-blur-sm border border-white/5 p-8 rounded-2xl inline-block w-full max-w-sm"
+                viewport={{ once: true, margin: "-100px" }}
+                style={{ scale: box4Scale, borderColor: box4Border }}
+                className="bg-[#111315]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]"
               >
                 <p className="text-blue-500 font-mono text-sm tracking-widest mb-3 uppercase">TBD</p>
                 <h3 className="text-2xl text-white font-medium mb-3">End of Journey</h3>

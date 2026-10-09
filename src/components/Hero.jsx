@@ -93,19 +93,19 @@ const Hero = () => {
               className="flex flex-wrap justify-center items-center gap-4 md:gap-6"
             >
               {/* Button 1: View My Work */}
-              <a href="#projects" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_40px_rgba(99,102,241,0.5)] hover:-translate-y-1">
+              <a href="#projects" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.2)] hover:shadow-[0_0_25px_rgba(99,102,241,0.3)] hover:-translate-y-1">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span className="relative z-10 text-sm md:text-base font-semibold tracking-[0.2em] text-white">VIEW MY WORK</span>
               </a>
               
               {/* Button 2: Download CV */}
-              <a href="#" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden bg-[#0a0f1a]/80 backdrop-blur-sm border border-blue-500/40 hover:border-indigo-500/80 transition-all duration-300 hover:shadow-[0_0_30px_rgba(99,102,241,0.2)] hover:-translate-y-1">
+              <a href="#" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden bg-[#0a0f1a]/80 backdrop-blur-sm border border-blue-500/40 hover:border-indigo-500/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] hover:-translate-y-1">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span className="relative z-10 text-sm md:text-base font-semibold tracking-[0.2em] text-white">DOWNLOAD CV</span>
               </a>
 
               {/* Button 3: Let's Connect */}
-              <a href="#contact" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_40px_rgba(99,102,241,0.5)] hover:-translate-y-1">
+              <a href="#contact" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.2)] hover:shadow-[0_0_25px_rgba(99,102,241,0.3)] hover:-translate-y-1">
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-500 opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span className="relative z-10 text-sm md:text-base font-semibold tracking-[0.2em] text-white">LET&apos;S CONNECT</span>
               </a>

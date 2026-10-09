@@ -18,7 +18,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative w-full h-screen min-h-[700px] bg-transparent overflow-hidden flex items-center pt-16">
+    <section id="home" className="relative w-full h-screen min-h-[700px] bg-transparent flex items-center pt-16">
       
       {/* --- BACKGROUND ELEMENTS --- */}
       {/* Subtle ambient glows */}

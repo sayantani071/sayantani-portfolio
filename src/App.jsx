@@ -10,6 +10,7 @@ import Contact from './components/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import BackgroundGlitters from './components/BackgroundGlitters';
+import GithubActivity from './components/GithubActivity';
 
 function App() {
   const glowRef = useRef(null);
@@ -49,6 +50,7 @@ function App() {
           <About />
           <Education />
           <Projects />
+          <GithubActivity />
           <Contact />
         </main>
         <Footer />

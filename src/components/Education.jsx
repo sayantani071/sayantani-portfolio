@@ -15,21 +15,25 @@ const Education = () => {
   const dot1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.5]);
   const box1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.15]);
   const box1Border = useTransform(scrollYProgress, [0, 0.05], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
+  const box1Shadow = useTransform(scrollYProgress, [0, 0.05], ["0px 0px 0px rgba(59,130,246,0)", "0px 0px 50px rgba(59,130,246,0.4)"]);
 
   // Transforms for Step 2
   const dot2Opacity = useTransform(scrollYProgress, [0.2, 0.35], [0, 1]);
   const box2Scale = useTransform(scrollYProgress, [0.2, 0.35], [1, 1.15]);
   const box2Border = useTransform(scrollYProgress, [0.2, 0.35], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
+  const box2Shadow = useTransform(scrollYProgress, [0.2, 0.35], ["0px 0px 0px rgba(59,130,246,0)", "0px 0px 50px rgba(59,130,246,0.4)"]);
 
   // Transforms for Step 3
   const dot3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.3]);
   const box3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.15]);
   const box3Border = useTransform(scrollYProgress, [0.55, 0.7], ["rgba(59,130,246,0.3)", "rgba(59,130,246,0.8)"]);
+  const box3Shadow = useTransform(scrollYProgress, [0.55, 0.7], ["0px 0px 10px rgba(59,130,246,0.1)", "0px 0px 60px rgba(59,130,246,0.5)"]);
 
   // Transforms for Step 4
   const dot4Opacity = useTransform(scrollYProgress, [0.85, 1], [0, 1]);
   const box4Scale = useTransform(scrollYProgress, [0.85, 1], [1, 1.15]);
   const box4Border = useTransform(scrollYProgress, [0.85, 1], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
+  const box4Shadow = useTransform(scrollYProgress, [0.85, 1], ["0px 0px 0px rgba(59,130,246,0)", "0px 0px 50px rgba(59,130,246,0.4)"]);
 
   return (
     <section id="education" className="py-24 relative z-10 font-sans">
@@ -64,8 +68,8 @@ const Education = () => {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                style={{ scale: box1Scale, borderColor: box1Border }}
-                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden group"
+                style={{ scale: box1Scale, borderColor: box1Border, boxShadow: box1Shadow }}
+                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm relative overflow-hidden group"
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-transparent"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -93,8 +97,8 @@ const Education = () => {
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                style={{ scale: box2Scale, borderColor: box2Border }}
-                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden group"
+                style={{ scale: box2Scale, borderColor: box2Border, boxShadow: box2Shadow }}
+                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm relative overflow-hidden group"
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-transparent"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -113,8 +117,8 @@ const Education = () => {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                style={{ scale: box3Scale, borderColor: box3Border }}
-                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl w-full max-w-md relative overflow-hidden group transition-shadow duration-300 shadow-[0_0_30px_rgba(59,130,246,0.05)] hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]"
+                style={{ scale: box3Scale, borderColor: box3Border, boxShadow: box3Shadow }}
+                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl w-full max-w-md relative overflow-hidden group"
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-blue-400"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -168,8 +172,8 @@ const Education = () => {
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                style={{ scale: box4Scale, borderColor: box4Border }}
-                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden group"
+                style={{ scale: box4Scale, borderColor: box4Border, boxShadow: box4Shadow }}
+                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm relative overflow-hidden group"
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-transparent"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

@@ -54,7 +54,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight mb-4 whitespace-nowrap"
             >
-              <span className="bg-gradient-to-r from-blue-100 via-blue-600 to-blue-100 bg-[length:200%_auto] animate-text-flow bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(59,130,246,0.6)]">
+              <span className="bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200 bg-[length:200%_auto] animate-text-flow bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(59,130,246,0.3)]">
                 Sayantani Sinha
               </span>
             </motion.h1>

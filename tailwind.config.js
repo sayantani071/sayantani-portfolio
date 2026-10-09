@@ -20,7 +20,7 @@ export default {
         'blob': 'blob 7s infinite',
         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
         'slide': 'slide 2s linear infinite',
-        'text-flow': 'textFlow 5s linear infinite',
+        'text-flow': 'textFlow 3s linear infinite',
       },
       keyframes: {
         blob: {

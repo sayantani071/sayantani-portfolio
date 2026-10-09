@@ -143,23 +143,29 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20 group cursor-pointer"
+        onClick={() => document.getElementById('education')?.scrollIntoView({ behavior: 'smooth' })}
       >
-        <span className="text-[10px] tracking-[0.3em] text-gray-500 uppercase">Scroll</span>
-        <div className="w-[1px] h-12 bg-white/10 relative overflow-hidden">
+        <span className="text-[9px] font-mono tracking-[0.5em] text-blue-400/70 uppercase group-hover:text-blue-400 transition-colors">Scroll</span>
+        
+        {/* Futuristic Mouse Capsule */}
+        <div className="w-[22px] h-[36px] rounded-full border border-blue-500/30 flex justify-center p-[3px] relative shadow-[0_0_15px_rgba(59,130,246,0.15)] bg-[#0a0f1a]/50 backdrop-blur-sm group-hover:border-blue-500/60 transition-all duration-300">
           <motion.div 
-            className="w-full h-1/2 bg-blue-500 absolute top-0"
+            className="w-1 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(59,130,246,1)]"
             animate={{ 
-              y: [0, 48],
-              opacity: [0, 1, 0]
+              y: [0, 16, 0],
+              opacity: [1, 0.4, 1]
             }}
             transition={{
               repeat: Infinity,
-              duration: 1.5,
-              ease: "linear"
+              duration: 2,
+              ease: "easeInOut"
             }}
           />
         </div>
+        
+        {/* Connecting line fading down */}
+        <div className="w-[1px] h-8 bg-gradient-to-b from-blue-500/50 to-transparent"></div>
       </motion.div>
       
     </section>

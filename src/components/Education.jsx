@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, Baby } from 'lucide-react';
 
 const Education = () => {
   const containerRef = useRef(null);
@@ -65,8 +65,17 @@ const Education = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 style={{ scale: box1Scale, borderColor: box1Border }}
-                className="bg-[#111315]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]"
+                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] relative overflow-hidden group"
               >
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="flex md:justify-end justify-start mb-4">
+                  <div className="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                    <Baby className="text-blue-400 w-6 h-6" />
+                  </div>
+                </div>
+
                 <p className="text-blue-500 font-mono text-sm tracking-widest mb-3 uppercase">1st August 2005</p>
                 <h3 className="text-2xl text-white font-medium mb-3">Born</h3>
                 <p className="text-gray-400 font-mono text-sm">The beginning of the journey.</p>

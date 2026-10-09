@@ -70,13 +70,7 @@ const Education = () => {
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-transparent"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                <div className="flex md:justify-end justify-start mb-4">
-                  <div className="w-16 h-16 rounded-xl overflow-hidden border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-                    <img src="/born_baby.jpg" alt="Born" className="w-full h-full object-cover" />
-                  </div>
-                </div>
-
-                <p className="text-blue-500 font-mono text-sm tracking-widest mb-3 uppercase">1st August 2005</p>
+                <p className="text-blue-500 font-mono text-sm tracking-widest mb-3">1st AUGUST 2005</p>
                 <h3 className="text-2xl text-white font-medium mb-3">Born</h3>
                 <p className="text-gray-400 font-mono text-sm">The beginning of the journey.</p>
               </motion.div>

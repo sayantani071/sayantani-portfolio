@@ -16,7 +16,7 @@ const GithubActivity = () => {
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4 flex items-center justify-center gap-4">
             <Github className="w-8 h-8 md:w-10 md:h-10 text-blue-500" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-400 bg-[length:200%_auto] animate-text-flow">
               My Contributions
             </span>
           </h2>

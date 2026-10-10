@@ -45,7 +45,7 @@ const Education = () => {
           transition={{ duration: 0.6 }}
           className="mb-24"
         >
-          <h2 className="text-4xl md:text-5xl font-medium text-white tracking-wide">
+          <h2 className="text-4xl md:text-5xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-400 bg-[length:200%_auto] animate-text-flow tracking-wide">
             Education
           </h2>
           <div className="w-24 h-[1px] bg-white/20 mt-6"></div>

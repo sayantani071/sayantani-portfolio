@@ -34,3 +34,8 @@
 ::-webkit-scrollbar-thumb {
   @apply bg-gray-700 rounded-full hover:bg-gray-600 transition-colors;
 }
+@media (pointer: fine) {
+  body, a, button, input, textarea, select {
+    cursor: none !important;
+  }
+}

@@ -137,21 +137,22 @@ const Education = () => {
                 </p>
 
                 <div className="flex md:justify-end mb-6">
-                  <span className="flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 text-blue-400 px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-mono tracking-wider">
+                  <span className="flex items-center gap-2 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-transparent border border-cyan-400/30 text-cyan-300 px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-mono tracking-wider shadow-[0_0_15px_rgba(6,182,212,0.15)]">
                     <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400 shadow-[0_0_8px_rgba(0,240,255,0.9)]"></span>
                     </span>
                     CURRENTLY STUDYING
                   </span>
                 </div>
 
-                <div className="w-full bg-white/5 h-1.5 rounded-full overflow-hidden relative">
-                  <div className="bg-blue-500 w-[40%] h-full relative overflow-hidden shadow-[0_0_10px_rgba(59,130,246,0.8)] rounded-full">
-                    <div className="absolute top-0 left-0 h-full w-[200%] bg-gradient-to-r from-transparent via-white/40 to-transparent animate-slide"></div>
+                <div className="w-full bg-[#0a0f1a]/90 border border-purple-500/20 h-2.5 rounded-full overflow-hidden relative p-[1px] shadow-[inset_0_1px_4px_rgba(0,0,0,0.8),0_0_10px_rgba(168,85,247,0.15)]">
+                  <div className="bg-[linear-gradient(90deg,#00f0ff_0%,#a855f7_30%,#ffffff_50%,#a855f7_70%,#00f0ff_100%)] bg-[length:200%_auto] animate-text-flow w-[40%] h-full relative overflow-hidden rounded-full shadow-[0_0_15px_rgba(0,240,255,0.7),0_0_25px_rgba(168,85,247,0.5)]">
+                    <div className="absolute top-0 left-0 h-full w-[200%] bg-gradient-to-r from-transparent via-white/80 to-transparent animate-slide"></div>
+                    <div className="absolute right-0 top-0 bottom-0 w-2 bg-white/90 rounded-full blur-[0.5px] shadow-[0_0_10px_#ffffff,0_0_15px_#00f0ff]"></div>
                   </div>
                 </div>
-                <p className="md:text-right text-left text-[10px] text-gray-500 font-mono mt-2 uppercase tracking-widest">IN PROGRESS</p>
+                <p className="md:text-right text-left text-[10px] font-mono mt-2 uppercase tracking-widest font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-white">IN PROGRESS</p>
               </motion.div>
             </div>
             <motion.div 

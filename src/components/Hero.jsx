@@ -75,7 +75,7 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            {/* Minimal Two Action Buttons */}
+            {/* Action Buttons */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -83,17 +83,24 @@ const Hero = () => {
               className="flex flex-wrap items-center justify-center gap-3 lg:justify-start"
             >
               <a 
+                href="#education" 
+                className="px-6 py-3 border border-pink-300/45 bg-pink-300/15 hover:bg-pink-300/25 text-[11px] font-semibold tracking-[0.16em] text-pink-50 uppercase transition-colors duration-300"
+              >
+                VIEW MY WORK
+              </a>
+
+              <a 
+                href="#" 
+                className="px-6 py-3 border border-white/15 hover:border-pink-200/50 bg-white/[0.02] hover:bg-white/[0.05] text-[11px] font-semibold tracking-[0.16em] text-slate-200 uppercase transition-colors duration-300"
+              >
+                DOWNLOAD CV
+              </a>
+              
+              <a 
                 href="#contact" 
                 className="px-6 py-3 border border-pink-300/45 bg-pink-300/15 hover:bg-pink-300/25 text-[11px] font-semibold tracking-[0.16em] text-pink-50 uppercase transition-colors duration-300"
               >
                 LET&apos;S CONNECT
-              </a>
-              
-              <a 
-                href="#education" 
-                className="px-6 py-3 border border-white/15 hover:border-pink-200/50 bg-white/[0.02] hover:bg-white/[0.05] text-[11px] font-semibold tracking-[0.16em] text-slate-200 uppercase transition-colors duration-300"
-              >
-                MY JOURNEY
               </a>
             </motion.div>
           </div>

@@ -30,18 +30,17 @@ function App() {
     <div className="relative min-h-screen bg-background overflow-hidden font-sans">
       <CustomCursor />
       <CinemaCurtainOpening />
-      {/* Bio-Digital Sakura Neural Link Background Theme */}
+      {/* Minimal Bio-Digital Sakura Neural Link Background Theme */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <SakuraPetals />
-        {/* Soft atmospheric ambient Sakura night glow */}
-        <div className="absolute top-0 left-1/4 w-[650px] h-[650px] bg-pink-950/20 rounded-full blur-[160px] pointer-events-none"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-[550px] h-[550px] bg-rose-950/20 rounded-full blur-[150px] pointer-events-none"></div>
+        {/* Soft, minimal ambient Sakura night glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-pink-950/15 via-pink-950/5 to-transparent blur-[140px] pointer-events-none"></div>
 
-        {/* Interactive soft mouse aura */}
+        {/* Subtle, refined mouse aura */}
         <div
           ref={glowRef}
-          className="absolute w-[450px] h-[450px] bg-pink-500/[0.04] rounded-full blur-[100px] transition-transform duration-75 ease-out pointer-events-none will-change-transform"
-          style={{ transform: `translate(-225px, -225px)` }}
+          className="absolute w-[400px] h-[400px] bg-pink-500/[0.03] rounded-full blur-[100px] transition-transform duration-100 ease-out pointer-events-none will-change-transform"
+          style={{ transform: `translate(-200px, -200px)` }}
         ></div>
       </div>
 

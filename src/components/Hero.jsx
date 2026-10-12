@@ -45,7 +45,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
               className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-medium leading-[0.95] mb-5 whitespace-nowrap"
             >
-              <span className="animated-fill-text">
+              <span className="animated-fill-text" data-text="Sayantani Sinha">
                 Sayantani Sinha
               </span>
             </motion.h1>

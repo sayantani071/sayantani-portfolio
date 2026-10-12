@@ -36,6 +36,7 @@
   }
 
   .animated-fill-text {
+    position: relative;
     background-image: linear-gradient(
       120deg,
       rgba(255, 255, 255, 1) 0%,
@@ -56,6 +57,18 @@
     animation: heroTextFill 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
     filter: drop-shadow(0 0 10px rgba(244, 182, 201, 0.12));
     text-shadow: 0 0 12px rgba(244, 182, 201, 0.12);
+  }
+
+  .animated-fill-text::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(246, 201, 214, 0.45);
+    text-shadow: 0 0 18px rgba(244, 182, 201, 0.28), 0 0 32px rgba(202, 210, 238, 0.18);
+    opacity: 0.9;
+    pointer-events: none;
   }
 
   .starlight-field {

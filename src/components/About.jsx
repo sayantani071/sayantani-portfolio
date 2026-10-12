@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Code, Cpu } from 'lucide-react';
 
 const About = () => {
   return (

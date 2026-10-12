@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { GraduationCap, Baby } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
 
 const Education = () => {
   const containerRef = useRef(null);

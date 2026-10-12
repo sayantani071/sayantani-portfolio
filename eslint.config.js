@@ -17,6 +17,12 @@ export default [
       globals: {
         document: 'readonly',
         window: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        requestAnimationFrame: 'readonly',
+        cancelAnimationFrame: 'readonly',
       }
     },
     plugins: {

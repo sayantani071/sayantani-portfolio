@@ -13,10 +13,10 @@ const CinemaCurtainOpening = () => {
 
   // Status logs that evolve with progress
   const getStatusText = (val) => {
-    if (val < 28) return 'Initializing neural architecture...';
-    if (val < 62) return 'Decrypting AI & software modules...';
-    if (val < 92) return 'Calibrating interface & aesthetics...';
-    return 'Welcome // Access granted';
+    if (val < 28) return '🌸 Blooming neural architecture...';
+    if (val < 62) return '🌸 Loading AI models & spring repositories...';
+    if (val < 92) return '🌸 Tuning Sakura aesthetics & interface...';
+    return '🌸 Welcome to Sakura // Access granted';
   };
 
   useEffect(() => {
@@ -25,21 +25,21 @@ const CinemaCurtainOpening = () => {
 
     // Smooth realistic progress counter reaching 100% in ~2.2s
     let current = 0;
-    const interval = setInterval(() => {
+    const interval = window.setInterval(() => {
       // Non-linear realistic acceleration
       const increment = current < 30 ? 2 : current < 75 ? 3 : current < 92 ? 2 : 1;
       current = Math.min(100, current + increment);
       setProgress(current);
 
       if (current >= 100) {
-        clearInterval(interval);
+        window.clearInterval(interval);
         // Small dramatic pause at 100% before curtains split
-        setTimeout(() => {
+        window.setTimeout(() => {
           setIsOpen(true);
         }, 250);
 
         // Remove from DOM after curtain animation completes
-        setTimeout(() => {
+        window.setTimeout(() => {
           setIsDone(true);
           document.body.style.overflow = 'unset';
         }, 1400);
@@ -47,7 +47,7 @@ const CinemaCurtainOpening = () => {
     }, 45);
 
     return () => {
-      clearInterval(interval);
+      window.clearInterval(interval);
       document.body.style.overflow = 'unset';
     };
   }, []);
@@ -72,25 +72,25 @@ const CinemaCurtainOpening = () => {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 flex items-center justify-center z-[1000002] px-6 pointer-events-auto"
           >
-            <div className="relative w-full max-w-md p-8 sm:p-10 rounded-3xl bg-[#070c1e]/85 backdrop-blur-2xl border border-cyan-500/25 shadow-[0_0_60px_rgba(56,189,248,0.2),0_0_100px_rgba(168,85,247,0.18)] overflow-hidden">
+            <div className="relative w-full max-w-md p-8 sm:p-10 rounded-3xl bg-[#0e0618]/90 backdrop-blur-2xl border border-pink-500/30 shadow-[0_0_60px_rgba(244,114,182,0.25),0_0_100px_rgba(251,113,133,0.2)] overflow-hidden">
               
               {/* Subtle ambient corner flares inside card */}
-              <div className="absolute -top-12 -left-12 w-36 h-36 bg-cyan-500/20 rounded-full blur-2xl pointer-events-none" />
-              <div className="absolute -bottom-12 -right-12 w-36 h-36 bg-purple-500/20 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -top-12 -left-12 w-36 h-36 bg-pink-500/25 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-12 -right-12 w-36 h-36 bg-rose-500/25 rounded-full blur-2xl pointer-events-none" />
 
               {/* Status Header Badge */}
               <div className="flex items-center justify-between mb-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/30">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-400" />
                   </span>
-                  <span className="text-cyan-300 font-mono text-[10px] tracking-[0.2em] uppercase font-semibold">
-                    CINEMA INITIALIZATION
+                  <span className="text-pink-300 font-mono text-[10px] tracking-[0.2em] uppercase font-semibold">
+                    🌸 SAKURA CALIBRATION
                   </span>
                 </div>
-                <span className="text-gray-400 font-mono text-xs tracking-wider">
-                  SYS // 2.0
+                <span className="text-pink-300/60 font-mono text-xs tracking-wider">
+                  SYS // SAKURA
                 </span>
               </div>
 
@@ -100,28 +100,28 @@ const CinemaCurtainOpening = () => {
                   <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white font-sans">
                     Sayantani Sinha
                   </h2>
-                  <span className="text-cyan-400 text-3xl font-black leading-none">.</span>
+                  <span className="text-pink-400 text-3xl font-black leading-none">.</span>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-400 font-mono tracking-wider mt-1">
+                <p className="text-xs sm:text-sm text-pink-200/70 font-mono tracking-wider mt-1">
                   Software Engineer &amp; AI/ML Developer
                 </p>
               </div>
 
               {/* Progress Counter & Percentage */}
               <div className="flex items-baseline justify-between mb-3">
-                <span className="text-gray-400 font-mono text-xs tracking-widest uppercase">
+                <span className="text-pink-300/70 font-mono text-xs tracking-widest uppercase">
                   PROGRESS
                 </span>
-                <span className="text-4xl sm:text-5xl font-black font-mono tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-white to-purple-300">
+                <span className="text-4xl sm:text-5xl font-black font-mono tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-rose-300 to-white">
                   {progress}
-                  <span className="text-xl sm:text-2xl text-cyan-400 font-normal">%</span>
+                  <span className="text-xl sm:text-2xl text-pink-400 font-normal">%</span>
                 </span>
               </div>
 
               {/* Glowing Dynamic Progress Track */}
-              <div className="relative w-full h-[5px] bg-slate-800/80 rounded-full overflow-hidden mb-4 p-[1px]">
+              <div className="relative w-full h-[5px] bg-slate-900/80 rounded-full overflow-hidden mb-4 p-[1px]">
                 <motion.div
-                  className="h-full rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 shadow-[0_0_12px_rgba(56,189,248,0.9)]"
+                  className="h-full rounded-full bg-gradient-to-r from-pink-400 via-rose-500 to-fuchsia-400 shadow-[0_0_15px_rgba(244,114,182,0.9)]"
                   style={{ width: `${progress}%` }}
                   transition={{ ease: 'easeOut', duration: 0.1 }}
                 />
@@ -129,8 +129,8 @@ const CinemaCurtainOpening = () => {
 
               {/* Dynamic Terminal Subtitle */}
               <div className="flex items-center gap-2">
-                <span className="text-cyan-400 font-mono text-xs font-bold">&gt;</span>
-                <p className="text-xs font-mono text-cyan-300/80 tracking-wide truncate">
+                <span className="text-pink-400 font-mono text-xs font-bold">&gt;</span>
+                <p className="text-xs font-mono text-pink-200/90 tracking-wide truncate">
                   {getStatusText(progress)}
                 </p>
               </div>
@@ -149,49 +149,47 @@ const CinemaCurtainOpening = () => {
             animate={{ opacity: [0, 1, 0], scaleY: [0.2, 1, 1.2] }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="fixed top-0 bottom-0 left-1/2 -translate-x-1/2 w-[3px] bg-white z-[1000003] shadow-[0_0_25px_#ffffff,0_0_50px_#38bdf8,0_0_100px_#a855f7]"
+            className="fixed top-0 bottom-0 left-1/2 -translate-x-1/2 w-[3px] bg-white z-[1000003] shadow-[0_0_25px_#ffffff,0_0_50px_#f472b6,0_0_100px_#ec4899]"
           />
         )}
       </AnimatePresence>
 
-      {/* --- LEFT CURVED CINEMA CURTAIN --- */}
+      {/* --- LEFT CURVED SAKURA CINEMA CURTAIN --- */}
       <motion.div
         key="left-curtain"
         initial={{ x: '0%' }}
         animate={isOpen ? { x: '-105%' } : { x: '0%' }}
         transition={{
           duration: 1.15,
-          ease: [0.77, 0, 0.175, 1], // Luxury cinematic curve
+          ease: [0.77, 0, 0.175, 1],
         }}
-        className="fixed top-0 left-0 w-[51.5vw] h-full bg-[#050814] z-[1000001] border-r-2 border-cyan-400/80 shadow-[15px_0_45px_rgba(56,189,248,0.4)]"
+        className="fixed top-0 left-0 w-[51.5vw] h-full bg-[#0c0517] z-[1000001] border-r-2 border-pink-400/80 shadow-[15px_0_45px_rgba(244,114,182,0.45)]"
         style={{
           borderTopRightRadius: '90px 50%',
           borderBottomRightRadius: '90px 50%',
         }}
       >
-        {/* Subtle interior lighting inside left curtain */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-950/10 to-cyan-500/5 pointer-events-none" />
-        <div className="absolute top-1/4 right-0 w-48 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-950/20 to-pink-500/10 pointer-events-none" />
+        <div className="absolute top-1/4 right-0 w-56 h-96 bg-pink-500/15 rounded-full blur-3xl pointer-events-none" />
       </motion.div>
 
-      {/* --- RIGHT CURVED CINEMA CURTAIN --- */}
+      {/* --- RIGHT CURVED SAKURA CINEMA CURTAIN --- */}
       <motion.div
         key="right-curtain"
         initial={{ x: '0%' }}
         animate={isOpen ? { x: '105%' } : { x: '0%' }}
         transition={{
           duration: 1.15,
-          ease: [0.77, 0, 0.175, 1], // Luxury cinematic curve
+          ease: [0.77, 0, 0.175, 1],
         }}
-        className="fixed top-0 right-0 w-[51.5vw] h-full bg-[#050814] z-[1000001] border-l-2 border-purple-500/80 shadow-[-15px_0_45px_rgba(168,85,247,0.4)]"
+        className="fixed top-0 right-0 w-[51.5vw] h-full bg-[#0c0517] z-[1000001] border-l-2 border-rose-400/80 shadow-[-15px_0_45px_rgba(251,113,133,0.45)]"
         style={{
           borderTopLeftRadius: '90px 50%',
           borderBottomLeftRadius: '90px 50%',
         }}
       >
-        {/* Subtle interior lighting inside right curtain */}
-        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-purple-950/10 to-purple-500/5 pointer-events-none" />
-        <div className="absolute bottom-1/4 left-0 w-48 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-rose-950/20 to-rose-500/10 pointer-events-none" />
+        <div className="absolute bottom-1/4 left-0 w-56 h-96 bg-rose-500/15 rounded-full blur-3xl pointer-events-none" />
       </motion.div>
     </div>
   );

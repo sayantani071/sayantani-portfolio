@@ -52,7 +52,7 @@ const CustomCursor = () => {
     <>
       {/* Inner solid dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2.5 h-2.5 bg-white rounded-full pointer-events-none z-[100000]"
+        className="fixed top-0 left-0 w-2.5 h-2.5 bg-pink-300 rounded-full pointer-events-none z-[100000] shadow-[0_0_10px_#f472b6]"
         style={{
           x: cursorX,
           y: cursorY,
@@ -68,7 +68,7 @@ const CustomCursor = () => {
       
       {/* Outer hollow circle */}
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 border border-gray-400 rounded-full pointer-events-none z-[99999]"
+        className="fixed top-0 left-0 w-10 h-10 border border-pink-400/40 rounded-full pointer-events-none z-[99999]"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -78,8 +78,8 @@ const CustomCursor = () => {
         }}
         animate={{
           scale: isPointer ? 1.5 : 1,
-          backgroundColor: isPointer ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0)',
-          borderColor: isPointer ? 'rgba(255, 255, 255, 0.1)' : 'rgba(156, 163, 175, 0.5)',
+          backgroundColor: isPointer ? 'rgba(244, 114, 182, 0.15)' : 'rgba(244, 114, 182, 0)',
+          borderColor: isPointer ? 'rgba(251, 113, 133, 0.5)' : 'rgba(244, 114, 182, 0.4)',
         }}
         transition={{ duration: 0.15 }}
       />

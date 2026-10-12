@@ -10,11 +10,11 @@
 
 @layer utilities {
   .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl;
+    @apply bg-white/5 backdrop-blur-lg border border-pink-500/10 shadow-xl;
   }
 
   .glass-card {
-    @apply bg-white/[0.03] backdrop-blur-md border border-white/5 shadow-2xl hover:bg-white/[0.05] transition-all duration-300;
+    @apply bg-white/[0.03] backdrop-blur-md border border-pink-500/10 shadow-2xl hover:bg-pink-950/20 hover:border-pink-500/30 transition-all duration-300;
   }
 
   .text-gradient {
@@ -32,7 +32,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-700 rounded-full hover:bg-gray-600 transition-colors;
+  @apply bg-pink-900/50 rounded-full hover:bg-pink-700/70 transition-colors;
+}
+
+::selection {
+  background-color: rgba(244, 114, 182, 0.35);
+  color: #ffffff;
 }
 @media (pointer: fine) {
   body, a, button, input, textarea, select {

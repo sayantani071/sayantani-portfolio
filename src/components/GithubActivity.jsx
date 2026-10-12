@@ -58,12 +58,12 @@ const GithubActivity = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4 flex items-center justify-center gap-4">
-            <Github className="w-8 h-8 md:w-10 md:h-10 text-blue-500" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-400 bg-[length:200%_auto] animate-text-flow">
+            <Github className="w-8 h-8 md:w-10 md:h-10 text-pink-400" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-rose-300 to-pink-300 bg-[length:200%_auto] animate-text-flow">
               My Contributions
             </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-pink-400 to-rose-500 mx-auto rounded-full shadow-[0_0_12px_rgba(244,114,182,0.8)]"></div>
         </motion.div>
 
         <motion.div
@@ -71,7 +71,7 @@ const GithubActivity = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="max-w-5xl mx-auto bg-[#0a0f1a]/80 backdrop-blur-md border border-blue-500/10 rounded-2xl p-6 md:p-10 shadow-[0_0_30px_rgba(59,130,246,0.05)] hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-all duration-500"
+          className="max-w-5xl mx-auto bg-[#0e0618]/80 backdrop-blur-md border border-pink-500/20 rounded-2xl p-6 md:p-10 shadow-[0_0_30px_rgba(244,114,182,0.08)] hover:border-pink-500/40 hover:shadow-[0_0_45px_rgba(244,114,182,0.2)] transition-all duration-500"
         >
           {/* Contribution Graph */}
           <div>
@@ -80,6 +80,9 @@ const GithubActivity = () => {
                 <GitHubCalendar 
                   username="sayantani071" 
                   colorScheme="dark"
+                  theme={{
+                    dark: ['#180b22', '#581c4a', '#9d174d', '#db2777', '#f472b6']
+                  }}
                   blockSize={14}
                   blockMargin={5}
                   fontSize={14}

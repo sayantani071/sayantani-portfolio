@@ -7,10 +7,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#0a0a0a',
-        primary: '#3b82f6',
-        secondary: '#8b5cf6',
-        accent: '#10b981',
+        background: '#0b0612',
+        primary: '#f472b6',
+        secondary: '#fb7185',
+        accent: '#ec4899',
+        sakura: {
+          50: '#fdf2f8',
+          100: '#fce7f3',
+          200: '#fbcfe8',
+          300: '#f9a8d4',
+          400: '#f472b6',
+          500: '#ec4899',
+          600: '#db2777',
+          700: '#be185d',
+          800: '#9d174d',
+          900: '#831843',
+          950: '#500724',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

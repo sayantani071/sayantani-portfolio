@@ -36,14 +36,15 @@
   }
 
   .animated-fill-text {
+    position: relative;
     display: inline-block;
     background-image: linear-gradient(
       120deg,
       rgba(255, 255, 255, 0.96) 0%,
-      #f8dfe8 18%,
-      #f4f3f6 38%,
-      #f3c8d7 52%,
-      #dfe8fb 68%,
+      #f9dfe8 18%,
+      #f2f1f5 38%,
+      #f3cad8 52%,
+      #e2eafc 68%,
       #f7dfe7 82%,
       rgba(255, 255, 255, 0.96) 100%
     );
@@ -53,9 +54,32 @@
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
-    animation: heroTextFill 5s ease-in-out infinite alternate;
-    filter: drop-shadow(0 0 12px rgba(244, 182, 201, 0.12));
-    text-shadow: 0 0 16px rgba(244, 182, 201, 0.08);
+    animation: heroTextFill 6s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 10px rgba(244, 182, 201, 0.09));
+    text-shadow: 0 0 16px rgba(244, 182, 201, 0.06);
+  }
+
+  .animated-fill-text::before {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    color: transparent;
+    background-image: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.38) 28%,
+      rgba(255, 255, 255, 0.82) 50%,
+      rgba(255, 255, 255, 0.2) 72%,
+      transparent 100%
+    );
+    background-size: 220% 100%;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: heroTextSheen 5.6s ease-in-out infinite;
+    opacity: 0.95;
+    pointer-events: none;
   }
 
   .starlight-field {
@@ -94,15 +118,30 @@
 @keyframes heroTextFill {
   0% {
     background-position: 0% 50%;
-    filter: brightness(0.98) saturate(1.06) drop-shadow(0 0 8px rgba(244, 182, 201, 0.08));
+    filter: brightness(0.98) saturate(1.04) drop-shadow(0 0 6px rgba(244, 182, 201, 0.06));
   }
   50% {
     background-position: 100% 50%;
-    filter: brightness(1.08) saturate(1.2) drop-shadow(0 0 16px rgba(244, 182, 201, 0.16));
+    filter: brightness(1.08) saturate(1.14) drop-shadow(0 0 12px rgba(244, 182, 201, 0.12));
   }
   100% {
     background-position: 0% 50%;
-    filter: brightness(0.98) saturate(1.06) drop-shadow(0 0 8px rgba(244, 182, 201, 0.08));
+    filter: brightness(0.98) saturate(1.04) drop-shadow(0 0 6px rgba(244, 182, 201, 0.06));
+  }
+}
+
+@keyframes heroTextSheen {
+  0% {
+    background-position: -20% 50%;
+    opacity: 0.4;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.9;
+  }
+  100% {
+    background-position: 120% 50%;
+    opacity: 0.4;
   }
 }
 

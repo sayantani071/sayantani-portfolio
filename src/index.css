@@ -35,6 +35,18 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-pink-200 via-slate-200 to-amber-100;
   }
 
+  .animated-fill-text {
+    background-image: linear-gradient(90deg, #f7dfe8 0%, #f3f4f6 20%, #f8dce7 42%, #dfe8ff 56%, #f8f1f5 74%, #f7dfe8 100%);
+    background-size: 220% 100%;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: heroTextFill 7s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 14px rgba(244, 182, 201, 0.18));
+  }
+
   .starlight-field {
     background-image:
       radial-gradient(1px 1px at 24px 38px, rgba(220, 231, 246, 0.5) 50%, transparent 100%),
@@ -68,6 +80,18 @@
   color: #f8f7f8;
 }
 
+@keyframes heroTextFill {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -76,5 +100,9 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .animated-fill-text {
+    animation: none;
   }
 }

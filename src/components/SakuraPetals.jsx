@@ -9,6 +9,8 @@ const SakuraPetals = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -19,15 +21,15 @@ const SakuraPetals = () => {
     canvas.height = height;
 
     // Petal configuration - Minimal & serene
-    const petalCount = 15;
+    const petalCount = 8;
     const petals = [];
 
     // Subtle, whisper-soft Sakura color shades
     const petalColors = [
-      { fill: 'rgba(255, 192, 203, 0.45)' },
-      { fill: 'rgba(251, 113, 133, 0.35)' },
-      { fill: 'rgba(253, 164, 175, 0.40)' },
-      { fill: 'rgba(254, 205, 211, 0.45)' },
+      { fill: 'rgba(224, 190, 201, 0.32)' },
+      { fill: 'rgba(205, 165, 178, 0.28)' },
+      { fill: 'rgba(236, 210, 215, 0.3)' },
+      { fill: 'rgba(220, 198, 205, 0.28)' },
     ];
 
     for (let i = 0; i < petalCount; i++) {

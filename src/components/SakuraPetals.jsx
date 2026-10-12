@@ -1,19 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 
 /**
- * SakuraPetals - Dynamic HTML5 Canvas Sakura Blossom Petals with Neural Link Effect
+ * SakuraPetals - Dynamic Sakura Petals with Bio-Digital Neural Link Effect
  * 
- * Features:
- * 1. Bio-Digital Neural Link Network:
- *    - Delicate luminous synaptic lines connecting neighboring sakura petals (axons)
- *    - Dynamic neural links reaching toward the mouse cursor (neural probe)
- *    - Synaptic electrical light impulses traveling along active connection filaments
- *    - Glowing synaptic core nodes at the center of each petal
- * 2. Organic Cherry Blossom Simulation:
- *    - Real petal geometry with curved base & signature cleft/notched tip
- *    - 3D tumbling rotation (rotX, rotY, rotZ) simulating aerodynamic drift
- *    - Sinusoidal wind sway and mouse-reactive aerodynamic breeze
- *    - Parallax depth layers with glowing blossom spores/pollen stardust
+ * Interweaves:
+ * 1. An active Neural Constellation Network (synaptic nodes & neural filaments)
+ * 2. 3D Tumbling Falling Sakura Cherry Blossom Petals
+ * 3. Dynamic Neural Links bridging petals, neural nodes, and the interactive cursor
+ * 4. Firing synaptic light impulses traveling along active connection pathways
  */
 const SakuraPetals = () => {
   const canvasRef = useRef(null);
@@ -40,7 +34,7 @@ const SakuraPetals = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    // Mouse tracking for interactive Neural Link & breeze
+    // Mouse tracking for Neural Probe
     let mouseX = -1000;
     let mouseY = -1000;
     let isMouseOnScreen = false;
@@ -69,47 +63,59 @@ const SakuraPetals = () => {
     document.documentElement.addEventListener('mouseleave', handleMouseLeave);
     document.documentElement.addEventListener('mouseenter', () => { isMouseOnScreen = true; });
 
-    // Sakura Bloom Pink Palette
+    // Sakura Bloom Pink Color Palette
     const petalColors = [
       {
         base: 'rgba(255, 143, 171, ', // Vibrant rose pink
         tip: 'rgba(255, 230, 240, ',  // Soft pale blossom tip
-        glow: 'rgba(244, 114, 182, 0.45)',
-        neuralLine: '244, 114, 182',
+        glow: 'rgba(244, 114, 182, 0.5)',
       },
       {
         base: 'rgba(244, 114, 182, ', // Classic sakura pink
         tip: 'rgba(255, 215, 230, ',
-        glow: 'rgba(251, 113, 133, 0.4)',
-        neuralLine: '251, 113, 133',
+        glow: 'rgba(251, 113, 133, 0.45)',
       },
       {
         base: 'rgba(251, 113, 133, ', // Warm blush pink
         tip: 'rgba(254, 215, 225, ',
-        glow: 'rgba(244, 114, 182, 0.35)',
-        neuralLine: '253, 164, 175',
+        glow: 'rgba(244, 114, 182, 0.4)',
       },
       {
         base: 'rgba(236, 72, 153, ',  // Deep blossom magenta-rose
         tip: 'rgba(253, 180, 195, ',
-        glow: 'rgba(219, 39, 119, 0.45)',
-        neuralLine: '236, 72, 153',
+        glow: 'rgba(219, 39, 119, 0.5)',
       },
     ];
 
-    // Petal configuration
-    const petalCount = 52;
+    // --- 1. NEURAL CONSTELLATION NODES ---
+    // Floating synaptic network nodes that form the background neural web
+    const nodeCount = 55;
+    const neuralNodes = [];
+    for (let i = 0; i < nodeCount; i++) {
+      neuralNodes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        radius: Math.random() * 1.5 + 1.2,
+        pulseSpeed: Math.random() * 0.03 + 0.015,
+        pulseAngle: Math.random() * Math.PI * 2,
+        connections: 0,
+      });
+    }
+
+    // --- 2. FALLING SAKURA PETALS ---
+    const petalCount = 48;
     const petals = [];
 
     for (let i = 0; i < petalCount; i++) {
       const depth = Math.random() * 0.7 + 0.5; // 0.5 (far) to 1.2 (near)
       petals.push({
-        id: i,
         x: Math.random() * width,
         y: Math.random() * (height + 200) - 100,
         depth,
         baseSize: Math.random() * 6 + 10, // 10 to 16px
-        speedY: (Math.random() * 0.75 + 0.8) * depth,
+        speedY: (Math.random() * 0.7 + 0.8) * depth,
         speedX: (Math.random() * 0.45 + 0.3) * depth,
         swayAngle: Math.random() * Math.PI * 2,
         swaySpeed: Math.random() * 0.02 + 0.01,
@@ -127,45 +133,32 @@ const SakuraPetals = () => {
       });
     }
 
-    // Floating glowing blossom spores / pollen dust
-    const sporeCount = 28;
-    const spores = [];
-    for (let i = 0; i < sporeCount; i++) {
-      spores.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: Math.random() * 1.5 + 0.6,
-        speedY: Math.random() * 0.3 + 0.15,
-        speedX: Math.random() * 0.25 - 0.1,
-        opacity: Math.random() * 0.5 + 0.25,
-        pulseSpeed: Math.random() * 0.03 + 0.015,
-        pulseAngle: Math.random() * Math.PI * 2,
-      });
-    }
-
-    // Traveling synaptic electrical impulses (data signals firing along neural links)
+    // --- 3. SYNAPTIC ELECTRICAL IMPULSES ---
+    // Tiny light signals traveling along neural lines
     const impulses = [];
-    const maxImpulses = 14;
+    const maxImpulses = 18;
 
     const spawnImpulse = (x1, y1, x2, y2, color) => {
       if (impulses.length >= maxImpulses) return;
       impulses.push({
         x1, y1, x2, y2,
         progress: 0,
-        speed: Math.random() * 0.025 + 0.02,
-        size: Math.random() * 1.5 + 1.8,
-        color: color || 'rgba(255, 235, 245, 0.9)',
+        speed: Math.random() * 0.028 + 0.02,
+        size: Math.random() * 1.5 + 1.6,
+        color: color || 'rgba(255, 240, 248, 0.95)',
       });
     };
 
-    // Global wind & animation variables
+    // Constants for neural connection distances
+    const NODE_LINK_DIST = 135;
+    const NODE_LINK_DIST_SQ = NODE_LINK_DIST * NODE_LINK_DIST;
+    const PETAL_NODE_LINK_DIST = 145;
+    const PETAL_NODE_LINK_DIST_SQ = PETAL_NODE_LINK_DIST * PETAL_NODE_LINK_DIST;
+    const MOUSE_LINK_DIST = 200;
+    const MOUSE_LINK_DIST_SQ = MOUSE_LINK_DIST * MOUSE_LINK_DIST;
+
     let globalWindTime = 0;
     let animId;
-
-    const PETAL_NEURAL_DIST = 140;
-    const PETAL_NEURAL_DIST_SQ = PETAL_NEURAL_DIST * PETAL_NEURAL_DIST;
-    const MOUSE_NEURAL_DIST = 190;
-    const MOUSE_NEURAL_DIST_SQ = MOUSE_NEURAL_DIST * MOUSE_NEURAL_DIST;
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
@@ -174,23 +167,22 @@ const SakuraPetals = () => {
       const gust = Math.sin(globalWindTime * 0.5) * 0.35 + Math.sin(globalWindTime * 0.2) * 0.2;
       mouseSpeedX *= 0.92;
 
-      // --- 1. UPDATE POSITIONS ---
-      // Update spores
-      for (let i = 0; i < sporeCount; i++) {
-        const s = spores[i];
-        s.y += s.speedY;
-        s.x += s.speedX + gust * 0.3;
-        s.pulseAngle += s.pulseSpeed;
+      // Update Neural Nodes
+      for (let i = 0; i < nodeCount; i++) {
+        const n = neuralNodes[i];
+        n.x += n.vx + gust * 0.15;
+        n.y += n.vy;
+        n.pulseAngle += n.pulseSpeed;
+        n.connections = 0;
 
-        if (s.y > height) {
-          s.y = -10;
-          s.x = Math.random() * width;
-        }
-        if (s.x > width) s.x = 0;
-        if (s.x < 0) s.x = width;
+        // Bounce gently inside canvas bounds
+        if (n.x < 0) { n.x = 0; n.vx *= -1; }
+        if (n.x > width) { n.x = width; n.vx *= -1; }
+        if (n.y < 0) { n.y = 0; n.vy *= -1; }
+        if (n.y > height) { n.y = height; n.vy *= -1; }
       }
 
-      // Update petals
+      // Update Petals
       for (let i = 0; i < petalCount; i++) {
         const p = petals[i];
         p.activeLinksCount = 0;
@@ -228,53 +220,115 @@ const SakuraPetals = () => {
         }
       }
 
-      // --- 2. RENDER NEURAL LINK NETWORK ---
-      // A. Inter-Petal Neural Synaptic Connections
-      for (let i = 0; i < petalCount; i++) {
-        const p1 = petals[i];
-
-        for (let j = i + 1; j < petalCount; j++) {
-          const p2 = petals[j];
-
-          const dx = p1.x - p2.x;
-          if (Math.abs(dx) > PETAL_NEURAL_DIST) continue;
-          const dy = p1.y - p2.y;
-          if (Math.abs(dy) > PETAL_NEURAL_DIST) continue;
+      // --- DRAW NEURAL LINKS ---
+      // A. Node-to-Node Synaptic Network
+      for (let i = 0; i < nodeCount; i++) {
+        const n1 = neuralNodes[i];
+        for (let j = i + 1; j < nodeCount; j++) {
+          const n2 = neuralNodes[j];
+          const dx = n1.x - n2.x;
+          if (Math.abs(dx) > NODE_LINK_DIST) continue;
+          const dy = n1.y - n2.y;
+          if (Math.abs(dy) > NODE_LINK_DIST) continue;
 
           const distSq = dx * dx + dy * dy;
-          if (distSq < PETAL_NEURAL_DIST_SQ) {
+          if (distSq < NODE_LINK_DIST_SQ) {
             const dist = Math.sqrt(distSq);
-            const factor = 1 - dist / PETAL_NEURAL_DIST;
-            const alpha = factor * 0.38 * Math.min(p1.depth, p2.depth);
+            const factor = 1 - dist / NODE_LINK_DIST;
+            const alpha = factor * 0.42;
 
-            p1.activeLinksCount++;
-            p2.activeLinksCount++;
+            n1.connections++;
+            n2.connections++;
 
-            // Draw glowing neural axon line
             ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
+            ctx.moveTo(n1.x, n1.y);
+            ctx.lineTo(n2.x, n2.y);
             ctx.strokeStyle = `rgba(244, 114, 182, ${alpha})`;
             ctx.lineWidth = factor * 1.1;
             ctx.stroke();
 
-            // Randomly fire synaptic electrical impulse along active link
-            if (Math.random() < 0.003 && factor > 0.45) {
-              spawnImpulse(p1.x, p1.y, p2.x, p2.y, 'rgba(255, 235, 245, 0.95)');
+            // Fire synaptic impulse
+            if (Math.random() < 0.0025 && factor > 0.5) {
+              spawnImpulse(n1.x, n1.y, n2.x, n2.y, 'rgba(255, 235, 245, 0.95)');
             }
           }
         }
       }
 
-      // B. Mouse Cursor Neural Link (Interactive Neural Probe)
+      // B. Petal-to-Node & Petal-to-Petal Bio-Digital Bridges
+      for (let i = 0; i < petalCount; i++) {
+        const p = petals[i];
+
+        // Connect Petal to nearby Neural Nodes
+        for (let j = 0; j < nodeCount; j++) {
+          const n = neuralNodes[j];
+          const dx = p.x - n.x;
+          if (Math.abs(dx) > PETAL_NODE_LINK_DIST) continue;
+          const dy = p.y - n.y;
+          if (Math.abs(dy) > PETAL_NODE_LINK_DIST) continue;
+
+          const distSq = dx * dx + dy * dy;
+          if (distSq < PETAL_NODE_LINK_DIST_SQ) {
+            const dist = Math.sqrt(distSq);
+            const factor = 1 - dist / PETAL_NODE_LINK_DIST;
+            const alpha = factor * 0.48 * p.depth;
+
+            p.activeLinksCount++;
+            n.connections++;
+
+            // Dynamic bio-digital neural filament
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(n.x, n.y);
+            ctx.strokeStyle = `rgba(251, 113, 133, ${alpha})`;
+            ctx.lineWidth = factor * 1.2;
+            ctx.shadowColor = 'rgba(244, 114, 182, 0.5)';
+            ctx.shadowBlur = 6;
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+
+            if (Math.random() < 0.003 && factor > 0.45) {
+              spawnImpulse(n.x, n.y, p.x, p.y, 'rgba(255, 240, 245, 0.95)');
+            }
+          }
+        }
+
+        // Connect Petal to nearby Petals
+        for (let j = i + 1; j < petalCount; j++) {
+          const p2 = petals[j];
+          const dx = p.x - p2.x;
+          if (Math.abs(dx) > 130) continue;
+          const dy = p.y - p2.y;
+          if (Math.abs(dy) > 130) continue;
+
+          const distSq = dx * dx + dy * dy;
+          if (distSq < 16900) {
+            const dist = Math.sqrt(distSq);
+            const factor = 1 - dist / 130;
+            const alpha = factor * 0.45 * Math.min(p.depth, p2.depth);
+
+            p.activeLinksCount++;
+            p2.activeLinksCount++;
+
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(244, 114, 182, ${alpha})`;
+            ctx.lineWidth = factor * 1.2;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // C. Interactive Mouse Neural Probe Links
       if (isMouseOnScreen) {
-        // Soft pulsing core at cursor
-        const cursorPulse = Math.sin(globalWindTime * 3) * 2 + 5;
+        // Glowing cursor core node
+        const cursorPulse = Math.sin(globalWindTime * 3) * 2 + 6;
         ctx.beginPath();
         ctx.arc(mouseX, mouseY, cursorPulse, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(244, 114, 182, 0.35)';
-        ctx.shadowColor = 'rgba(244, 114, 182, 0.8)';
-        ctx.shadowBlur = 12;
+        ctx.fillStyle = 'rgba(244, 114, 182, 0.3)';
+        ctx.shadowColor = 'rgba(244, 114, 182, 0.9)';
+        ctx.shadowBlur = 14;
         ctx.fill();
         ctx.shadowBlur = 0;
 
@@ -283,22 +337,22 @@ const SakuraPetals = () => {
         ctx.fillStyle = '#ffffff';
         ctx.fill();
 
+        // Connect cursor to Petals
         for (let i = 0; i < petalCount; i++) {
           const p = petals[i];
           const dx = mouseX - p.x;
-          if (Math.abs(dx) > MOUSE_NEURAL_DIST) continue;
+          if (Math.abs(dx) > MOUSE_LINK_DIST) continue;
           const dy = mouseY - p.y;
-          if (Math.abs(dy) > MOUSE_NEURAL_DIST) continue;
+          if (Math.abs(dy) > MOUSE_LINK_DIST) continue;
 
           const distSq = dx * dx + dy * dy;
-          if (distSq < MOUSE_NEURAL_DIST_SQ) {
+          if (distSq < MOUSE_LINK_DIST_SQ) {
             const dist = Math.sqrt(distSq);
-            const factor = 1 - dist / MOUSE_NEURAL_DIST;
-            const alpha = factor * 0.65;
+            const factor = 1 - dist / MOUSE_LINK_DIST;
+            const alpha = factor * 0.75;
 
             p.activeLinksCount++;
 
-            // Gradient neural filament from mouse to petal
             const grad = ctx.createLinearGradient(mouseX, mouseY, p.x, p.y);
             grad.addColorStop(0, `rgba(255, 240, 245, ${alpha})`);
             grad.addColorStop(0.5, `rgba(244, 114, 182, ${alpha * 0.9})`);
@@ -308,21 +362,43 @@ const SakuraPetals = () => {
             ctx.moveTo(mouseX, mouseY);
             ctx.lineTo(p.x, p.y);
             ctx.strokeStyle = grad;
-            ctx.lineWidth = factor * 1.5;
-            ctx.shadowColor = 'rgba(244, 114, 182, 0.6)';
+            ctx.lineWidth = factor * 1.6;
+            ctx.shadowColor = 'rgba(244, 114, 182, 0.7)';
             ctx.shadowBlur = 8;
             ctx.stroke();
             ctx.shadowBlur = 0;
 
-            // Occasional impulse towards petal
-            if (Math.random() < 0.015 && factor > 0.5) {
-              spawnImpulse(mouseX, mouseY, p.x, p.y, 'rgba(255, 255, 255, 0.95)');
+            if (Math.random() < 0.018 && factor > 0.4) {
+              spawnImpulse(mouseX, mouseY, p.x, p.y, 'rgba(255, 255, 255, 0.98)');
             }
+          }
+        }
+
+        // Connect cursor to Neural Nodes
+        for (let i = 0; i < nodeCount; i++) {
+          const n = neuralNodes[i];
+          const dx = mouseX - n.x;
+          if (Math.abs(dx) > MOUSE_LINK_DIST) continue;
+          const dy = mouseY - n.y;
+          if (Math.abs(dy) > MOUSE_LINK_DIST) continue;
+
+          const distSq = dx * dx + dy * dy;
+          if (distSq < MOUSE_LINK_DIST_SQ) {
+            const dist = Math.sqrt(distSq);
+            const factor = 1 - dist / MOUSE_LINK_DIST;
+            const alpha = factor * 0.7;
+
+            ctx.beginPath();
+            ctx.moveTo(mouseX, mouseY);
+            ctx.lineTo(n.x, n.y);
+            ctx.strokeStyle = `rgba(255, 210, 230, ${alpha})`;
+            ctx.lineWidth = factor * 1.3;
+            ctx.stroke();
           }
         }
       }
 
-      // C. Render Traveling Synaptic Impulses
+      // D. Draw Synaptic Electrical Impulses
       for (let i = impulses.length - 1; i >= 0; i--) {
         const imp = impulses[i];
         imp.progress += imp.speed;
@@ -338,76 +414,64 @@ const SakuraPetals = () => {
         ctx.beginPath();
         ctx.arc(currX, currY, imp.size, 0, Math.PI * 2);
         ctx.fillStyle = imp.color;
-        ctx.shadowColor = 'rgba(255, 235, 245, 0.9)';
-        ctx.shadowBlur = 8;
+        ctx.shadowColor = 'rgba(255, 235, 245, 0.95)';
+        ctx.shadowBlur = 10;
         ctx.fill();
         ctx.shadowBlur = 0;
       }
 
-      // --- 3. RENDER BLOSSOM SPORES / PINK STARDUST ---
-      for (let i = 0; i < sporeCount; i++) {
-        const s = spores[i];
-        const currentOpacity = s.opacity * (0.6 + 0.4 * Math.sin(s.pulseAngle));
+      // E. Draw Neural Constellation Nodes
+      for (let i = 0; i < nodeCount; i++) {
+        const n = neuralNodes[i];
+        const pulse = Math.sin(n.pulseAngle) * 0.35 + 0.65;
+        const currentRadius = n.radius * (n.connections > 0 ? 1.3 : 1);
+
         ctx.beginPath();
-        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 182, 193, ${currentOpacity})`;
-        ctx.shadowColor = 'rgba(244, 114, 182, 0.5)';
-        ctx.shadowBlur = 5;
+        ctx.arc(n.x, n.y, currentRadius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 210, 230, ${pulse * (n.connections > 0 ? 0.9 : 0.5)})`;
+        ctx.shadowColor = 'rgba(244, 114, 182, 0.7)';
+        ctx.shadowBlur = n.connections > 0 ? 8 : 4;
         ctx.fill();
         ctx.shadowBlur = 0;
       }
 
-      // --- 4. RENDER SAKURA PETALS WITH SYNAPTIC CORE NODES ---
+      // F. Render Sakura Petals with Synaptic Junction Cores
       for (let i = 0; i < petalCount; i++) {
         const p = petals[i];
 
-        // Draw organic sakura petal
         ctx.save();
         ctx.translate(p.x, p.y);
         ctx.rotate(p.rotZ);
 
-        // 3D perspective foreshortening
         const scaleX = Math.cos(p.rotX);
         const scaleY = Math.sin(p.rotY);
         ctx.scale(Math.abs(scaleX) < 0.1 ? 0.1 : scaleX, Math.abs(scaleY) < 0.1 ? 0.1 : scaleY);
 
         const size = p.baseSize * p.depth;
 
-        // Organic Cherry Blossom Petal Path
+        // Organic Sakura Cleft Geometry
         ctx.beginPath();
-        ctx.moveTo(0, size * 0.9); // Petal base (stem attachment)
+        ctx.moveTo(0, size * 0.9);
 
         if (p.hasCleft) {
-          // Right curve up to cleft lobe
           ctx.bezierCurveTo(
             size * 0.75, size * 0.5,
             size * 0.85, -size * 0.4,
             size * 0.28, -size
           );
-          // Characteristic Sakura tip notch / cleft indent
           ctx.quadraticCurveTo(0, -size * 0.82, -size * 0.28, -size);
-          // Left curve back down to base
           ctx.bezierCurveTo(
             -size * 0.85, -size * 0.4,
             -size * 0.75, size * 0.5,
             0, size * 0.9
           );
         } else {
-          // Smooth rounded petal
-          ctx.bezierCurveTo(
-            size * 0.8, size * 0.4,
-            size * 0.8, -size * 0.6,
-            0, -size
-          );
-          ctx.bezierCurveTo(
-            -size * 0.8, -size * 0.6,
-            -size * 0.8, size * 0.4,
-            0, size * 0.9
-          );
+          ctx.bezierCurveTo(size * 0.8, size * 0.4, size * 0.8, -size * 0.6, 0, -size);
+          ctx.bezierCurveTo(-size * 0.8, -size * 0.6, -size * 0.8, size * 0.4, 0, size * 0.9);
         }
         ctx.closePath();
 
-        // Realistic petal gradient (deep blush base fading to soft light tip)
+        // Realistic petal gradient
         const grad = ctx.createLinearGradient(0, size * 0.8, 0, -size);
         grad.addColorStop(0, `${p.color.base}${p.opacity})`);
         grad.addColorStop(0.7, `${p.color.base}${p.opacity * 0.95})`);
@@ -415,7 +479,6 @@ const SakuraPetals = () => {
 
         ctx.fillStyle = grad;
 
-        // Soft petal glow for near/mid petals
         if (p.depth > 0.8) {
           ctx.shadowColor = p.color.glow;
           ctx.shadowBlur = 8;
@@ -439,17 +502,16 @@ const SakuraPetals = () => {
 
         ctx.restore();
 
-        // --- D. Petal Synaptic Core Node (Neural Junction) ---
-        // When active in the neural link or naturally pulsing
+        // Synaptic Core Node at Petal Center
         const coreIntensity = p.activeLinksCount > 0 
-          ? Math.min(1, 0.4 + p.activeLinksCount * 0.2) 
-          : 0.25;
+          ? Math.min(1, 0.5 + p.activeLinksCount * 0.2) 
+          : 0.3;
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, (p.depth * 1.8), 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, (p.depth * 2), 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 240, 245, ${coreIntensity * p.opacity})`;
-        ctx.shadowColor = 'rgba(244, 114, 182, 0.9)';
-        ctx.shadowBlur = p.activeLinksCount > 0 ? 10 : 4;
+        ctx.shadowColor = 'rgba(244, 114, 182, 0.95)';
+        ctx.shadowBlur = p.activeLinksCount > 0 ? 12 : 5;
         ctx.fill();
         ctx.shadowBlur = 0;
       }

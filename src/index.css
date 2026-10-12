@@ -32,7 +32,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-700 rounded-full hover:bg-gray-600 transition-colors;
+  @apply bg-pink-950/70 rounded-full hover:bg-pink-800/80 transition-colors;
+}
+
+::selection {
+  background-color: rgba(244, 114, 182, 0.35);
+  color: #ffffff;
 }
 @media (pointer: fine) {
   body, a, button, input, textarea, select {

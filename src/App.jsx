@@ -7,7 +7,6 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import BackgroundGlitters from './components/BackgroundGlitters';
 import SakuraPetals from './components/SakuraPetals';
 import GithubActivity from './components/GithubActivity';
 import CustomCursor from './components/CustomCursor';
@@ -19,7 +18,7 @@ function App() {
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (glowRef.current) {
-        glowRef.current.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`;
+        glowRef.current.style.transform = `translate(${e.clientX - 225}px, ${e.clientY - 225}px)`;
       }
     };
 
@@ -31,18 +30,18 @@ function App() {
     <div className="relative min-h-screen bg-background overflow-hidden font-sans">
       <CustomCursor />
       <CinemaCurtainOpening />
-      {/* Background with Dynamic Falling Sakura Bloom Petals */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <BackgroundGlitters />
+      {/* Bio-Digital Sakura Neural Link Background Theme */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <SakuraPetals />
-        <div className="absolute top-0 -left-4 w-96 h-96 bg-pink-500/10 rounded-full mix-blend-screen filter blur-[140px] pointer-events-none"></div>
-        <div className="absolute top-1/3 -right-4 w-96 h-96 bg-rose-500/10 rounded-full mix-blend-screen filter blur-[140px] pointer-events-none"></div>
+        {/* Soft atmospheric ambient Sakura night glow */}
+        <div className="absolute top-0 left-1/4 w-[650px] h-[650px] bg-pink-950/20 rounded-full blur-[160px] pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[550px] h-[550px] bg-rose-950/20 rounded-full blur-[150px] pointer-events-none"></div>
 
-        {/* Interactive glow following mouse */}
+        {/* Interactive soft mouse aura */}
         <div
           ref={glowRef}
-          className="absolute w-[500px] h-[500px] bg-pink-500/[0.04] rounded-full blur-[100px] transition-transform duration-75 ease-out pointer-events-none will-change-transform"
-          style={{ transform: `translate(-250px, -250px)` }}
+          className="absolute w-[450px] h-[450px] bg-pink-500/[0.04] rounded-full blur-[100px] transition-transform duration-75 ease-out pointer-events-none will-change-transform"
+          style={{ transform: `translate(-225px, -225px)` }}
         ></div>
       </div>
 

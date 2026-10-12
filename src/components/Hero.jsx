@@ -43,7 +43,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 25, filter: 'blur(8px)' }}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ duration: 0.8, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-medium leading-[0.95] mb-5"
+              className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-medium leading-[0.95] mb-5 whitespace-nowrap"
             >
               <span className="bg-gradient-to-r from-pink-100 via-slate-100 to-pink-200 bg-clip-text text-transparent">
                 Sayantani Sinha

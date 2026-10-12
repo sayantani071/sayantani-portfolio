@@ -36,17 +36,16 @@
   }
 
   .animated-fill-text {
-    position: relative;
+    display: inline-block;
     background-image: linear-gradient(
       120deg,
-      rgba(255, 255, 255, 1) 0%,
-      #f5dfe8 12%,
-      #f8f6f8 24%,
-      #f2c9d7 38%,
-      #e5ecfb 52%,
-      #f9dfe7 68%,
-      #f9f5f6 80%,
-      rgba(255, 255, 255, 1) 100%
+      rgba(255, 255, 255, 0.96) 0%,
+      #f8dfe8 18%,
+      #f4f3f6 38%,
+      #f3c8d7 52%,
+      #dfe8fb 68%,
+      #f7dfe7 82%,
+      rgba(255, 255, 255, 0.96) 100%
     );
     background-size: 220% 100%;
     background-position: 0% 50%;
@@ -54,21 +53,9 @@
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
-    animation: heroTextFill 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
-    filter: drop-shadow(0 0 10px rgba(244, 182, 201, 0.12));
-    text-shadow: 0 0 12px rgba(244, 182, 201, 0.12);
-  }
-
-  .animated-fill-text::after {
-    content: attr(data-text);
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(246, 201, 214, 0.45);
-    text-shadow: 0 0 18px rgba(244, 182, 201, 0.28), 0 0 32px rgba(202, 210, 238, 0.18);
-    opacity: 0.9;
-    pointer-events: none;
+    animation: heroTextFill 5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 12px rgba(244, 182, 201, 0.12));
+    text-shadow: 0 0 16px rgba(244, 182, 201, 0.08);
   }
 
   .starlight-field {
@@ -107,15 +94,15 @@
 @keyframes heroTextFill {
   0% {
     background-position: 0% 50%;
-    filter: brightness(0.98) saturate(1.08) drop-shadow(0 0 8px rgba(244, 182, 201, 0.08));
+    filter: brightness(0.98) saturate(1.06) drop-shadow(0 0 8px rgba(244, 182, 201, 0.08));
   }
   50% {
     background-position: 100% 50%;
-    filter: brightness(1.12) saturate(1.35) drop-shadow(0 0 18px rgba(244, 182, 201, 0.18));
+    filter: brightness(1.08) saturate(1.2) drop-shadow(0 0 16px rgba(244, 182, 201, 0.16));
   }
   100% {
     background-position: 0% 50%;
-    filter: brightness(0.98) saturate(1.08) drop-shadow(0 0 8px rgba(244, 182, 201, 0.08));
+    filter: brightness(0.98) saturate(1.06) drop-shadow(0 0 8px rgba(244, 182, 201, 0.08));
   }
 }
 

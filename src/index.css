@@ -37,24 +37,25 @@
 
   .animated-fill-text {
     background-image: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.98) 0%,
-      #f9dce7 18%,
-      #f3f4f6 34%,
-      #f7cad9 52%,
-      #dfe8ff 68%,
-      #f9dce7 82%,
-      rgba(255, 255, 255, 0.98) 100%
+      120deg,
+      rgba(255, 255, 255, 1) 0%,
+      #f5dfe8 12%,
+      #f8f6f8 24%,
+      #f2c9d7 38%,
+      #e5ecfb 52%,
+      #f9dfe7 68%,
+      #f9f5f6 80%,
+      rgba(255, 255, 255, 1) 100%
     );
-    background-size: 250% 100%;
+    background-size: 220% 100%;
     background-position: 0% 50%;
     background-repeat: no-repeat;
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
-    animation: heroTextFill 3.8s ease-in-out infinite alternate;
-    filter: drop-shadow(0 0 18px rgba(244, 182, 201, 0.18));
-    text-shadow: 0 0 14px rgba(244, 182, 201, 0.12);
+    animation: heroTextFill 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+    filter: drop-shadow(0 0 10px rgba(244, 182, 201, 0.12));
+    text-shadow: 0 0 12px rgba(244, 182, 201, 0.12);
   }
 
   .starlight-field {
@@ -93,15 +94,15 @@
 @keyframes heroTextFill {
   0% {
     background-position: 0% 50%;
-    filter: brightness(1) saturate(1.1) drop-shadow(0 0 12px rgba(244, 182, 201, 0.12));
+    filter: brightness(0.98) saturate(1.08) drop-shadow(0 0 8px rgba(244, 182, 201, 0.08));
   }
   50% {
     background-position: 100% 50%;
-    filter: brightness(1.18) saturate(1.35) drop-shadow(0 0 18px rgba(244, 182, 201, 0.26));
+    filter: brightness(1.12) saturate(1.35) drop-shadow(0 0 18px rgba(244, 182, 201, 0.18));
   }
   100% {
     background-position: 0% 50%;
-    filter: brightness(1) saturate(1.1) drop-shadow(0 0 12px rgba(244, 182, 201, 0.12));
+    filter: brightness(0.98) saturate(1.08) drop-shadow(0 0 8px rgba(244, 182, 201, 0.08));
   }
 }
 

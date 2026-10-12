@@ -12,36 +12,32 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-medium mb-6 text-white font-sans tracking-wide">
-            Get In Touch
+          <h2 className="text-3xl md:text-4xl font-light text-white tracking-wide mb-3">
+            Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-rose-300 to-pink-200">Touch</span>
           </h2>
+          <div className="w-12 h-[1px] bg-pink-500/30 mx-auto mb-8"></div>
           
-          <p className="mt-4 text-gray-400 max-w-xl mx-auto font-light text-lg mb-10 leading-relaxed">
+          <p className="text-gray-300 max-w-lg mx-auto font-light text-base md:text-lg mb-10 leading-relaxed">
             I&apos;m currently open for new opportunities. Whether you have a question or
             just want to say hi, I&apos;ll try my best to get back to you!
           </p>
 
           <a 
             href="mailto:sayantani@example.com" 
-            className="group relative inline-flex items-center justify-center px-10 py-4 rounded-none overflow-hidden transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_35px_rgba(59,130,246,0.65)] hover:-translate-y-1 active:translate-y-0 text-sm font-semibold tracking-widest text-white uppercase mb-12"
-            style={{
-              clipPath: 'polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px)',
-            }}
+            className="inline-block px-8 py-3.5 rounded-full bg-gradient-to-r from-pink-500/90 via-rose-500/90 to-pink-600/90 hover:from-pink-400 hover:to-rose-400 transition-all duration-300 shadow-[0_0_15px_rgba(244,114,182,0.3)] hover:shadow-[0_0_25px_rgba(244,114,182,0.5)] text-xs font-semibold tracking-[0.25em] text-white uppercase mb-12 transform hover:-translate-y-0.5"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 opacity-95 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <span className="relative z-10">Say Hello</span>
+            Say Hello 🌸
           </a>
 
-          <div className="flex items-center justify-center gap-6 mt-4">
-            <a href="https://github.com/sayantani071" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300">
-              <Github size={24} />
+          <div className="flex items-center justify-center gap-7 mt-2">
+            <a href="https://github.com/sayantani071" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-300 hover:scale-110 transition-all duration-300">
+              <Github size={20} />
             </a>
-            <a href="https://www.linkedin.com/in/sayantani-sinha-a81a44424/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300">
-              <Linkedin size={24} />
+            <a href="https://www.linkedin.com/in/sayantani-sinha-a81a44424/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-300 hover:scale-110 transition-all duration-300">
+              <Linkedin size={20} />
             </a>
-            <a href="https://www.instagram.com/_flicker_in_stardust_/?hl=en" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300">
-              <Instagram size={24} />
+            <a href="https://www.instagram.com/_flicker_in_stardust_/?hl=en" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-300 hover:scale-110 transition-all duration-300">
+              <Instagram size={20} />
             </a>
           </div>
         </motion.div>

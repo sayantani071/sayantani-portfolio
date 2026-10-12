@@ -13,9 +13,9 @@ const About = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">About Me</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-100 via-pink-400 to-rose-300">About Me</span>
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-pink-400 to-rose-500 mx-auto rounded-full shadow-[0_0_10px_rgba(244,114,182,0.5)]"></div>
         </motion.div>
 
         {/* Content removed as requested, ready for new design */}

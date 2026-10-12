@@ -1,331 +1,147 @@
 import React, { useEffect, useRef } from 'react';
 
 /**
- * SakuraPetals - Minimal Bio-Digital Neural Link Effect
- * 
- * Features:
- * - Minimal, sparse neural constellation (hairline connections, subtle whisper-light opacity)
- * - Tranquil falling cherry blossom petals (18 delicate petals with 3D tumbling rotation)
- * - Subtle interactive cursor probe (refined hairline connections without visual clutter)
- * - Pristine, high-end minimal aesthetic with ample negative space
+ * SakuraPetals
+ * Canvas-based falling cherry blossom (Sakura) petals animation.
+ * Features 3D tumbling rotation, sinusoidal wind breeze sway, and organic petal geometry.
  */
 const SakuraPetals = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
     let width = window.innerWidth;
     let height = window.innerHeight;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = width;
+    canvas.height = height;
 
-    const resize = () => {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
-
-    resize();
-    window.addEventListener('resize', resize);
-
-    // Minimal, soft Sakura Pink Palette
-    const petalColors = [
-      {
-        base: 'rgba(255, 160, 185, ',
-        tip: 'rgba(255, 230, 240, ',
-      },
-      {
-        base: 'rgba(244, 114, 182, ',
-        tip: 'rgba(255, 220, 235, ',
-      },
-      {
-        base: 'rgba(251, 113, 133, ',
-        tip: 'rgba(254, 225, 230, ',
-      },
-    ];
-
-    // --- 1. MINIMAL NEURAL CONSTELLATION NODES ---
-    const nodeCount = 28; // Minimal, non-congested count
-    const neuralNodes = [];
-    for (let i = 0; i < nodeCount; i++) {
-      neuralNodes.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.35, // Slow, peaceful drift
-        vy: (Math.random() - 0.5) * 0.35,
-        radius: Math.random() * 0.9 + 1.0, // Small refined dots
-        pulseSpeed: Math.random() * 0.02 + 0.01,
-        pulseAngle: Math.random() * Math.PI * 2,
-        connections: 0,
-      });
-    }
-
-    // --- 2. MINIMAL SAKURA PETALS ---
-    const petalCount = 18; // Clean, airy, serene petal count
+    // Petal configuration - Minimal & serene
+    const petalCount = 8;
     const petals = [];
 
+    // Subtle, whisper-soft Sakura color shades
+    const petalColors = [
+      { fill: 'rgba(224, 190, 201, 0.32)' },
+      { fill: 'rgba(205, 165, 178, 0.28)' },
+      { fill: 'rgba(236, 210, 215, 0.3)' },
+      { fill: 'rgba(220, 198, 205, 0.28)' },
+    ];
+
     for (let i = 0; i < petalCount; i++) {
-      const depth = Math.random() * 0.6 + 0.5;
       petals.push({
         x: Math.random() * width,
-        y: Math.random() * (height + 200) - 100,
-        depth,
-        baseSize: Math.random() * 5 + 8, // 8 to 13px - small & delicate
-        speedY: (Math.random() * 0.5 + 0.55) * depth,
-        speedX: (Math.random() * 0.3 + 0.2) * depth,
+        y: Math.random() * height,
+        size: Math.random() * 5 + 7, // 7 to 12px - small and delicate
+        speedY: Math.random() * 0.5 + 0.4, // calm, slow descent
+        speedX: Math.random() * 0.3 + 0.15, // whisper breeze
+        swaySpeed: Math.random() * 0.015 + 0.008,
         swayAngle: Math.random() * Math.PI * 2,
-        swaySpeed: Math.random() * 0.018 + 0.008,
-        swayDistance: (Math.random() * 1.4 + 0.8) * depth,
+        swayDistance: Math.random() * 1.2 + 0.5,
         rotX: Math.random() * Math.PI * 2,
         rotY: Math.random() * Math.PI * 2,
         rotZ: Math.random() * Math.PI * 2,
-        rotSpeedX: Math.random() * 0.02 - 0.01,
-        rotSpeedY: Math.random() * 0.03 + 0.008,
-        rotSpeedZ: Math.random() * 0.02 + 0.006,
+        rotSpeedX: Math.random() * 0.015 - 0.007,
+        rotSpeedY: Math.random() * 0.02 + 0.008,
+        rotSpeedZ: Math.random() * 0.015 + 0.004,
         color: petalColors[Math.floor(Math.random() * petalColors.length)],
-        opacity: (Math.random() * 0.25 + 0.45) * depth,
-        hasCleft: Math.random() > 0.2,
-        activeLinksCount: 0,
+        opacity: Math.random() * 0.3 + 0.3, // soft 0.3 - 0.6 opacity
       });
     }
 
-    // Subtle impulses
-    const impulses = [];
-    const maxImpulses = 6;
-
-    const spawnImpulse = (x1, y1, x2, y2) => {
-      if (impulses.length >= maxImpulses) return;
-      impulses.push({
-        x1, y1, x2, y2,
-        progress: 0,
-        speed: Math.random() * 0.02 + 0.015,
-        size: 1.2,
-      });
-    };
-
-    // Connection thresholds - tight & minimal
-    const NODE_LINK_DIST = 115;
-    const NODE_LINK_DIST_SQ = NODE_LINK_DIST * NODE_LINK_DIST;
-    const PETAL_NODE_LINK_DIST = 120;
-    const PETAL_NODE_LINK_DIST_SQ = PETAL_NODE_LINK_DIST * PETAL_NODE_LINK_DIST;
-
-    let globalWindTime = 0;
     let animId;
+
+    // Draw single organic sakura petal
+    const drawPetal = (x, y, size, rotX, rotY, rotZ, color, opacity) => {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rotZ);
+      // Simulate 3D tilt
+      ctx.scale(Math.cos(rotX), Math.sin(rotY));
+
+      ctx.beginPath();
+      ctx.moveTo(0, -size);
+      // Curved right side of petal
+      ctx.bezierCurveTo(size * 0.8, -size * 0.6, size * 0.9, size * 0.4, 0, size);
+      // Curved left side of petal with delicate tip cleft
+      ctx.bezierCurveTo(-size * 0.9, size * 0.4, -size * 0.8, -size * 0.6, 0, -size);
+      ctx.closePath();
+
+      // Delicate gradient fill
+      const grad = ctx.createLinearGradient(0, -size, 0, size);
+      grad.addColorStop(0, color.fill.replace(/[\d.]+\)$/, `${opacity})`));
+      grad.addColorStop(1, 'rgba(255, 241, 242, 0.8)'.replace(/[\d.]+\)$/, `${opacity * 0.8})`));
+
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Subtle center vein
+      ctx.beginPath();
+      ctx.moveTo(0, -size * 0.7);
+      ctx.lineTo(0, size * 0.6);
+      ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.35})`;
+      ctx.lineWidth = 0.6;
+      ctx.stroke();
+
+      ctx.restore();
+    };
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      globalWindTime += 0.012;
-      const gust = Math.sin(globalWindTime * 0.4) * 0.25;
-
-      // Update Nodes
-      for (let i = 0; i < nodeCount; i++) {
-        const n = neuralNodes[i];
-        n.x += n.vx + gust * 0.1;
-        n.y += n.vy;
-        n.pulseAngle += n.pulseSpeed;
-        n.connections = 0;
-
-        if (n.x < 0) { n.x = 0; n.vx *= -1; }
-        if (n.x > width) { n.x = width; n.vx *= -1; }
-        if (n.y < 0) { n.y = 0; n.vy *= -1; }
-        if (n.y > height) { n.y = height; n.vy *= -1; }
-      }
-
-      // Update Petals
-      for (let i = 0; i < petalCount; i++) {
-        const p = petals[i];
-        p.activeLinksCount = 0;
-
+      petals.forEach((p) => {
+        // Update positions with gentle wind & sine oscillation
         p.swayAngle += p.swaySpeed;
-        const currentSway = Math.sin(p.swayAngle) * p.swayDistance;
-
+        p.x += p.speedX + Math.sin(p.swayAngle) * p.swayDistance;
         p.y += p.speedY;
-        p.x += p.speedX + currentSway + gust * p.depth;
 
+        // Update 3D rotations (tumbling)
         p.rotX += p.rotSpeedX;
         p.rotY += p.rotSpeedY;
         p.rotZ += p.rotSpeedZ;
 
-        if (p.y > height + 30) {
-          p.y = -25;
+        // Wrap around borders
+        if (p.y > height + 20) {
+          p.y = -20;
           p.x = Math.random() * width;
         }
-        if (p.x > width + 30) {
-          p.x = -25;
-        } else if (p.x < -30) {
-          p.x = width + 25;
-        }
-      }
-
-      // --- DRAW MINIMAL NEURAL LINKS ---
-      // A. Node-to-Node Hairline Links
-      for (let i = 0; i < nodeCount; i++) {
-        const n1 = neuralNodes[i];
-        for (let j = i + 1; j < nodeCount; j++) {
-          const n2 = neuralNodes[j];
-          const dx = n1.x - n2.x;
-          if (Math.abs(dx) > NODE_LINK_DIST) continue;
-          const dy = n1.y - n2.y;
-          if (Math.abs(dy) > NODE_LINK_DIST) continue;
-
-          const distSq = dx * dx + dy * dy;
-          if (distSq < NODE_LINK_DIST_SQ) {
-            const dist = Math.sqrt(distSq);
-            const factor = 1 - dist / NODE_LINK_DIST;
-            const alpha = factor * 0.22; // Whisper-soft
-
-            n1.connections++;
-            n2.connections++;
-
-            ctx.beginPath();
-            ctx.moveTo(n1.x, n1.y);
-            ctx.lineTo(n2.x, n2.y);
-            ctx.strokeStyle = `rgba(244, 114, 182, ${alpha})`;
-            ctx.lineWidth = 0.65;
-            ctx.stroke();
-
-            if (Math.random() < 0.0015 && factor > 0.6) {
-              spawnImpulse(n1.x, n1.y, n2.x, n2.y);
-            }
-          }
-        }
-      }
-
-      // B. Petal-to-Node Subtle Connections
-      for (let i = 0; i < petalCount; i++) {
-        const p = petals[i];
-        for (let j = 0; j < nodeCount; j++) {
-          const n = neuralNodes[j];
-          const dx = p.x - n.x;
-          if (Math.abs(dx) > PETAL_NODE_LINK_DIST) continue;
-          const dy = p.y - n.y;
-          if (Math.abs(dy) > PETAL_NODE_LINK_DIST) continue;
-
-          const distSq = dx * dx + dy * dy;
-          if (distSq < PETAL_NODE_LINK_DIST_SQ) {
-            const dist = Math.sqrt(distSq);
-            const factor = 1 - dist / PETAL_NODE_LINK_DIST;
-            const alpha = factor * 0.25 * p.depth;
-
-            p.activeLinksCount++;
-            n.connections++;
-
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(n.x, n.y);
-            ctx.strokeStyle = `rgba(251, 113, 133, ${alpha})`;
-            ctx.lineWidth = 0.65;
-            ctx.stroke();
-          }
-        }
-      }
-
-      // C. Draw Minimal Impulses
-      for (let i = impulses.length - 1; i >= 0; i--) {
-        const imp = impulses[i];
-        imp.progress += imp.speed;
-
-        if (imp.progress >= 1) {
-          impulses.splice(i, 1);
-          continue;
+        if (p.x > width + 20) {
+          p.x = -20;
+        } else if (p.x < -20) {
+          p.x = width + 20;
         }
 
-        const currX = imp.x1 + (imp.x2 - imp.x1) * imp.progress;
-        const currY = imp.y1 + (imp.y2 - imp.y1) * imp.progress;
+        drawPetal(p.x, p.y, p.size, p.rotX, p.rotY, p.rotZ, p.color, p.opacity);
+      });
 
-        ctx.beginPath();
-        ctx.arc(currX, currY, imp.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 235, 245, 0.7)';
-        ctx.fill();
-      }
-
-      // E. Draw Neural Constellation Nodes (Clean, small points)
-      for (let i = 0; i < nodeCount; i++) {
-        const n = neuralNodes[i];
-        const pulse = Math.sin(n.pulseAngle) * 0.25 + 0.65;
-
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 215, 230, ${pulse * 0.5})`;
-        ctx.fill();
-      }
-
-      // F. Render Sakura Petals (Clean & Delicate)
-      for (let i = 0; i < petalCount; i++) {
-        const p = petals[i];
-
-        ctx.save();
-        ctx.translate(p.x, p.y);
-        ctx.rotate(p.rotZ);
-
-        const scaleX = Math.cos(p.rotX);
-        const scaleY = Math.sin(p.rotY);
-        ctx.scale(Math.abs(scaleX) < 0.1 ? 0.1 : scaleX, Math.abs(scaleY) < 0.1 ? 0.1 : scaleY);
-
-        const size = p.baseSize * p.depth;
-
-        ctx.beginPath();
-        ctx.moveTo(0, size * 0.9);
-
-        if (p.hasCleft) {
-          ctx.bezierCurveTo(
-            size * 0.75, size * 0.5,
-            size * 0.85, -size * 0.4,
-            size * 0.28, -size
-          );
-          ctx.quadraticCurveTo(0, -size * 0.82, -size * 0.28, -size);
-          ctx.bezierCurveTo(
-            -size * 0.85, -size * 0.4,
-            -size * 0.75, size * 0.5,
-            0, size * 0.9
-          );
-        } else {
-          ctx.bezierCurveTo(size * 0.8, size * 0.4, size * 0.8, -size * 0.6, 0, -size);
-          ctx.bezierCurveTo(-size * 0.8, -size * 0.6, -size * 0.8, size * 0.4, 0, size * 0.9);
-        }
-        ctx.closePath();
-
-        const grad = ctx.createLinearGradient(0, size * 0.8, 0, -size);
-        grad.addColorStop(0, `${p.color.base}${p.opacity})`);
-        grad.addColorStop(1, `${p.color.tip}${p.opacity * 0.85})`);
-
-        ctx.fillStyle = grad;
-        ctx.fill();
-
-        ctx.restore();
-
-        // Subtle core node
-        if (p.activeLinksCount > 0) {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, 1.2, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 240, 248, 0.6)`;
-          ctx.fill();
-        }
-      }
-
-      animId = requestAnimationFrame(render);
+      animId = window.requestAnimationFrame(render);
     };
 
     render();
 
+    const handleResize = () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    };
+
+    window.addEventListener('resize', handleResize);
+
     return () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener('resize', resize);
+      window.cancelAnimationFrame(animId);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 z-0 pointer-events-none w-full h-full"
-      style={{ display: 'block' }}
+      className="fixed inset-0 pointer-events-none z-[6] w-full h-full"
     />
   );
 };

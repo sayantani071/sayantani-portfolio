@@ -3,22 +3,97 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: dark;
+    --ink: #101622;
+    --ink-soft: #151d2b;
+    --sakura: #c99aaa;
+    --starlight: #cbd8e8;
+  }
+
+  html {
+    scroll-padding-top: 5rem;
+  }
+
   body {
-    @apply bg-background text-gray-100;
+    @apply bg-background text-slate-100;
+    background-color: var(--ink);
+    font-feature-settings: 'ss01' on;
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl;
+    @apply bg-white/[0.035] backdrop-blur-lg border border-white/10 shadow-xl;
   }
 
   .glass-card {
-    @apply bg-white/[0.03] backdrop-blur-md border border-white/5 shadow-2xl hover:bg-white/[0.05] transition-all duration-300;
+    @apply bg-white/[0.035] backdrop-blur-md border border-white/10 shadow-xl hover:bg-white/[0.06] hover:border-pink-300/30 transition-all duration-300;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-pink-200 via-slate-200 to-amber-100;
+  }
+
+  .animated-fill-text {
+    position: relative;
+    display: inline-block;
+    background-image: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.96) 0%,
+      #f9dfe8 18%,
+      #f2f1f5 38%,
+      #f3cad8 52%,
+      #e2eafc 68%,
+      #f7dfe7 82%,
+      rgba(255, 255, 255, 0.96) 100%
+    );
+    background-size: 220% 100%;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: heroTextFill 6s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 10px rgba(244, 182, 201, 0.09));
+    text-shadow: 0 0 16px rgba(244, 182, 201, 0.06);
+  }
+
+  .animated-fill-text::before {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    color: transparent;
+    background-image: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.38) 28%,
+      rgba(255, 255, 255, 0.82) 50%,
+      rgba(255, 255, 255, 0.2) 72%,
+      transparent 100%
+    );
+    background-size: 220% 100%;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: heroTextSheen 5.6s ease-in-out infinite;
+    opacity: 0.95;
+    pointer-events: none;
+  }
+
+  .starlight-field {
+    background-image:
+      radial-gradient(1px 1px at 24px 38px, rgba(220, 231, 246, 0.5) 50%, transparent 100%),
+      radial-gradient(1px 1px at 118px 92px, rgba(220, 231, 246, 0.34) 50%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 184px 26px, rgba(233, 207, 215, 0.42) 50%, transparent 100%),
+      radial-gradient(1px 1px at 72px 156px, rgba(220, 231, 246, 0.28) 50%, transparent 100%),
+      linear-gradient(180deg, rgba(38, 49, 68, 0.22), transparent 42%);
+    background-size: 220px 190px, 220px 190px, 220px 190px, 220px 190px, 100% 100%;
+  }
+
+  .soft-divider {
+    background: linear-gradient(90deg, transparent, rgba(201, 154, 170, 0.6), transparent);
   }
 }
 
@@ -32,15 +107,55 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-pink-950/70 rounded-full hover:bg-pink-800/80 transition-colors;
+  @apply bg-pink-700/70 rounded-full hover:bg-pink-500/80 transition-colors;
 }
 
 ::selection {
-  background-color: rgba(244, 114, 182, 0.35);
-  color: #ffffff;
+  background-color: rgba(201, 154, 170, 0.35);
+  color: #f8f7f8;
 }
-@media (pointer: fine) {
-  body, a, button, input, textarea, select {
-    cursor: none !important;
+
+@keyframes heroTextFill {
+  0% {
+    background-position: 0% 50%;
+    filter: brightness(0.98) saturate(1.04) drop-shadow(0 0 6px rgba(244, 182, 201, 0.06));
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: brightness(1.08) saturate(1.14) drop-shadow(0 0 12px rgba(244, 182, 201, 0.12));
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: brightness(0.98) saturate(1.04) drop-shadow(0 0 6px rgba(244, 182, 201, 0.06));
+  }
+}
+
+@keyframes heroTextSheen {
+  0% {
+    background-position: -20% 50%;
+    opacity: 0.4;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.9;
+  }
+  100% {
+    background-position: 120% 50%;
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animated-fill-text {
+    animation: none;
   }
 }

@@ -81,10 +81,10 @@ const BackgroundGlitters = () => {
         ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
         ctx.fill();
 
-        // Simulated Glow (Much faster than shadowBlur)
+        // Simulated Glow with Sakura pink tint
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius * 3, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(150, 200, 255, ${p.opacity * 0.3})`;
+        ctx.fillStyle = `rgba(255, 182, 193, ${p.opacity * 0.4})`;
         ctx.fill();
 
         // Fast twinkle cross
@@ -94,7 +94,7 @@ const BackgroundGlitters = () => {
           ctx.lineTo(p.x, p.y + p.radius * 2.5);
           ctx.moveTo(p.x - p.radius * 2.5, p.y);
           ctx.lineTo(p.x + p.radius * 2.5, p.y);
-          ctx.strokeStyle = `rgba(255, 255, 255, ${p.opacity * 0.5})`;
+          ctx.strokeStyle = `rgba(255, 228, 230, ${p.opacity * 0.6})`;
           ctx.lineWidth = 0.4;
           ctx.stroke();
         }
@@ -134,14 +134,14 @@ const BackgroundGlitters = () => {
               star.y - Math.sin(star.angle) * star.length
             );
             
-            ctx.strokeStyle = `rgba(255, 255, 255, ${star.opacity})`;
+            ctx.strokeStyle = `rgba(254, 205, 211, ${star.opacity})`;
             ctx.lineWidth = 1.0;
             ctx.stroke();
           }
         }
       });
 
-      animationFrameId = requestAnimationFrame(render);
+      animationFrameId = window.requestAnimationFrame(render);
     };
 
     render();
@@ -157,7 +157,7 @@ const BackgroundGlitters = () => {
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationFrameId);
+      window.cancelAnimationFrame(animationFrameId);
     };
   }, []);
 

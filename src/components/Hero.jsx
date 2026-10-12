@@ -18,32 +18,24 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative w-full h-screen min-h-[700px] bg-transparent flex items-center pt-16">
-      
-      {/* --- BACKGROUND ELEMENTS --- */}
-      {/* Subtle ambient glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-900/20 rounded-full blur-[150px] pointer-events-none"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-blue-800/10 rounded-full blur-[120px] pointer-events-none"></div>
-      
-
-      
-      <div className="container mx-auto px-6 md:px-12 relative z-10 h-full flex flex-col justify-center">
-        <div className="grid lg:grid-cols-2 gap-12 items-center h-full">
+    <section id="home" className="relative w-full min-h-[680px] lg:min-h-screen bg-transparent flex items-center pt-20 pb-16">
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
           {/* --- LEFT SIDE: TEXT CONTENT --- */}
-          <div className="flex flex-col justify-center items-center text-center order-2 lg:order-1 mt-12 lg:mt-0">
+          <div className="flex flex-col justify-center items-center text-center order-2 lg:order-1 mt-4 lg:mt-0 lg:items-start lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="flex items-center justify-center gap-3 mb-4"
+              className="flex items-center justify-center gap-3 mb-5 lg:justify-start"
             >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400 shadow-[0_0_10px_#38bdf8]"></span>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-400"></span>
               </span>
-              <p className="text-gray-300 font-mono tracking-[0.35em] text-sm md:text-base font-semibold uppercase">
-                HELLO <span className="text-cyan-400 font-bold mx-1">|</span> I AM
+              <p className="text-slate-300/75 font-mono tracking-[0.2em] text-[11px] md:text-xs font-medium uppercase">
+                HELLO <span className="text-pink-300 mx-1">/</span> I AM
               </p>
             </motion.div>
 
@@ -51,9 +43,9 @@ const Hero = () => {
               initial={{ opacity: 0, y: 25, filter: 'blur(8px)' }}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ duration: 0.8, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight mb-4 whitespace-nowrap"
+              className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-medium leading-[0.95] mb-5 whitespace-nowrap"
             >
-              <span className="bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200 bg-[length:200%_auto] animate-text-flow bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(59,130,246,0.35)]">
+              <span className="animated-fill-text" data-text="Sayantani Sinha">
                 Sayantani Sinha
               </span>
             </motion.h1>
@@ -62,9 +54,9 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
-              className="h-10 md:h-12 flex justify-center items-center w-full mb-10"
+              className="h-10 md:h-12 flex justify-center items-center w-full mb-8 lg:justify-start"
             >
-              <div className="text-xl md:text-2xl text-gray-300 font-light flex justify-center w-full">
+              <div className="text-lg md:text-xl text-slate-300/80 font-light flex justify-center w-full lg:justify-start">
                 <div className="relative overflow-hidden w-full max-w-[400px] h-[40px]">
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -73,92 +65,59 @@ const Hero = () => {
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: -20, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="absolute left-0 top-0 w-full flex justify-center items-center gap-2"
+                      className="absolute left-0 top-0 w-full flex justify-center items-center gap-2 lg:justify-start"
                     >
-                      <span className="text-blue-500 font-bold">&gt;</span>
-                      <span>{roles[currentRoleIndex]}</span>
+                      <span className="text-pink-300 font-bold">/</span>
+                      <span className="text-slate-200/90 font-mono text-sm md:text-base tracking-wide">{roles[currentRoleIndex]}</span>
                     </motion.div>
                   </AnimatePresence>
                 </div>
               </div>
             </motion.div>
 
+            {/* Minimal Two Action Buttons */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-wrap justify-center items-center gap-4 md:gap-6"
+              className="flex flex-wrap items-center justify-center gap-3 lg:justify-start"
             >
-              {/* Button 1: View My Work - Boxy & Sharp Pointy */}
-              <a 
-                href="#projects" 
-                className="group relative inline-flex items-center justify-center px-8 py-3.5 md:px-10 md:py-4 rounded-none overflow-hidden transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.55)] hover:-translate-y-1 active:translate-y-0"
-                style={{
-                  clipPath: 'polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px)',
-                }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 opacity-95 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10 text-sm md:text-base font-semibold tracking-[0.2em] text-white">VIEW MY WORK</span>
-              </a>
-              
-              {/* Button 2: Download CV - Boxy & Sharp Pointy with Border */}
-              <a 
-                href="#" 
-                className="group relative inline-flex items-center justify-center p-[1.5px] rounded-none overflow-hidden transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.15)] hover:shadow-[0_0_25px_rgba(99,102,241,0.35)] hover:-translate-y-1 active:translate-y-0"
-                style={{
-                  clipPath: 'polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px)',
-                }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/70 via-indigo-500/70 to-blue-500/70 group-hover:from-blue-400 group-hover:to-indigo-400 transition-colors duration-300"></div>
-                <div 
-                  className="relative z-10 w-full h-full px-8 py-3.5 md:px-10 md:py-4 bg-[#090b14]/95 group-hover:bg-[#0f172a]/90 backdrop-blur-md transition-colors duration-300 flex items-center justify-center"
-                  style={{
-                    clipPath: 'polygon(11px 0%, 100% 0%, 100% calc(100% - 11px), calc(100% - 11px) 100%, 0% 100%, 0% 11px)',
-                  }}
-                >
-                  <span className="text-sm md:text-base font-semibold tracking-[0.2em] text-white">DOWNLOAD CV</span>
-                </div>
-              </a>
-
-              {/* Button 3: Let's Connect - Boxy & Sharp Pointy */}
               <a 
                 href="#contact" 
-                className="group relative inline-flex items-center justify-center px-8 py-3.5 md:px-10 md:py-4 rounded-none overflow-hidden transition-all duration-300 shadow-[0_0_15px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.55)] hover:-translate-y-1 active:translate-y-0"
-                style={{
-                  clipPath: 'polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px)',
-                }}
+                className="px-6 py-3 border border-pink-300/45 bg-pink-300/15 hover:bg-pink-300/25 text-[11px] font-semibold tracking-[0.16em] text-pink-50 uppercase transition-colors duration-300"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-500 opacity-95 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10 text-sm md:text-base font-semibold tracking-[0.2em] text-white">LET&apos;S CONNECT</span>
+                LET&apos;S CONNECT
+              </a>
+              
+              <a 
+                href="#education" 
+                className="px-6 py-3 border border-white/15 hover:border-pink-200/50 bg-white/[0.02] hover:bg-white/[0.05] text-[11px] font-semibold tracking-[0.16em] text-slate-200 uppercase transition-colors duration-300"
+              >
+                MY JOURNEY
               </a>
             </motion.div>
           </div>
 
           {/* --- RIGHT SIDE: PORTRAIT IMAGE --- */}
-          <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[600px] flex items-center justify-center order-1 lg:order-2 mt-8 lg:mt-0">
+          <div className="relative w-full h-[320px] sm:h-[410px] lg:h-[560px] flex items-center justify-center order-1 lg:order-2 mt-4 lg:mt-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.94, filter: 'blur(10px)' }}
               animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
               transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
               className="relative w-full h-full flex justify-center items-center"
             >
-              {/* Back subtle glow */}
-              <div className="absolute w-[60%] h-[70%] bg-blue-500/15 blur-[80px] rounded-[100%] animate-pulse" style={{ animationDuration: '4s' }}></div>
-              
-              {/* Image Container with fading edges */}
+              <div className="absolute w-[64%] h-[78%] border border-white/10 rounded-[48%_48%_8px_8px]" />
               <div 
-                className="absolute w-full h-full flex justify-center items-end pb-0 lg:pb-10"
+                className="absolute w-full h-full flex justify-center items-end pb-0 lg:pb-6"
                 style={{
-                  WebkitMaskImage: 'radial-gradient(circle at 50% 50%, black 40%, transparent 80%)',
-                  maskImage: 'radial-gradient(circle at 50% 50%, black 40%, transparent 80%)',
+                  WebkitMaskImage: 'radial-gradient(ellipse 68% 76% at 50% 48%, black 56%, transparent 100%)',
+                  maskImage: 'radial-gradient(ellipse 68% 76% at 50% 48%, black 56%, transparent 100%)',
                 }}
               >
                 <img 
                   src="/profile.png" 
                   alt="Sayantani Sinha" 
-                  className="object-contain w-[70%] md:w-[65%] lg:w-[80%] h-[90%] lg:h-[95%] grayscale-[0.6] contrast-125 brightness-110 sepia-[0.1] mix-blend-lighten"
+                  className="object-contain w-[70%] md:w-[65%] lg:w-[80%] h-[90%] lg:h-[95%] grayscale-[0.3] contrast-110 brightness-105 mix-blend-lighten"
                   style={{ objectPosition: 'center bottom' }}
                 />
               </div>
@@ -173,15 +132,15 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20 group cursor-pointer"
+        className="absolute bottom-3 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20 group cursor-pointer"
         onClick={() => document.getElementById('education')?.scrollIntoView({ behavior: 'smooth' })}
       >
-        <span className="text-[9px] font-mono tracking-[0.5em] text-blue-400/70 uppercase group-hover:text-blue-400 transition-colors">Scroll</span>
+        <span className="text-[9px] font-mono tracking-[0.28em] text-slate-300/65 uppercase group-hover:text-pink-200 transition-colors">Scroll</span>
         
         {/* Futuristic Mouse Capsule */}
-        <div className="w-[22px] h-[36px] rounded-full border border-blue-500/30 flex justify-center p-[3px] relative shadow-[0_0_15px_rgba(59,130,246,0.15)] bg-[#0a0f1a]/50 backdrop-blur-sm group-hover:border-blue-500/60 transition-all duration-300">
+        <div className="w-[22px] h-[36px] rounded-full border border-white/20 flex justify-center p-[3px] relative bg-[#111a29]/70 backdrop-blur-sm group-hover:border-pink-200/60 transition-colors duration-300">
           <motion.div 
-            className="w-1 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(59,130,246,1)]"
+            className="w-1 h-2 rounded-full bg-pink-200"
             animate={{ 
               y: [0, 16, 0],
               opacity: [1, 0.4, 1]
@@ -195,7 +154,7 @@ const Hero = () => {
         </div>
         
         {/* Connecting line fading down */}
-        <div className="w-[1px] h-8 bg-gradient-to-b from-blue-500/50 to-transparent"></div>
+        <div className="w-[1px] h-6 bg-gradient-to-b from-pink-200/45 to-transparent"></div>
       </motion.div>
       
     </section>

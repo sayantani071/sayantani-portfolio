@@ -36,15 +36,15 @@ const Hero = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-5 backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.15)]"
+              className="flex items-center justify-center gap-3 mb-4"
             >
-              <span className="relative flex h-2 w-2">
+              <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400 shadow-[0_0_10px_#38bdf8]"></span>
               </span>
-              <span className="text-cyan-300/90 font-mono tracking-[0.25em] text-[11px] font-semibold uppercase">
-                HELLO <span className="text-blue-400">|</span> I AM
-              </span>
+              <p className="text-gray-300 font-mono tracking-[0.35em] text-sm md:text-base font-semibold uppercase">
+                HELLO <span className="text-cyan-400 font-bold mx-1">|</span> I AM
+              </p>
             </motion.div>
 
             <motion.h1 

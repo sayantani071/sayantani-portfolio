@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 import BackgroundGlitters from './components/BackgroundGlitters';
 import GithubActivity from './components/GithubActivity';
 import CustomCursor from './components/CustomCursor';
-import PageLoadIndicator from './components/PageLoadIndicator';
+import CinemaCurtainOpening from './components/CinemaCurtainOpening';
 
 function App() {
   const glowRef = useRef(null);
@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="relative min-h-screen bg-background overflow-hidden font-sans">
       <CustomCursor />
-      <PageLoadIndicator />
+      <CinemaCurtainOpening />
       {/* Futuristic Background Gradients with Mouse tracking */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <BackgroundGlitters />

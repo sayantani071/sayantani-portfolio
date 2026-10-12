@@ -140,7 +140,7 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-3 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20 group cursor-pointer"
-        onClick={() => document.getElementById('education')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
       >
         <span className="text-[9px] font-mono tracking-[0.28em] text-slate-300/65 uppercase group-hover:text-pink-200 transition-colors">Scroll</span>
         

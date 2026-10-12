@@ -11,29 +11,29 @@ const Education = () => {
   
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
-  // Transforms for Step 1
-  const dot1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.5]);
-  const box1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.15]);
-  const box1Border = useTransform(scrollYProgress, [0, 0.05], ["rgba(255,255,255,0.05)", "rgba(244,114,182,0.6)"]);
-  const box1Shadow = useTransform(scrollYProgress, [0, 0.05], ["0px 0px 0px rgba(244,114,182,0)", "0px 0px 30px rgba(244,114,182,0.25)"]);
+  // Transforms for Step 1 - Minimal & Subtle
+  const dot1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.2]);
+  const box1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.01]);
+  const box1Border = useTransform(scrollYProgress, [0, 0.05], ["rgba(255,255,255,0.06)", "rgba(244,114,182,0.35)"]);
+  const box1Shadow = useTransform(scrollYProgress, [0, 0.05], ["0px 0px 0px rgba(0,0,0,0)", "0px 0px 20px rgba(244,114,182,0.08)"]);
 
   // Transforms for Step 2
   const dot2Opacity = useTransform(scrollYProgress, [0.2, 0.35], [0, 1]);
-  const box2Scale = useTransform(scrollYProgress, [0.2, 0.35], [1, 1.15]);
-  const box2Border = useTransform(scrollYProgress, [0.2, 0.35], ["rgba(255,255,255,0.05)", "rgba(244,114,182,0.6)"]);
-  const box2Shadow = useTransform(scrollYProgress, [0.2, 0.35], ["0px 0px 0px rgba(244,114,182,0)", "0px 0px 30px rgba(244,114,182,0.25)"]);
+  const box2Scale = useTransform(scrollYProgress, [0.2, 0.35], [1, 1.01]);
+  const box2Border = useTransform(scrollYProgress, [0.2, 0.35], ["rgba(255,255,255,0.06)", "rgba(244,114,182,0.35)"]);
+  const box2Shadow = useTransform(scrollYProgress, [0.2, 0.35], ["0px 0px 0px rgba(0,0,0,0)", "0px 0px 20px rgba(244,114,182,0.08)"]);
 
   // Transforms for Step 3
-  const dot3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.3]);
-  const box3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.15]);
-  const box3Border = useTransform(scrollYProgress, [0.55, 0.7], ["rgba(244,114,182,0.3)", "rgba(244,114,182,0.9)"]);
-  const box3Shadow = useTransform(scrollYProgress, [0.55, 0.7], ["0px 0px 10px rgba(244,114,182,0.15)", "0px 0px 40px rgba(244,114,182,0.35)"]);
+  const dot3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.2]);
+  const box3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.01]);
+  const box3Border = useTransform(scrollYProgress, [0.55, 0.7], ["rgba(244,114,182,0.15)", "rgba(244,114,182,0.45)"]);
+  const box3Shadow = useTransform(scrollYProgress, [0.55, 0.7], ["0px 0px 0px rgba(0,0,0,0)", "0px 0px 25px rgba(244,114,182,0.12)"]);
 
   // Transforms for Step 4
   const dot4Opacity = useTransform(scrollYProgress, [0.85, 1], [0, 1]);
-  const box4Scale = useTransform(scrollYProgress, [0.85, 1], [1, 1.15]);
-  const box4Border = useTransform(scrollYProgress, [0.85, 1], ["rgba(255,255,255,0.05)", "rgba(244,114,182,0.6)"]);
-  const box4Shadow = useTransform(scrollYProgress, [0.85, 1], ["0px 0px 0px rgba(244,114,182,0)", "0px 0px 30px rgba(244,114,182,0.25)"]);
+  const box4Scale = useTransform(scrollYProgress, [0.85, 1], [1, 1.01]);
+  const box4Border = useTransform(scrollYProgress, [0.85, 1], ["rgba(255,255,255,0.06)", "rgba(244,114,182,0.35)"]);
+  const box4Shadow = useTransform(scrollYProgress, [0.85, 1], ["0px 0px 0px rgba(0,0,0,0)", "0px 0px 20px rgba(244,114,182,0.08)"]);
 
   return (
     <section id="education" className="py-24 relative z-10 font-sans">
@@ -43,12 +43,12 @@ const Education = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-24"
+          className="mb-20 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-pink-100 via-pink-400 to-rose-300 bg-[length:200%_auto] animate-text-flow tracking-wide">
-            Education
+          <h2 className="text-3xl md:text-4xl font-light text-white tracking-wide">
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-rose-300 to-pink-200">Journey</span>
           </h2>
-          <div className="w-24 h-[1px] bg-pink-500/30 mt-6"></div>
+          <div className="w-12 h-[1px] bg-pink-500/30 mx-auto mt-4"></div>
         </motion.div>
 
         <div ref={containerRef} className="relative max-w-4xl mx-auto">
@@ -146,13 +146,10 @@ const Education = () => {
                   </span>
                 </div>
 
-                <div className="w-full bg-[#0a0512]/90 border border-pink-500/30 h-2.5 rounded-full overflow-hidden relative p-[1px] shadow-[inset_0_1px_4px_rgba(0,0,0,0.8),0_0_10px_rgba(244,114,182,0.2)]">
-                  <div className="bg-[linear-gradient(90deg,#f472b6_0%,#fb7185_30%,#ffffff_50%,#ec4899_70%,#f472b6_100%)] bg-[length:200%_auto] animate-text-flow w-[40%] h-full relative overflow-hidden rounded-full shadow-[0_0_15px_rgba(244,114,182,0.8),0_0_25px_rgba(251,113,133,0.6)]">
-                    <div className="absolute top-0 left-0 h-full w-[200%] bg-gradient-to-r from-transparent via-white/80 to-transparent animate-slide"></div>
-                    <div className="absolute right-0 top-0 bottom-0 w-2 bg-white/90 rounded-full blur-[0.5px] shadow-[0_0_10px_#ffffff,0_0_15px_#f472b6]"></div>
-                  </div>
+                <div className="w-full bg-white/5 border border-pink-500/20 h-1.5 rounded-full overflow-hidden relative">
+                  <div className="bg-gradient-to-r from-pink-400 to-rose-400 w-[45%] h-full rounded-full shadow-[0_0_8px_rgba(244,114,182,0.4)]"></div>
                 </div>
-                <p className="md:text-right text-left text-[10px] font-mono mt-2 uppercase tracking-widest font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-rose-300 to-white">IN PROGRESS</p>
+                <p className="md:text-right text-left text-[10px] font-mono mt-2 uppercase tracking-widest text-pink-300/70">IN PROGRESS</p>
               </motion.div>
             </div>
             <motion.div 

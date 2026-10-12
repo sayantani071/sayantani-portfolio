@@ -21,9 +21,8 @@ const Hero = () => {
     <section id="home" className="relative w-full h-screen min-h-[700px] bg-transparent flex items-center pt-16">
       
       {/* --- BACKGROUND ELEMENTS --- */}
-      {/* Subtle ambient glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] bg-pink-900/25 rounded-full blur-[150px] pointer-events-none"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[35%] h-[35%] bg-rose-900/20 rounded-full blur-[120px] pointer-events-none"></div>
+      {/* Soft, minimal ambient glow */}
+      <div className="absolute top-1/4 left-1/4 w-[35%] h-[35%] bg-pink-950/15 rounded-full blur-[140px] pointer-events-none"></div>
       
       <div className="container mx-auto px-6 md:px-12 relative z-10 h-full flex flex-col justify-center">
         <div className="grid lg:grid-cols-2 gap-12 items-center h-full">
@@ -36,11 +35,11 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center justify-center gap-3 mb-4"
             >
-              <span className="relative flex h-2.5 w-2.5">
+              <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-pink-400 shadow-[0_0_10px_#f472b6]"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-400"></span>
               </span>
-              <p className="text-pink-200/90 font-mono tracking-[0.35em] text-sm md:text-base font-semibold uppercase">
+              <p className="text-pink-200/80 font-mono tracking-[0.35em] text-xs md:text-sm font-semibold uppercase">
                 HELLO <span className="text-pink-400 font-bold mx-1">|</span> I AM
               </p>
             </motion.div>
@@ -51,7 +50,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight mb-4 whitespace-nowrap"
             >
-              <span className="bg-gradient-to-r from-pink-100 via-pink-400 to-rose-300 bg-[length:200%_auto] animate-text-flow bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(244,114,182,0.45)]">
+              <span className="bg-gradient-to-r from-pink-100 via-pink-300 to-rose-200 bg-[length:200%_auto] animate-text-flow bg-clip-text text-transparent">
                 Sayantani Sinha
               </span>
             </motion.h1>
@@ -62,7 +61,7 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
               className="h-10 md:h-12 flex justify-center items-center w-full mb-10"
             >
-              <div className="text-xl md:text-2xl text-gray-200 font-light flex justify-center w-full">
+              <div className="text-lg md:text-xl text-gray-300 font-light flex justify-center w-full">
                 <div className="relative overflow-hidden w-full max-w-[400px] h-[40px]">
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -74,35 +73,32 @@ const Hero = () => {
                       className="absolute left-0 top-0 w-full flex justify-center items-center gap-2"
                     >
                       <span className="text-pink-400 font-bold">&gt;</span>
-                      <span className="text-pink-100">{roles[currentRoleIndex]}</span>
+                      <span className="text-pink-100/90 font-mono text-sm md:text-base tracking-wide">{roles[currentRoleIndex]}</span>
                     </motion.div>
                   </AnimatePresence>
                 </div>
               </div>
             </motion.div>
 
+            {/* Minimal Two Action Buttons */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-wrap justify-center items-center gap-4 md:gap-6"
+              className="flex items-center justify-center gap-5"
             >
-              {/* Button 1: View My Work */}
-              <a href="#projects" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden transition-all duration-300 shadow-[0_0_15px_rgba(244,114,182,0.3)] hover:shadow-[0_0_30px_rgba(244,114,182,0.6)] hover:-translate-y-1">
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10 text-sm md:text-base font-semibold tracking-[0.2em] text-white">VIEW MY WORK</span>
+              <a 
+                href="#contact" 
+                className="px-8 py-3.5 rounded-full bg-gradient-to-r from-pink-500/90 via-rose-500/90 to-pink-600/90 hover:from-pink-400 hover:to-rose-400 text-xs font-semibold tracking-[0.25em] text-white uppercase transition-all duration-300 shadow-[0_0_15px_rgba(244,114,182,0.25)] hover:shadow-[0_0_25px_rgba(244,114,182,0.5)] transform hover:-translate-y-0.5"
+              >
+                LET&apos;S CONNECT
               </a>
               
-              {/* Button 2: Download CV */}
-              <a href="#" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden bg-[#13071b]/80 backdrop-blur-sm border border-pink-500/40 hover:border-pink-400 transition-all duration-300 hover:shadow-[0_0_25px_rgba(244,114,182,0.25)] hover:-translate-y-1">
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-500/15 to-rose-500/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10 text-sm md:text-base font-semibold tracking-[0.2em] text-pink-100">DOWNLOAD CV</span>
-              </a>
-
-              {/* Button 3: Let's Connect */}
-              <a href="#contact" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden transition-all duration-300 shadow-[0_0_15px_rgba(251,113,133,0.3)] hover:shadow-[0_0_30px_rgba(244,114,182,0.6)] hover:-translate-y-1">
-                <div className="absolute inset-0 bg-gradient-to-r from-rose-600 via-pink-600 to-rose-500 opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10 text-sm md:text-base font-semibold tracking-[0.2em] text-white">LET&apos;S CONNECT</span>
+              <a 
+                href="#education" 
+                className="px-8 py-3.5 rounded-full border border-pink-400/30 hover:border-pink-300/60 bg-pink-500/[0.03] hover:bg-pink-500/[0.08] text-xs font-semibold tracking-[0.25em] text-pink-100 uppercase transition-all duration-300 transform hover:-translate-y-0.5"
+              >
+                MY JOURNEY
               </a>
             </motion.div>
           </div>
@@ -115,8 +111,8 @@ const Hero = () => {
               transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
               className="relative w-full h-full flex justify-center items-center"
             >
-              {/* Back subtle glow */}
-              <div className="absolute w-[65%] h-[75%] bg-pink-500/20 blur-[85px] rounded-[100%] animate-pulse" style={{ animationDuration: '4s' }}></div>
+              {/* Back soft glow */}
+              <div className="absolute w-[60%] h-[70%] bg-pink-500/10 blur-[80px] rounded-[100%] pointer-events-none"></div>
               
               {/* Image Container with fading edges */}
               <div 

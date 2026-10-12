@@ -18,37 +18,36 @@ const SakuraPetals = () => {
     canvas.width = width;
     canvas.height = height;
 
-    // Petal configuration
-    const petalCount = 40;
+    // Petal configuration - Minimal & serene
+    const petalCount = 15;
     const petals = [];
 
-    // Sakura color shades
+    // Subtle, whisper-soft Sakura color shades
     const petalColors = [
-      { fill: 'rgba(255, 183, 197, 0.75)', shadow: 'rgba(244, 114, 182, 0.4)' },
-      { fill: 'rgba(251, 113, 133, 0.65)', shadow: 'rgba(236, 72, 153, 0.35)' },
-      { fill: 'rgba(253, 164, 175, 0.8)', shadow: 'rgba(244, 114, 182, 0.4)' },
-      { fill: 'rgba(255, 228, 230, 0.85)', shadow: 'rgba(251, 113, 133, 0.3)' },
-      { fill: 'rgba(244, 114, 182, 0.7)', shadow: 'rgba(219, 39, 119, 0.35)' },
+      { fill: 'rgba(255, 192, 203, 0.45)' },
+      { fill: 'rgba(251, 113, 133, 0.35)' },
+      { fill: 'rgba(253, 164, 175, 0.40)' },
+      { fill: 'rgba(254, 205, 211, 0.45)' },
     ];
 
     for (let i = 0; i < petalCount; i++) {
       petals.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * 8 + 9, // 9 to 17px
-        speedY: Math.random() * 0.9 + 0.7, // gentle descent
-        speedX: Math.random() * 0.6 + 0.3, // slight breeze to the right
-        swaySpeed: Math.random() * 0.02 + 0.01,
+        size: Math.random() * 5 + 7, // 7 to 12px - small and delicate
+        speedY: Math.random() * 0.5 + 0.4, // calm, slow descent
+        speedX: Math.random() * 0.3 + 0.15, // whisper breeze
+        swaySpeed: Math.random() * 0.015 + 0.008,
         swayAngle: Math.random() * Math.PI * 2,
-        swayDistance: Math.random() * 1.5 + 0.8,
+        swayDistance: Math.random() * 1.2 + 0.5,
         rotX: Math.random() * Math.PI * 2,
         rotY: Math.random() * Math.PI * 2,
         rotZ: Math.random() * Math.PI * 2,
-        rotSpeedX: Math.random() * 0.02 - 0.01,
-        rotSpeedY: Math.random() * 0.03 + 0.01,
-        rotSpeedZ: Math.random() * 0.02 + 0.005,
+        rotSpeedX: Math.random() * 0.015 - 0.007,
+        rotSpeedY: Math.random() * 0.02 + 0.008,
+        rotSpeedZ: Math.random() * 0.015 + 0.004,
         color: petalColors[Math.floor(Math.random() * petalColors.length)],
-        opacity: Math.random() * 0.4 + 0.6,
+        opacity: Math.random() * 0.3 + 0.3, // soft 0.3 - 0.6 opacity
       });
     }
 
@@ -73,11 +72,9 @@ const SakuraPetals = () => {
       // Delicate gradient fill
       const grad = ctx.createLinearGradient(0, -size, 0, size);
       grad.addColorStop(0, color.fill.replace(/[\d.]+\)$/, `${opacity})`));
-      grad.addColorStop(1, 'rgba(255, 241, 242, 0.9)'.replace(/[\d.]+\)$/, `${opacity * 0.85})`));
+      grad.addColorStop(1, 'rgba(255, 241, 242, 0.8)'.replace(/[\d.]+\)$/, `${opacity * 0.8})`));
 
       ctx.fillStyle = grad;
-      ctx.shadowColor = color.shadow;
-      ctx.shadowBlur = 6;
       ctx.fill();
 
       // Subtle center vein

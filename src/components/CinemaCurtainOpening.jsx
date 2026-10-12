@@ -72,15 +72,11 @@ const CinemaCurtainOpening = () => {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 flex items-center justify-center z-[1000002] px-6 pointer-events-auto"
           >
-            <div className="relative w-full max-w-md p-8 sm:p-10 rounded-3xl bg-[#0e0618]/90 backdrop-blur-2xl border border-pink-500/30 shadow-[0_0_60px_rgba(244,114,182,0.25),0_0_100px_rgba(251,113,133,0.2)] overflow-hidden">
+            <div className="relative w-full max-w-md p-8 sm:p-10 rounded-3xl bg-[#0c0517]/90 backdrop-blur-2xl border border-pink-500/20 shadow-[0_0_40px_rgba(244,114,182,0.12)] overflow-hidden">
               
-              {/* Subtle ambient corner flares inside card */}
-              <div className="absolute -top-12 -left-12 w-36 h-36 bg-pink-500/25 rounded-full blur-2xl pointer-events-none" />
-              <div className="absolute -bottom-12 -right-12 w-36 h-36 bg-rose-500/25 rounded-full blur-2xl pointer-events-none" />
-
               {/* Status Header Badge */}
               <div className="flex items-center justify-between mb-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/30">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-400" />
@@ -89,7 +85,7 @@ const CinemaCurtainOpening = () => {
                     🌸 SAKURA CALIBRATION
                   </span>
                 </div>
-                <span className="text-pink-300/60 font-mono text-xs tracking-wider">
+                <span className="text-pink-300/50 font-mono text-xs tracking-wider">
                   SYS // SAKURA
                 </span>
               </div>
@@ -97,10 +93,10 @@ const CinemaCurtainOpening = () => {
               {/* Name & Title */}
               <div className="mb-8">
                 <div className="flex items-baseline gap-2">
-                  <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white font-sans">
+                  <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-sans">
                     Sayantani Sinha
                   </h2>
-                  <span className="text-pink-400 text-3xl font-black leading-none">.</span>
+                  <span className="text-pink-400 text-3xl font-bold leading-none">.</span>
                 </div>
                 <p className="text-xs sm:text-sm text-pink-200/70 font-mono tracking-wider mt-1">
                   Software Engineer &amp; AI/ML Developer
@@ -109,19 +105,19 @@ const CinemaCurtainOpening = () => {
 
               {/* Progress Counter & Percentage */}
               <div className="flex items-baseline justify-between mb-3">
-                <span className="text-pink-300/70 font-mono text-xs tracking-widest uppercase">
+                <span className="text-pink-300/60 font-mono text-xs tracking-widest uppercase">
                   PROGRESS
                 </span>
-                <span className="text-4xl sm:text-5xl font-black font-mono tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-rose-300 to-white">
+                <span className="text-4xl sm:text-5xl font-light font-mono tracking-tight text-white">
                   {progress}
-                  <span className="text-xl sm:text-2xl text-pink-400 font-normal">%</span>
+                  <span className="text-xl sm:text-2xl text-pink-400/80 font-normal">%</span>
                 </span>
               </div>
 
-              {/* Glowing Dynamic Progress Track */}
-              <div className="relative w-full h-[5px] bg-slate-900/80 rounded-full overflow-hidden mb-4 p-[1px]">
+              {/* Glowing Dynamic Progress Track - Sleek & Minimal */}
+              <div className="relative w-full h-[3px] bg-white/5 rounded-full overflow-hidden mb-4">
                 <motion.div
-                  className="h-full rounded-full bg-gradient-to-r from-pink-400 via-rose-500 to-fuchsia-400 shadow-[0_0_15px_rgba(244,114,182,0.9)]"
+                  className="h-full rounded-full bg-gradient-to-r from-pink-400 to-rose-400 shadow-[0_0_10px_rgba(244,114,182,0.6)]"
                   style={{ width: `${progress}%` }}
                   transition={{ ease: 'easeOut', duration: 0.1 }}
                 />
@@ -130,7 +126,7 @@ const CinemaCurtainOpening = () => {
               {/* Dynamic Terminal Subtitle */}
               <div className="flex items-center gap-2">
                 <span className="text-pink-400 font-mono text-xs font-bold">&gt;</span>
-                <p className="text-xs font-mono text-pink-200/90 tracking-wide truncate">
+                <p className="text-xs font-mono text-pink-200/80 tracking-wide truncate">
                   {getStatusText(progress)}
                 </p>
               </div>

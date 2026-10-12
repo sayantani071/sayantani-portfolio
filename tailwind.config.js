@@ -55,6 +55,8 @@ export default {
         sans: ['DM Sans', 'sans-serif'],
         serif: ['Cormorant Garamond', 'serif'],
         mono: ['Fira Code', 'monospace'],
+        heading: ["'Caviar Dreams'", 'sans-serif'],
+        typewriter: ["'Type Machine'", "'Fira Code'", 'monospace'],
       },
       animation: {
         'blob': 'blob 7s infinite',

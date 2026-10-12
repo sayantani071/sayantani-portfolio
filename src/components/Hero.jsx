@@ -33,30 +33,35 @@ const Hero = () => {
           {/* --- LEFT SIDE: TEXT CONTENT --- */}
           <div className="flex flex-col justify-center items-center text-center order-2 lg:order-1 mt-12 lg:mt-0">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-5 backdrop-blur-md shadow-[0_0_15px_rgba(59,130,246,0.15)]"
             >
-              <p className="text-gray-400 font-mono tracking-[0.3em] text-xs md:text-sm mb-4">
-                HELLO <span className="text-blue-500">|</span> I AM
-              </p>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+              </span>
+              <span className="text-cyan-300/90 font-mono tracking-[0.25em] text-[11px] font-semibold uppercase">
+                HELLO <span className="text-blue-400">|</span> AVAILABLE FOR INNOVATION
+              </span>
             </motion.div>
 
             <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              initial={{ opacity: 0, y: 25, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.8, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight mb-4 whitespace-nowrap"
             >
-              <span className="bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200 bg-[length:200%_auto] animate-text-flow bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(59,130,246,0.3)]">
+              <span className="bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200 bg-[length:200%_auto] animate-text-flow bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(59,130,246,0.35)]">
                 Sayantani Sinha
               </span>
             </motion.h1>
 
             <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
               className="h-10 md:h-12 flex justify-center items-center w-full mb-10"
             >
               <div className="text-xl md:text-2xl text-gray-300 font-light flex justify-center w-full">
@@ -79,9 +84,9 @@ const Hero = () => {
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-wrap justify-center items-center gap-4 md:gap-6"
             >
               {/* Button 1: View My Work */}
@@ -107,9 +112,9 @@ const Hero = () => {
           {/* --- RIGHT SIDE: PORTRAIT IMAGE --- */}
           <div className="relative w-full h-[350px] sm:h-[450px] lg:h-[600px] flex items-center justify-center order-1 lg:order-2 mt-8 lg:mt-0">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+              initial={{ opacity: 0, scale: 0.94, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
               className="relative w-full h-full flex justify-center items-center"
             >
               {/* Back subtle glow */}

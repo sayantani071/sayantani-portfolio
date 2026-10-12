@@ -23,8 +23,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b ${
+    <motion.nav 
+      initial={{ y: -25, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 left-0 w-full z-50 transition-[padding,background-color,border-color,box-shadow] duration-500 border-b ${
         isScrolled 
           ? 'bg-black/70 backdrop-blur-md border-white/5 py-4 shadow-2xl' 
           : 'bg-transparent border-transparent py-6'
@@ -89,7 +92,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 };
 

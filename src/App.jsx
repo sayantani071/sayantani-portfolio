@@ -1,5 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useRef, useEffect } from 'react';
 
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,22 +10,9 @@ import Footer from './components/Footer';
 import BackgroundGlitters from './components/BackgroundGlitters';
 import GithubActivity from './components/GithubActivity';
 import CustomCursor from './components/CustomCursor';
-import WelcomeScreen from './components/WelcomeScreen';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
   const glowRef = useRef(null);
-
-  useEffect(() => {
-    if (isLoading) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isLoading]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -42,13 +28,6 @@ function App() {
   return (
     <div className="relative min-h-screen bg-background overflow-hidden font-sans">
       <CustomCursor />
-
-      {/* Opening Dynamic Welcome Screen */}
-      <AnimatePresence mode="wait">
-        {isLoading && (
-          <WelcomeScreen onComplete={() => setIsLoading(false)} />
-        )}
-      </AnimatePresence>
       {/* Futuristic Background Gradients with Mouse tracking */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <BackgroundGlitters />

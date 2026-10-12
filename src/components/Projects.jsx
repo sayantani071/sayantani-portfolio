@@ -43,17 +43,25 @@ const Projects = () => {
                 <p className="text-gray-400 text-sm mb-6 flex-grow">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, tagIdx) => (
-                    <span key={tagIdx} className="text-xs font-mono text-accent bg-accent/10 px-2 py-1 rounded">
+                    <span key={tagIdx} className="text-xs font-mono text-accent bg-accent/10 px-2 py-1 rounded-none border border-accent/20">
                       {tag}
                     </span>
                   ))}
                 </div>
                 <div className="flex items-center gap-4 mt-auto pt-4 border-t border-white/10">
-                  <a href={project.github} className="text-gray-400 hover:text-white flex items-center gap-2 text-sm font-medium transition-colors">
-                    <Github size={18} /> Code
+                  <a 
+                    href={project.github} 
+                    className="px-3 py-1.5 rounded-none border border-white/10 hover:border-accent/50 bg-white/[0.02] text-gray-300 hover:text-white flex items-center gap-2 text-xs font-mono tracking-wider transition-all"
+                    style={{ clipPath: 'polygon(6px 0%, 100% 0%, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0% 100%, 0% 6px)' }}
+                  >
+                    <Github size={15} /> Code
                   </a>
-                  <a href={project.demo} className="text-gray-400 hover:text-white flex items-center gap-2 text-sm font-medium transition-colors">
-                    <ExternalLink size={18} /> Live Demo
+                  <a 
+                    href={project.demo} 
+                    className="px-3 py-1.5 rounded-none border border-white/10 hover:border-accent/50 bg-white/[0.02] text-gray-300 hover:text-white flex items-center gap-2 text-xs font-mono tracking-wider transition-all"
+                    style={{ clipPath: 'polygon(6px 0%, 100% 0%, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0% 100%, 0% 6px)' }}
+                  >
+                    <ExternalLink size={15} /> Live Demo
                   </a>
                 </div>
               </div>

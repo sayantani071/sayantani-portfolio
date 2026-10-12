@@ -23,9 +23,14 @@ const Contact = () => {
 
           <a 
             href="mailto:sayantani@example.com" 
-            className="inline-block px-8 py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 transition-colors duration-300 shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] text-sm font-semibold tracking-widest text-white uppercase mb-12"
+            className="group relative inline-flex items-center justify-center px-10 py-4 rounded-none overflow-hidden transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_35px_rgba(59,130,246,0.65)] hover:-translate-y-1 active:translate-y-0 text-sm font-semibold tracking-widest text-white uppercase mb-12"
+            style={{
+              clipPath: 'polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px)',
+            }}
           >
-            Say Hello
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 opacity-95 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span className="relative z-10">Say Hello</span>
           </a>
 
           <div className="flex items-center justify-center gap-6 mt-4">

@@ -89,21 +89,48 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-wrap justify-center items-center gap-4 md:gap-6"
             >
-              {/* Button 1: View My Work */}
-              <a href="#projects" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.2)] hover:shadow-[0_0_25px_rgba(99,102,241,0.3)] hover:-translate-y-1">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
+              {/* Button 1: View My Work - Boxy & Sharp Pointy */}
+              <a 
+                href="#projects" 
+                className="group relative inline-flex items-center justify-center px-8 py-3.5 md:px-10 md:py-4 rounded-none overflow-hidden transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.55)] hover:-translate-y-1 active:translate-y-0"
+                style={{
+                  clipPath: 'polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px)',
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 opacity-95 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span className="relative z-10 text-sm md:text-base font-semibold tracking-[0.2em] text-white">VIEW MY WORK</span>
               </a>
               
-              {/* Button 2: Download CV */}
-              <a href="#" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden bg-[#0a0f1a]/80 backdrop-blur-sm border border-blue-500/40 hover:border-indigo-500/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] hover:-translate-y-1">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10 text-sm md:text-base font-semibold tracking-[0.2em] text-white">DOWNLOAD CV</span>
+              {/* Button 2: Download CV - Boxy & Sharp Pointy with Border */}
+              <a 
+                href="#" 
+                className="group relative inline-flex items-center justify-center p-[1.5px] rounded-none overflow-hidden transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.15)] hover:shadow-[0_0_25px_rgba(99,102,241,0.35)] hover:-translate-y-1 active:translate-y-0"
+                style={{
+                  clipPath: 'polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px)',
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/70 via-indigo-500/70 to-blue-500/70 group-hover:from-blue-400 group-hover:to-indigo-400 transition-colors duration-300"></div>
+                <div 
+                  className="relative z-10 w-full h-full px-8 py-3.5 md:px-10 md:py-4 bg-[#090b14]/95 group-hover:bg-[#0f172a]/90 backdrop-blur-md transition-colors duration-300 flex items-center justify-center"
+                  style={{
+                    clipPath: 'polygon(11px 0%, 100% 0%, 100% calc(100% - 11px), calc(100% - 11px) 100%, 0% 100%, 0% 11px)',
+                  }}
+                >
+                  <span className="text-sm md:text-base font-semibold tracking-[0.2em] text-white">DOWNLOAD CV</span>
+                </div>
               </a>
 
-              {/* Button 3: Let's Connect */}
-              <a href="#contact" className="group relative px-10 py-4 md:px-12 md:py-4 rounded-full overflow-hidden transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.2)] hover:shadow-[0_0_25px_rgba(99,102,241,0.3)] hover:-translate-y-1">
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-500 opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
+              {/* Button 3: Let's Connect - Boxy & Sharp Pointy */}
+              <a 
+                href="#contact" 
+                className="group relative inline-flex items-center justify-center px-8 py-3.5 md:px-10 md:py-4 rounded-none overflow-hidden transition-all duration-300 shadow-[0_0_15px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.55)] hover:-translate-y-1 active:translate-y-0"
+                style={{
+                  clipPath: 'polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px)',
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-500 opacity-95 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span className="relative z-10 text-sm md:text-base font-semibold tracking-[0.2em] text-white">LET&apos;S CONNECT</span>
               </a>
             </motion.div>

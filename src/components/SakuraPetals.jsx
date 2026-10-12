@@ -34,35 +34,6 @@ const SakuraPetals = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    // Mouse tracking for subtle Neural Probe
-    let mouseX = -1000;
-    let mouseY = -1000;
-    let isMouseOnScreen = false;
-    let mouseSpeedX = 0;
-    let lastMouseX = width / 2;
-    let lastMouseTime = Date.now();
-
-    const handleMouseMove = (e) => {
-      isMouseOnScreen = true;
-      const now = Date.now();
-      const dt = Math.max(1, now - lastMouseTime);
-      mouseSpeedX = ((e.clientX - lastMouseX) / dt) * 12;
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      lastMouseX = e.clientX;
-      lastMouseTime = now;
-    };
-
-    const handleMouseLeave = () => {
-      isMouseOnScreen = false;
-      mouseX = -1000;
-      mouseY = -1000;
-    };
-
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    document.documentElement.addEventListener('mouseleave', handleMouseLeave);
-    document.documentElement.addEventListener('mouseenter', () => { isMouseOnScreen = true; });
-
     // Minimal, soft Sakura Pink Palette
     const petalColors = [
       {
@@ -143,8 +114,6 @@ const SakuraPetals = () => {
     const NODE_LINK_DIST_SQ = NODE_LINK_DIST * NODE_LINK_DIST;
     const PETAL_NODE_LINK_DIST = 120;
     const PETAL_NODE_LINK_DIST_SQ = PETAL_NODE_LINK_DIST * PETAL_NODE_LINK_DIST;
-    const MOUSE_LINK_DIST = 150;
-    const MOUSE_LINK_DIST_SQ = MOUSE_LINK_DIST * MOUSE_LINK_DIST;
 
     let globalWindTime = 0;
     let animId;
@@ -154,7 +123,6 @@ const SakuraPetals = () => {
 
       globalWindTime += 0.012;
       const gust = Math.sin(globalWindTime * 0.4) * 0.25;
-      mouseSpeedX *= 0.92;
 
       // Update Nodes
       for (let i = 0; i < nodeCount; i++) {
@@ -178,19 +146,8 @@ const SakuraPetals = () => {
         p.swayAngle += p.swaySpeed;
         const currentSway = Math.sin(p.swayAngle) * p.swayDistance;
 
-        let breeze = 0;
-        if (isMouseOnScreen) {
-          const dx = mouseX - p.x;
-          const dy = mouseY - p.y;
-          const distSq = dx * dx + dy * dy;
-          if (distSq < 22500) { // 150px
-            const dist = Math.sqrt(distSq);
-            breeze = (1 - dist / 150) * mouseSpeedX * 0.4;
-          }
-        }
-
         p.y += p.speedY;
-        p.x += p.speedX + currentSway + gust * p.depth + breeze;
+        p.x += p.speedX + currentSway + gust * p.depth;
 
         p.rotX += p.rotSpeedX;
         p.rotY += p.rotSpeedY;
@@ -270,63 +227,7 @@ const SakuraPetals = () => {
         }
       }
 
-      // C. Interactive Mouse Probe (Minimal & Refined)
-      if (isMouseOnScreen) {
-        // Small, subtle cursor node
-        ctx.beginPath();
-        ctx.arc(mouseX, mouseY, 2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 230, 240, 0.7)';
-        ctx.fill();
-
-        // Soft hairline to nearby Petals & Nodes
-        for (let i = 0; i < petalCount; i++) {
-          const p = petals[i];
-          const dx = mouseX - p.x;
-          if (Math.abs(dx) > MOUSE_LINK_DIST) continue;
-          const dy = mouseY - p.y;
-          if (Math.abs(dy) > MOUSE_LINK_DIST) continue;
-
-          const distSq = dx * dx + dy * dy;
-          if (distSq < MOUSE_LINK_DIST_SQ) {
-            const dist = Math.sqrt(distSq);
-            const factor = 1 - dist / MOUSE_LINK_DIST;
-            const alpha = factor * 0.35;
-
-            p.activeLinksCount++;
-
-            ctx.beginPath();
-            ctx.moveTo(mouseX, mouseY);
-            ctx.lineTo(p.x, p.y);
-            ctx.strokeStyle = `rgba(244, 114, 182, ${alpha})`;
-            ctx.lineWidth = 0.75;
-            ctx.stroke();
-          }
-        }
-
-        for (let i = 0; i < nodeCount; i++) {
-          const n = neuralNodes[i];
-          const dx = mouseX - n.x;
-          if (Math.abs(dx) > MOUSE_LINK_DIST) continue;
-          const dy = mouseY - n.y;
-          if (Math.abs(dy) > MOUSE_LINK_DIST) continue;
-
-          const distSq = dx * dx + dy * dy;
-          if (distSq < MOUSE_LINK_DIST_SQ) {
-            const dist = Math.sqrt(distSq);
-            const factor = 1 - dist / MOUSE_LINK_DIST;
-            const alpha = factor * 0.3;
-
-            ctx.beginPath();
-            ctx.moveTo(mouseX, mouseY);
-            ctx.lineTo(n.x, n.y);
-            ctx.strokeStyle = `rgba(255, 215, 230, ${alpha})`;
-            ctx.lineWidth = 0.65;
-            ctx.stroke();
-          }
-        }
-      }
-
-      // D. Draw Minimal Impulses
+      // C. Draw Minimal Impulses
       for (let i = impulses.length - 1; i >= 0; i--) {
         const imp = impulses[i];
         imp.progress += imp.speed;
@@ -417,8 +318,6 @@ const SakuraPetals = () => {
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener('resize', resize);
-      window.removeEventListener('mousemove', handleMouseMove);
-      document.documentElement.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 

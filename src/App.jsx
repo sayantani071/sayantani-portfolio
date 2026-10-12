@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Hero from './components/Hero';
-import Education from './components/Education';
+import About from './components/About';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -23,7 +23,7 @@ function App() {
         <Navbar />
         <main className="flex-grow">
           <Hero />
-          <Education />
+          <About />
           <GithubActivity />
           <Contact />
         </main>

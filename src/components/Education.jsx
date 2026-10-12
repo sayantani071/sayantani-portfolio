@@ -11,29 +11,29 @@ const Education = () => {
   
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
-  // Transforms for Step 1 - Minimal & Subtle
-  const dot1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.2]);
-  const box1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.01]);
-  const box1Border = useTransform(scrollYProgress, [0, 0.05], ["rgba(255,255,255,0.06)", "rgba(244,114,182,0.35)"]);
-  const box1Shadow = useTransform(scrollYProgress, [0, 0.05], ["0px 0px 0px rgba(0,0,0,0)", "0px 0px 20px rgba(244,114,182,0.08)"]);
+  // Transforms for Step 1
+  const dot1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.5]);
+  const box1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.15]);
+  const box1Border = useTransform(scrollYProgress, [0, 0.05], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
+  const box1Shadow = useTransform(scrollYProgress, [0, 0.05], ["0px 0px 0px rgba(59,130,246,0)", "0px 0px 30px rgba(59,130,246,0.2)"]);
 
   // Transforms for Step 2
   const dot2Opacity = useTransform(scrollYProgress, [0.2, 0.35], [0, 1]);
-  const box2Scale = useTransform(scrollYProgress, [0.2, 0.35], [1, 1.01]);
-  const box2Border = useTransform(scrollYProgress, [0.2, 0.35], ["rgba(255,255,255,0.06)", "rgba(244,114,182,0.35)"]);
-  const box2Shadow = useTransform(scrollYProgress, [0.2, 0.35], ["0px 0px 0px rgba(0,0,0,0)", "0px 0px 20px rgba(244,114,182,0.08)"]);
+  const box2Scale = useTransform(scrollYProgress, [0.2, 0.35], [1, 1.15]);
+  const box2Border = useTransform(scrollYProgress, [0.2, 0.35], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
+  const box2Shadow = useTransform(scrollYProgress, [0.2, 0.35], ["0px 0px 0px rgba(59,130,246,0)", "0px 0px 30px rgba(59,130,246,0.2)"]);
 
   // Transforms for Step 3
-  const dot3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.2]);
-  const box3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.01]);
-  const box3Border = useTransform(scrollYProgress, [0.55, 0.7], ["rgba(244,114,182,0.15)", "rgba(244,114,182,0.45)"]);
-  const box3Shadow = useTransform(scrollYProgress, [0.55, 0.7], ["0px 0px 0px rgba(0,0,0,0)", "0px 0px 25px rgba(244,114,182,0.12)"]);
+  const dot3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.3]);
+  const box3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.15]);
+  const box3Border = useTransform(scrollYProgress, [0.55, 0.7], ["rgba(59,130,246,0.3)", "rgba(59,130,246,0.8)"]);
+  const box3Shadow = useTransform(scrollYProgress, [0.55, 0.7], ["0px 0px 10px rgba(59,130,246,0.1)", "0px 0px 40px rgba(59,130,246,0.3)"]);
 
   // Transforms for Step 4
   const dot4Opacity = useTransform(scrollYProgress, [0.85, 1], [0, 1]);
-  const box4Scale = useTransform(scrollYProgress, [0.85, 1], [1, 1.01]);
-  const box4Border = useTransform(scrollYProgress, [0.85, 1], ["rgba(255,255,255,0.06)", "rgba(244,114,182,0.35)"]);
-  const box4Shadow = useTransform(scrollYProgress, [0.85, 1], ["0px 0px 0px rgba(0,0,0,0)", "0px 0px 20px rgba(244,114,182,0.08)"]);
+  const box4Scale = useTransform(scrollYProgress, [0.85, 1], [1, 1.15]);
+  const box4Border = useTransform(scrollYProgress, [0.85, 1], ["rgba(255,255,255,0.05)", "rgba(59,130,246,0.5)"]);
+  const box4Shadow = useTransform(scrollYProgress, [0.85, 1], ["0px 0px 0px rgba(59,130,246,0)", "0px 0px 30px rgba(59,130,246,0.2)"]);
 
   return (
     <section id="education" className="py-24 relative z-10 font-sans">
@@ -43,12 +43,12 @@ const Education = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-20 text-center"
+          className="mb-24"
         >
-          <h2 className="text-3xl md:text-4xl font-light text-white tracking-wide">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-rose-300 to-pink-200">Journey</span>
+          <h2 className="text-4xl md:text-5xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-400 bg-[length:200%_auto] animate-text-flow tracking-wide">
+            Education
           </h2>
-          <div className="w-12 h-[1px] bg-pink-500/30 mx-auto mt-4"></div>
+          <div className="w-24 h-[1px] bg-white/20 mt-6"></div>
         </motion.div>
 
         <div ref={containerRef} className="relative max-w-4xl mx-auto">
@@ -58,7 +58,7 @@ const Education = () => {
           {/* Dynamic Glowy Line */}
           <motion.div 
             style={{ height: lineHeight }}
-            className="absolute left-1/2 transform -translate-x-1/2 top-[50px] max-h-[calc(100%-100px)] w-[2px] bg-gradient-to-b from-pink-400 via-rose-500 to-transparent hidden md:block origin-top shadow-[0_0_20px_rgba(244,114,182,1)] z-0"
+            className="absolute left-1/2 transform -translate-x-1/2 top-[50px] max-h-[calc(100%-100px)] w-[2px] bg-gradient-to-b from-blue-400 via-blue-600 to-transparent hidden md:block origin-top shadow-[0_0_20px_rgba(59,130,246,1)] z-0"
           ></motion.div>
 
           {/* Born */}
@@ -69,19 +69,19 @@ const Education = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 style={{ scale: box1Scale, borderColor: box1Border, boxShadow: box1Shadow }}
-                className="bg-[#0e0618]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm relative overflow-hidden group"
+                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm relative overflow-hidden group"
               >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-400 to-transparent"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                <p className="text-pink-400 font-mono text-sm tracking-widest mb-3">1st AUGUST 2005</p>
+                <p className="text-blue-500 font-mono text-sm tracking-widest mb-3">1st AUGUST 2005</p>
                 <h3 className="text-2xl text-white font-medium mb-3">Born</h3>
                 <p className="text-gray-400 font-mono text-sm">The beginning of the journey.</p>
               </motion.div>
             </div>
             <motion.div 
               style={{ x: "-50%", scale: dot1Scale }} 
-              className="hidden md:block absolute left-1/2 top-[50px] w-3 h-3 bg-pink-400 rounded-full z-10 shadow-[0_0_12px_rgba(244,114,182,0.9)]"
+              className="hidden md:block absolute left-1/2 top-[50px] w-3 h-3 bg-blue-500 rounded-full z-10 shadow-[0_0_10px_rgba(59,130,246,0.8)]"
             ></motion.div>
             <div className="hidden md:block w-5/12 pl-8"></div>
           </div>
@@ -89,8 +89,8 @@ const Education = () => {
           {/* Higher Secondary */}
           <div className="relative flex flex-col md:flex-row justify-between w-full mb-16 items-start">
             <div className="hidden md:block w-5/12 pr-8"></div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-[#110619] border-[1.5px] border-pink-400 rounded-full z-10 overflow-hidden">
-              <motion.div style={{ opacity: dot2Opacity }} className="w-full h-full bg-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.9)]" />
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-[#111315] border-[1.5px] border-blue-500 rounded-full z-10 overflow-hidden">
+              <motion.div style={{ opacity: dot2Opacity }} className="w-full h-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
             </div>
             <div className="md:w-5/12 md:pl-8 w-full">
               <motion.div 
@@ -98,12 +98,12 @@ const Education = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 style={{ scale: box2Scale, borderColor: box2Border, boxShadow: box2Shadow }}
-                className="bg-[#0e0618]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm relative overflow-hidden group"
+                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm relative overflow-hidden group"
               >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-400 to-transparent"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                <p className="text-pink-400 font-mono text-sm tracking-widest mb-3">2010 - 2024</p>
+                <p className="text-blue-500 font-mono text-sm tracking-widest mb-3">2010 - 2024</p>
                 <h3 className="text-2xl text-white font-medium mb-3">Higher Secondary<br/>Education</h3>
                 <p className="text-gray-400 font-mono text-sm">Gaighata High School</p>
               </motion.div>
@@ -118,18 +118,18 @@ const Education = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 style={{ scale: box3Scale, borderColor: box3Border, boxShadow: box3Shadow }}
-                className="bg-[#0e0618]/80 backdrop-blur-sm border p-8 rounded-2xl w-full max-w-md relative overflow-hidden group"
+                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl w-full max-w-md relative overflow-hidden group"
               >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 to-rose-400"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-blue-400"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <div className="flex md:justify-end mb-4">
-                  <GraduationCap className="text-pink-400 w-8 h-8" />
+                  <GraduationCap className="text-blue-500 w-8 h-8" />
                 </div>
                 
-                <p className="text-pink-400 font-mono text-sm tracking-widest mb-3 uppercase">2025 - PRESENT</p>
+                <p className="text-blue-500 font-mono text-sm tracking-widest mb-3 uppercase">2025 - PRESENT</p>
                 <h3 className="text-2xl text-white font-medium mb-2">B.Tech CSE (AI & ML)</h3>
-                <p className="text-gray-200 font-mono text-sm mb-6">JIS COLLEGE OF ENGINEERING</p>
+                <p className="text-gray-300 font-mono text-sm mb-6">JIS COLLEGE OF ENGINEERING</p>
                 
                 <p className="text-gray-400 font-mono text-xs leading-relaxed mb-8 md:text-right text-left">
                   Deep diving into Artificial Intelligence, Machine Learning, and DBMS. 
@@ -137,24 +137,27 @@ const Education = () => {
                 </p>
 
                 <div className="flex md:justify-end mb-6">
-                  <span className="flex items-center gap-2 bg-gradient-to-r from-pink-500/15 via-rose-500/15 to-transparent border border-pink-400/30 text-pink-300 px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-mono tracking-wider shadow-[0_0_15px_rgba(244,114,182,0.2)]">
+                  <span className="flex items-center gap-2 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-transparent border border-cyan-400/30 text-cyan-300 px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-mono tracking-wider shadow-[0_0_15px_rgba(6,182,212,0.15)]">
                     <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-400 shadow-[0_0_8px_#f472b6]"></span>
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400 shadow-[0_0_8px_rgba(0,240,255,0.9)]"></span>
                     </span>
                     CURRENTLY STUDYING
                   </span>
                 </div>
 
-                <div className="w-full bg-white/5 border border-pink-500/20 h-1.5 rounded-full overflow-hidden relative">
-                  <div className="bg-gradient-to-r from-pink-400 to-rose-400 w-[45%] h-full rounded-full shadow-[0_0_8px_rgba(244,114,182,0.4)]"></div>
+                <div className="w-full bg-[#0a0f1a]/90 border border-purple-500/20 h-2.5 rounded-full overflow-hidden relative p-[1px] shadow-[inset_0_1px_4px_rgba(0,0,0,0.8),0_0_10px_rgba(168,85,247,0.15)]">
+                  <div className="bg-[linear-gradient(90deg,#00f0ff_0%,#a855f7_30%,#ffffff_50%,#a855f7_70%,#00f0ff_100%)] bg-[length:200%_auto] animate-text-flow w-[40%] h-full relative overflow-hidden rounded-full shadow-[0_0_15px_rgba(0,240,255,0.7),0_0_25px_rgba(168,85,247,0.5)]">
+                    <div className="absolute top-0 left-0 h-full w-[200%] bg-gradient-to-r from-transparent via-white/80 to-transparent animate-slide"></div>
+                    <div className="absolute right-0 top-0 bottom-0 w-2 bg-white/90 rounded-full blur-[0.5px] shadow-[0_0_10px_#ffffff,0_0_15px_#00f0ff]"></div>
+                  </div>
                 </div>
-                <p className="md:text-right text-left text-[10px] font-mono mt-2 uppercase tracking-widest text-pink-300/70">IN PROGRESS</p>
+                <p className="md:text-right text-left text-[10px] font-mono mt-2 uppercase tracking-widest font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-white">IN PROGRESS</p>
               </motion.div>
             </div>
             <motion.div 
-              style={{ x: "-50%", scale: dot3Scale }} 
-              className="hidden md:block absolute left-1/2 top-[50px] w-3 h-3 bg-pink-400 rounded-full z-10 shadow-[0_0_15px_rgba(244,114,182,1)]"
+              style={{ x: "-50%", scale: dot3Scale }}
+              className="hidden md:block absolute left-1/2 top-[50px] w-3 h-3 bg-blue-500 rounded-full z-10 shadow-[0_0_15px_rgba(59,130,246,1)]"
             ></motion.div>
             <div className="hidden md:block w-5/12 pl-8"></div>
           </div>
@@ -162,8 +165,8 @@ const Education = () => {
           {/* End of Journey */}
           <div className="relative flex flex-col md:flex-row justify-between w-full items-start">
             <div className="hidden md:block w-5/12 pr-8"></div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-[#110619] border-[1.5px] border-pink-400/60 rounded-full z-10 overflow-hidden">
-              <motion.div style={{ opacity: dot4Opacity }} className="w-full h-full bg-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.8)]" />
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-[#111315] border-[1.5px] border-gray-600 rounded-full z-10 overflow-hidden">
+              <motion.div style={{ opacity: dot4Opacity }} className="w-full h-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
             </div>
             <div className="md:w-5/12 md:pl-8 w-full">
               <motion.div 
@@ -171,12 +174,12 @@ const Education = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 style={{ scale: box4Scale, borderColor: box4Border, boxShadow: box4Shadow }}
-                className="bg-[#0e0618]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm relative overflow-hidden group"
+                className="bg-[#0a0f1a]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm relative overflow-hidden group"
               >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-400 to-transparent"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                <p className="text-pink-400 font-mono text-sm tracking-widest mb-3">TBD</p>
+                <p className="text-blue-500 font-mono text-sm tracking-widest mb-3">TBD</p>
                 <h3 className="text-2xl text-white font-medium mb-3">End of Journey</h3>
                 <p className="text-gray-400 font-mono text-sm leading-relaxed">To be continued — hopefully after a very long changelog.</p>
               </motion.div>

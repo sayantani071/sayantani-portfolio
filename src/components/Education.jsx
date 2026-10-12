@@ -1,188 +1,152 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { GraduationCap } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { GraduationCap, Award, BookOpen, Calendar, Building2 } from 'lucide-react';
+
+const educationData = [
+  {
+    degree: "B.Tech in Computer Science & Engineering (AI & ML)",
+    institution: "JIS College of Engineering",
+    period: "2024 — Present",
+    status: "Currently Pursuing",
+    isCurrent: true,
+    description: "Specializing in Artificial Intelligence and Machine Learning with deep immersion in intelligent systems, machine learning theory, and core computer science fundamentals.",
+    highlights: [
+      "Artificial Intelligence & Machine Learning",
+      "Data Structures & Algorithms",
+      "Object-Oriented Programming",
+      "Database Management Systems",
+    ],
+  },
+  {
+    degree: "Higher Secondary Education (10+2 Science)",
+    institution: "Gaighata High School",
+    period: "2022 — 2024",
+    status: "Completed",
+    isCurrent: false,
+    description: "Completed higher secondary curriculum with a strong focus on pure sciences, mathematics, and computing foundations.",
+    highlights: [
+      "Physics",
+      "Chemistry",
+      "Mathematics",
+      "Computer Science",
+    ],
+  },
+  {
+    degree: "Secondary School Examination (10th)",
+    institution: "Gaighata High School",
+    period: "2010 — 2022",
+    status: "Completed",
+    isCurrent: false,
+    description: "Built foundational analytical, mathematical, and linguistic capabilities with strong academic distinction.",
+    highlights: [
+      "Physical Science",
+      "Life Science",
+      "Mathematics",
+      "Languages",
+    ],
+  },
+];
 
 const Education = () => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end center"]
-  });
-  
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-
-  // Transforms for Step 1 - Minimal & Subtle
-  const dot1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.2]);
-  const box1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.01]);
-  const box1Border = useTransform(scrollYProgress, [0, 0.05], ["rgba(255,255,255,0.06)", "rgba(244,114,182,0.35)"]);
-  const box1Shadow = useTransform(scrollYProgress, [0, 0.05], ["0px 0px 0px rgba(0,0,0,0)", "0px 0px 20px rgba(244,114,182,0.08)"]);
-
-  // Transforms for Step 2
-  const dot2Opacity = useTransform(scrollYProgress, [0.2, 0.35], [0, 1]);
-  const box2Scale = useTransform(scrollYProgress, [0.2, 0.35], [1, 1.01]);
-  const box2Border = useTransform(scrollYProgress, [0.2, 0.35], ["rgba(255,255,255,0.06)", "rgba(244,114,182,0.35)"]);
-  const box2Shadow = useTransform(scrollYProgress, [0.2, 0.35], ["0px 0px 0px rgba(0,0,0,0)", "0px 0px 20px rgba(244,114,182,0.08)"]);
-
-  // Transforms for Step 3
-  const dot3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.2]);
-  const box3Scale = useTransform(scrollYProgress, [0.55, 0.7], [1, 1.01]);
-  const box3Border = useTransform(scrollYProgress, [0.55, 0.7], ["rgba(244,114,182,0.15)", "rgba(244,114,182,0.45)"]);
-  const box3Shadow = useTransform(scrollYProgress, [0.55, 0.7], ["0px 0px 0px rgba(0,0,0,0)", "0px 0px 25px rgba(244,114,182,0.12)"]);
-
-  // Transforms for Step 4
-  const dot4Opacity = useTransform(scrollYProgress, [0.85, 1], [0, 1]);
-  const box4Scale = useTransform(scrollYProgress, [0.85, 1], [1, 1.01]);
-  const box4Border = useTransform(scrollYProgress, [0.85, 1], ["rgba(255,255,255,0.06)", "rgba(244,114,182,0.35)"]);
-  const box4Shadow = useTransform(scrollYProgress, [0.85, 1], ["0px 0px 0px rgba(0,0,0,0)", "0px 0px 20px rgba(244,114,182,0.08)"]);
-
   return (
-    <section id="education" className="py-24 relative z-10 font-sans">
+    <section id="education" className="py-28 relative z-10 font-sans">
       <div className="container mx-auto px-6 md:px-12">
+        {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-20 text-center"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-light text-white tracking-wide">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-rose-300 to-pink-200">Journey</span>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-2 h-2 rounded-full bg-pink-400"></span>
+            <p className="text-slate-400 font-mono tracking-[0.2em] text-[11px] md:text-xs uppercase font-medium">
+              ACADEMIC BACKGROUND
+            </p>
+          </div>
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white">
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-rose-300 to-pink-200">Education</span>
           </h2>
-          <div className="w-12 h-[1px] bg-pink-500/30 mx-auto mt-4"></div>
+          <div className="w-20 h-px bg-gradient-to-r from-pink-300/60 to-transparent mt-4"></div>
         </motion.div>
 
-        <div ref={containerRef} className="relative max-w-4xl mx-auto">
-          {/* Subtle background line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 top-[50px] bottom-[50px] w-[2px] bg-white/5 hidden md:block"></div>
-          
-          {/* Dynamic Glowy Line */}
-          <motion.div 
-            style={{ height: lineHeight }}
-            className="absolute left-1/2 transform -translate-x-1/2 top-[50px] max-h-[calc(100%-100px)] w-[2px] bg-gradient-to-b from-pink-400 via-rose-500 to-transparent hidden md:block origin-top shadow-[0_0_20px_rgba(244,114,182,1)] z-0"
-          ></motion.div>
-
-          {/* Born */}
-          <div className="relative flex flex-col md:flex-row justify-between w-full mb-16 items-start">
-            <div className="md:w-5/12 md:pr-8 w-full text-left md:text-right mb-8 md:mb-0">
-              <motion.div 
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                style={{ scale: box1Scale, borderColor: box1Border, boxShadow: box1Shadow }}
-                className="bg-[#0e0618]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm relative overflow-hidden group"
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-400 to-transparent"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                <p className="text-pink-400 font-mono text-sm tracking-widest mb-3">1st AUGUST 2005</p>
-                <h3 className="text-2xl text-white font-medium mb-3">Born</h3>
-                <p className="text-gray-400 font-mono text-sm">The beginning of the journey.</p>
-              </motion.div>
-            </div>
-            <motion.div 
-              style={{ x: "-50%", scale: dot1Scale }} 
-              className="hidden md:block absolute left-1/2 top-[50px] w-3 h-3 bg-pink-400 rounded-full z-10 shadow-[0_0_12px_rgba(244,114,182,0.9)]"
-            ></motion.div>
-            <div className="hidden md:block w-5/12 pl-8"></div>
-          </div>
-
-          {/* Higher Secondary */}
-          <div className="relative flex flex-col md:flex-row justify-between w-full mb-16 items-start">
-            <div className="hidden md:block w-5/12 pr-8"></div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-[#110619] border-[1.5px] border-pink-400 rounded-full z-10 overflow-hidden">
-              <motion.div style={{ opacity: dot2Opacity }} className="w-full h-full bg-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.9)]" />
-            </div>
-            <div className="md:w-5/12 md:pl-8 w-full">
-              <motion.div 
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                style={{ scale: box2Scale, borderColor: box2Border, boxShadow: box2Shadow }}
-                className="bg-[#0e0618]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm relative overflow-hidden group"
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-400 to-transparent"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                <p className="text-pink-400 font-mono text-sm tracking-widest mb-3">2010 - 2024</p>
-                <h3 className="text-2xl text-white font-medium mb-3">Higher Secondary<br/>Education</h3>
-                <p className="text-gray-400 font-mono text-sm">Gaighata High School</p>
-              </motion.div>
-            </div>
-          </div>
-
-          {/* B.Tech */}
-          <div className="relative flex flex-col md:flex-row justify-between w-full mb-16 items-start">
-            <div className="md:w-5/12 md:pr-8 w-full text-left md:text-right flex md:justify-end mb-8 md:mb-0">
-              <motion.div 
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                style={{ scale: box3Scale, borderColor: box3Border, boxShadow: box3Shadow }}
-                className="bg-[#0e0618]/80 backdrop-blur-sm border p-8 rounded-2xl w-full max-w-md relative overflow-hidden group"
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 to-rose-400"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                <div className="flex md:justify-end mb-4">
-                  <GraduationCap className="text-pink-400 w-8 h-8" />
-                </div>
-                
-                <p className="text-pink-400 font-mono text-sm tracking-widest mb-3 uppercase">2025 - PRESENT</p>
-                <h3 className="text-2xl text-white font-medium mb-2">B.Tech CSE (AI & ML)</h3>
-                <p className="text-gray-200 font-mono text-sm mb-6">JIS COLLEGE OF ENGINEERING</p>
-                
-                <p className="text-gray-400 font-mono text-xs leading-relaxed mb-8 md:text-right text-left">
-                  Deep diving into Artificial Intelligence, Machine Learning, and DBMS. 
-                  Active participant in hackathons.
-                </p>
-
-                <div className="flex md:justify-end mb-6">
-                  <span className="flex items-center gap-2 bg-gradient-to-r from-pink-500/15 via-rose-500/15 to-transparent border border-pink-400/30 text-pink-300 px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-mono tracking-wider shadow-[0_0_15px_rgba(244,114,182,0.2)]">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-400 shadow-[0_0_8px_#f472b6]"></span>
+        {/* Education Cards Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {educationData.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.12 }}
+              className={`p-7 border transition-all duration-300 flex flex-col justify-between ${
+                item.isCurrent
+                  ? 'border-pink-300/35 bg-pink-300/[0.03] hover:border-pink-300/60'
+                  : 'border-white/10 bg-white/[0.02] hover:border-pink-300/30'
+              }`}
+            >
+              <div>
+                {/* Status & Period Bar */}
+                <div className="flex items-center justify-between gap-3 mb-5">
+                  <div className="flex items-center gap-1.5 text-pink-300 text-[11px] font-mono tracking-wider">
+                    <Calendar size={13} />
+                    <span>{item.period}</span>
+                  </div>
+                  {item.isCurrent ? (
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-pink-300/35 bg-pink-300/10 text-pink-200 text-[10px] font-mono uppercase tracking-wider">
+                      <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-pulse"></span>
+                      IN PROGRESS
                     </span>
-                    CURRENTLY STUDYING
-                  </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 border border-white/10 text-slate-400 text-[10px] font-mono uppercase tracking-wider">
+                      <Award size={11} className="text-slate-400" />
+                      COMPLETED
+                    </span>
+                  )}
                 </div>
 
-                <div className="w-full bg-white/5 border border-pink-500/20 h-1.5 rounded-full overflow-hidden relative">
-                  <div className="bg-gradient-to-r from-pink-400 to-rose-400 w-[45%] h-full rounded-full shadow-[0_0_8px_rgba(244,114,182,0.4)]"></div>
+                {/* Degree & Institution */}
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="p-2 border border-pink-300/25 bg-pink-300/10 text-pink-300 mt-1 shrink-0">
+                    <GraduationCap size={18} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-medium text-white leading-snug font-serif">
+                      {item.degree}
+                    </h3>
+                    <div className="flex items-center gap-1.5 text-slate-400 text-xs font-mono mt-1">
+                      <Building2 size={12} className="text-pink-300/80" />
+                      <span>{item.institution}</span>
+                    </div>
+                  </div>
                 </div>
-                <p className="md:text-right text-left text-[10px] font-mono mt-2 uppercase tracking-widest text-pink-300/70">IN PROGRESS</p>
-              </motion.div>
-            </div>
-            <motion.div 
-              style={{ x: "-50%", scale: dot3Scale }} 
-              className="hidden md:block absolute left-1/2 top-[50px] w-3 h-3 bg-pink-400 rounded-full z-10 shadow-[0_0_15px_rgba(244,114,182,1)]"
-            ></motion.div>
-            <div className="hidden md:block w-5/12 pl-8"></div>
-          </div>
 
-          {/* End of Journey */}
-          <div className="relative flex flex-col md:flex-row justify-between w-full items-start">
-            <div className="hidden md:block w-5/12 pr-8"></div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-[#110619] border-[1.5px] border-pink-400/60 rounded-full z-10 overflow-hidden">
-              <motion.div style={{ opacity: dot4Opacity }} className="w-full h-full bg-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.8)]" />
-            </div>
-            <div className="md:w-5/12 md:pl-8 w-full">
-              <motion.div 
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                style={{ scale: box4Scale, borderColor: box4Border, boxShadow: box4Shadow }}
-                className="bg-[#0e0618]/80 backdrop-blur-sm border p-8 rounded-2xl inline-block w-full max-w-sm relative overflow-hidden group"
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-400 to-transparent"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Description */}
+                <p className="text-slate-300/75 text-xs leading-relaxed font-light mb-6">
+                  {item.description}
+                </p>
+              </div>
 
-                <p className="text-pink-400 font-mono text-sm tracking-widest mb-3">TBD</p>
-                <h3 className="text-2xl text-white font-medium mb-3">End of Journey</h3>
-                <p className="text-gray-400 font-mono text-sm leading-relaxed">To be continued — hopefully after a very long changelog.</p>
-              </motion.div>
-            </div>
-          </div>
-
+              {/* Coursework / Focus Chips */}
+              <div className="pt-4 border-t border-white/10">
+                <div className="flex items-center gap-1.5 text-slate-400 text-[10px] font-mono uppercase tracking-wider mb-2.5">
+                  <BookOpen size={11} className="text-pink-300/80" />
+                  <span>Key Coursework</span>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {item.highlights.map((course, cIdx) => (
+                    <span
+                      key={cIdx}
+                      className="px-2 py-1 text-[10px] font-mono border border-white/10 bg-white/[0.01] text-slate-300"
+                    >
+                      {course}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

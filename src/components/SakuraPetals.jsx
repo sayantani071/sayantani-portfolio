@@ -20,36 +20,35 @@ const SakuraPetals = ({ className = '' }) => {
     canvas.width = width;
     canvas.height = height;
 
-    // Petal configuration - Minimal & serene
-    const petalCount = 8;
+    // Petal configuration - slightly more pronounced while still gentle
+    const petalCount = 14;
     const petals = [];
 
-    // Subtle, whisper-soft Sakura color shades
     const petalColors = [
-      { fill: 'rgba(224, 190, 201, 0.32)' },
-      { fill: 'rgba(205, 165, 178, 0.28)' },
-      { fill: 'rgba(236, 210, 215, 0.3)' },
-      { fill: 'rgba(220, 198, 205, 0.28)' },
+      { fill: 'rgba(224, 190, 201, 0.42)' },
+      { fill: 'rgba(205, 165, 178, 0.38)' },
+      { fill: 'rgba(236, 210, 215, 0.4)' },
+      { fill: 'rgba(220, 198, 205, 0.38)' },
     ];
 
     for (let i = 0; i < petalCount; i++) {
       petals.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * 5 + 7, // 7 to 12px - small and delicate
-        speedY: Math.random() * 0.5 + 0.4, // calm, slow descent
-        speedX: Math.random() * 0.3 + 0.15, // whisper breeze
-        swaySpeed: Math.random() * 0.015 + 0.008,
+        size: Math.random() * 6 + 9,
+        speedY: Math.random() * 0.7 + 0.6,
+        speedX: Math.random() * 0.5 + 0.2,
+        swaySpeed: Math.random() * 0.02 + 0.01,
         swayAngle: Math.random() * Math.PI * 2,
-        swayDistance: Math.random() * 1.2 + 0.5,
+        swayDistance: Math.random() * 1.5 + 0.8,
         rotX: Math.random() * Math.PI * 2,
         rotY: Math.random() * Math.PI * 2,
         rotZ: Math.random() * Math.PI * 2,
-        rotSpeedX: Math.random() * 0.015 - 0.007,
-        rotSpeedY: Math.random() * 0.02 + 0.008,
-        rotSpeedZ: Math.random() * 0.015 + 0.004,
+        rotSpeedX: Math.random() * 0.018 - 0.009,
+        rotSpeedY: Math.random() * 0.025 + 0.01,
+        rotSpeedZ: Math.random() * 0.02 + 0.006,
         color: petalColors[Math.floor(Math.random() * petalColors.length)],
-        opacity: Math.random() * 0.3 + 0.3, // soft 0.3 - 0.6 opacity
+        opacity: Math.random() * 0.25 + 0.45,
       });
     }
 

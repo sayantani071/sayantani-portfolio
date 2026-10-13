@@ -23,7 +23,7 @@ const Contact = () => {
           </p>
 
           <a 
-            href="mailto:sayantani@example.com" 
+            href="mailto:sayantanisinha51@gmail.com"
             className="inline-block px-8 py-3.5 rounded-full bg-gradient-to-r from-pink-500/90 via-rose-500/90 to-pink-600/90 hover:from-pink-400 hover:to-rose-400 transition-all duration-300 shadow-[0_0_15px_rgba(244,114,182,0.3)] hover:shadow-[0_0_25px_rgba(244,114,182,0.5)] text-xs font-semibold tracking-[0.25em] text-white uppercase mb-12 transform hover:-translate-y-0.5"
           >
             Say Hello 🌸

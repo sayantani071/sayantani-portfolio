@@ -22,7 +22,9 @@
   }
 
   html {
+    scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+    scroll-snap-type: y proximity;
   }
 
   html,
@@ -35,6 +37,11 @@
     @apply bg-background text-slate-100;
     background-color: var(--ink);
     font-feature-settings: 'ss01' on;
+    overscroll-behavior-y: none;
+  }
+
+  section {
+    scroll-margin-top: 5rem;
   }
 
   a,

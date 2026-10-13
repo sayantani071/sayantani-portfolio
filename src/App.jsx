@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SakuraPetals from './components/SakuraPetals';
 import BackgroundGlitters from './components/BackgroundGlitters';
+import Projects from './components/Projects';
 import GithubActivity from './components/GithubActivity';
 import CinemaCurtainOpening from './components/CinemaCurtainOpening';
 
@@ -27,6 +28,7 @@ function App() {
           <Hero />
           <About />
           <Education />
+          <Projects />
           <GithubActivity />
           <Contact />
         </main>

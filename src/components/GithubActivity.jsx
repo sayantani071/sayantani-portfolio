@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Fork, Github, Star } from 'lucide-react';
+import { ExternalLink, GitFork, Github, Star } from 'lucide-react';
 import { GitHubCalendar } from 'react-github-calendar';
 
 const GITHUB_USERNAME = 'sayantani071';
@@ -193,7 +193,7 @@ const GithubActivity = () => {
                           {formatCount(repo.stargazers_count)}
                         </span>
                         <span className="inline-flex items-center gap-1">
-                          <Fork className="w-3.5 h-3.5" />
+                          <GitFork className="w-3.5 h-3.5" />
                           {formatCount(repo.forks_count)}
                         </span>
                       </div>

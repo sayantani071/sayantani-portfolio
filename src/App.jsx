@@ -28,8 +28,8 @@ function App() {
           <Hero />
           <About />
           <Education />
-          <GithubActivity />
           <Projects />
+          <GithubActivity />
           <Contact />
         </main>
         <Footer />

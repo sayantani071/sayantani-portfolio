@@ -177,8 +177,28 @@ const Education = () => {
                   </span>
                 </div>
 
-                <div className="w-full bg-white/5 border border-pink-500/20 h-1.5 rounded-full overflow-hidden relative">
-                  <div className="bg-gradient-to-r from-pink-400 to-rose-400 w-[45%] h-full rounded-full shadow-[0_0_8px_rgba(244,114,182,0.4)]"></div>
+                <div
+                  className="relative h-1.5 w-full overflow-hidden rounded-full border border-pink-500/20 bg-white/5"
+                  role="progressbar"
+                  aria-label="B.Tech program progress"
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuenow={45}
+                >
+                  <motion.div
+                    initial={{ width: '0%' }}
+                    whileInView={{ width: '45%' }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+                    className="relative h-full overflow-hidden rounded-full bg-gradient-to-r from-pink-400 to-rose-400 shadow-[0_0_8px_rgba(244,114,182,0.4)]"
+                  >
+                    <motion.div
+                      aria-hidden="true"
+                      className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-white/45 to-transparent"
+                      animate={{ x: ['-100%', '300%'] }}
+                      transition={{ duration: 2.2, ease: 'easeInOut', repeat: Infinity, repeatDelay: 1.1 }}
+                    />
+                  </motion.div>
                 </div>
                 <p className="md:text-right text-left text-[10px] font-mono mt-2 uppercase tracking-widest text-pink-300/70">IN PROGRESS</p>
               </motion.div>

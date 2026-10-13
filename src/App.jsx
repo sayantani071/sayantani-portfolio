@@ -11,10 +11,12 @@ import BackgroundGlitters from './components/BackgroundGlitters';
 import Projects from './components/Projects';
 import GithubActivity from './components/GithubActivity';
 import CinemaCurtainOpening from './components/CinemaCurtainOpening';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-background overflow-hidden font-sans selection:bg-pink-500/20 selection:text-pink-100">
+    <div className="relative min-h-screen bg-background overflow-hidden font-sans selection:bg-pink-500/20 selection:text-pink-100 cursor-none">
+      <CustomCursor />
       <CinemaCurtainOpening />
 
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">

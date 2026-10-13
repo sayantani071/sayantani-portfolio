@@ -177,7 +177,6 @@ const Education = () => {
               </motion.div>
             </div>
             <motion.div 
-              ref={thirdDotRef}
               style={{ x: "-50%", scale: dot3Scale }} 
               className="hidden md:block absolute left-1/2 top-[50px] w-3 h-3 bg-pink-400 rounded-full z-10 shadow-[0_0_15px_rgba(244,114,182,1)]"
             ></motion.div>

@@ -25,7 +25,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-typewriter text-[#888888] text-[1.125rem] sm:text-[1.15rem] leading-[1.9] max-w-[800px] space-y-6"
+          className="font-sans text-[#888888] text-[1.125rem] sm:text-[1.15rem] leading-[1.9] max-w-[800px] space-y-6"
         >
           <p>
             Namaste 🙏, I&apos;m Sayantani Sinha, a second-year B.Tech student pursuing Computer Science and Engineering with a specialization in Artificial Intelligence and Machine Learning (AI &amp; ML) at JIS College of Engineering.

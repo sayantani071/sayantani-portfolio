@@ -5,7 +5,7 @@ import React, { useEffect, useRef } from 'react';
  * Canvas-based falling cherry blossom (Sakura) petals animation.
  * Features 3D tumbling rotation, sinusoidal wind breeze sway, and organic petal geometry.
  */
-const SakuraPetals = () => {
+const SakuraPetals = ({ className = '' }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -141,7 +141,7 @@ const SakuraPetals = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-[6] w-full h-full"
+      className={`fixed inset-0 pointer-events-none z-[6] w-full h-full ${className}`}
     />
   );
 };

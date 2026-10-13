@@ -25,10 +25,25 @@
     scroll-padding-top: 5rem;
   }
 
+  html,
+  body,
+  * {
+    cursor: none !important;
+  }
+
   body {
     @apply bg-background text-slate-100;
     background-color: var(--ink);
     font-feature-settings: 'ss01' on;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [role='button'] {
+    cursor: none !important;
   }
 }
 

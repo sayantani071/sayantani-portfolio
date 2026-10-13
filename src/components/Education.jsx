@@ -59,7 +59,6 @@ const Education = () => {
   const box3Shadow = useTransform(scrollYProgress, [0.55, 0.7], ["0px 0px 0px rgba(0,0,0,0)", "0px 0px 25px rgba(244,114,182,0.12)"]);
 
   // Transforms for Step 4
-  const dot4Opacity = useTransform(scrollYProgress, [0.85, 1], [0, 1]);
   const box4Scale = useTransform(scrollYProgress, [0.85, 1], [1, 1.01]);
   const box4Border = useTransform(scrollYProgress, [0.85, 1], ["rgba(255,255,255,0.06)", "rgba(244,114,182,0.35)"]);
   const box4Shadow = useTransform(scrollYProgress, [0.85, 1], ["0px 0px 0px rgba(0,0,0,0)", "0px 0px 20px rgba(244,114,182,0.08)"]);
@@ -196,7 +195,6 @@ const Education = () => {
           <div className="relative flex flex-col md:flex-row justify-between w-full items-start">
             <div className="hidden md:block w-5/12 pr-8"></div>
             <div ref={lastDotRef} className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-[#110619] border-[1.5px] border-pink-400/60 rounded-full z-10 overflow-hidden">
-              <motion.div style={{ opacity: dot4Opacity }} className="w-full h-full bg-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.8)]" />
             </div>
             <div className="md:w-5/12 md:pl-8 w-full">
               <motion.div 

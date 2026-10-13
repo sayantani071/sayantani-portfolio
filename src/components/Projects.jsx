@@ -19,7 +19,6 @@ const Projects = () => {
           <div className="w-12 h-[1px] bg-pink-500/30 mx-auto mt-4"></div>
         </motion.div>
 
-        <div className="min-h-[240px] rounded-2xl border border-dashed border-pink-500/20 bg-[#0d0617]/40" />
       </div>
     </section>
   );

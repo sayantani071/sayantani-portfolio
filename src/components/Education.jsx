@@ -4,7 +4,9 @@ import { GraduationCap } from 'lucide-react';
 
 const Education = () => {
   const containerRef = useRef(null);
+  const thirdDotRef = useRef(null);
   const lastDotRef = useRef(null);
+  const [thirdDotLineHeight, setThirdDotLineHeight] = useState(0);
   const [lastDotLineHeight, setLastDotLineHeight] = useState(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -14,12 +16,15 @@ const Education = () => {
   useEffect(() => {
     const updateLineHeight = () => {
       const container = containerRef.current;
+      const thirdDot = thirdDotRef.current;
       const lastDot = lastDotRef.current;
-      if (!container || !lastDot) return;
+      if (!container || !thirdDot || !lastDot) return;
 
       const containerTop = container.getBoundingClientRect().top;
-      const dotCenter = lastDot.getBoundingClientRect().top + lastDot.offsetHeight / 2;
-      setLastDotLineHeight(Math.max(0, dotCenter - containerTop - 50));
+      const thirdDotCenter = thirdDot.getBoundingClientRect().top + thirdDot.offsetHeight / 2;
+      const lastDotCenter = lastDot.getBoundingClientRect().top + lastDot.offsetHeight / 2;
+      setThirdDotLineHeight(Math.max(0, thirdDotCenter - containerTop - 50));
+      setLastDotLineHeight(Math.max(0, lastDotCenter - containerTop - 50));
     };
 
     updateLineHeight();
@@ -33,7 +38,7 @@ const Education = () => {
     };
   }, []);
 
-  const lineHeight = useTransform(scrollYProgress, [0, 1], [0, lastDotLineHeight]);
+  const lineHeight = useTransform(scrollYProgress, [0, 0.7], [0, thirdDotLineHeight]);
 
   // Transforms for Step 1 - Minimal & Subtle
   const dot1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.2]);
@@ -77,7 +82,10 @@ const Education = () => {
 
         <div ref={containerRef} className="relative max-w-4xl mx-auto">
           {/* Subtle background line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 top-[50px] bottom-[50px] w-[2px] bg-white/5 hidden md:block"></div>
+          <div
+            className="absolute left-1/2 top-[50px] w-[2px] -translate-x-1/2 bg-white/5 hidden md:block"
+            style={{ height: lastDotLineHeight }}
+          ></div>
           
           {/* Dynamic Glowy Line */}
           <motion.div 
@@ -177,6 +185,7 @@ const Education = () => {
               </motion.div>
             </div>
             <motion.div 
+              ref={thirdDotRef}
               style={{ x: "-50%", scale: dot3Scale }} 
               className="hidden md:block absolute left-1/2 top-[50px] w-3 h-3 bg-pink-400 rounded-full z-10 shadow-[0_0_15px_rgba(244,114,182,1)]"
             ></motion.div>

@@ -19,14 +19,22 @@ const CustomCursor = () => {
     const moveCursor = (e) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
+
+      if (!isVisible) {
+        setIsVisible(true);
+      }
 
       const hoveringClickable = e.target.closest('a, button, [role="button"], input, textarea, select');
       setIsPointer(!!hoveringClickable);
     };
 
-    const handleMouseLeave = () => setIsVisible(false);
-    const handleMouseEnter = () => setIsVisible(true);
+    const handleMouseLeave = () => {
+      setIsVisible(false);
+    };
+
+    const handleMouseEnter = () => {
+      setIsVisible(true);
+    };
 
     window.addEventListener('mousemove', moveCursor);
     document.documentElement.addEventListener('mouseleave', handleMouseLeave);
@@ -60,7 +68,7 @@ const CustomCursor = () => {
           borderColor: isPointer ? 'rgba(251, 113, 133, 0.8)' : 'rgba(244, 114, 182, 0.55)',
           backgroundColor: isPointer ? 'rgba(244, 114, 182, 0.12)' : 'rgba(244, 114, 182, 0.04)',
         }}
-        transition={{ duration: 0.15, ease: 'easeOut' }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
       />
 
       <motion.div
@@ -76,7 +84,7 @@ const CustomCursor = () => {
         animate={{
           scale: isPointer ? 0.85 : 1,
         }}
-        transition={{ duration: 0.12 }}
+        transition={{ duration: 0.15, ease: 'easeOut' }}
       />
     </>
   );

@@ -189,14 +189,14 @@ const Education = () => {
                     initial={{ width: '0%' }}
                     whileInView={{ width: '45%' }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
                     className="relative h-full overflow-hidden rounded-full bg-gradient-to-r from-pink-400 to-rose-400 shadow-[0_0_8px_rgba(244,114,182,0.4)]"
                   >
                     <motion.div
                       aria-hidden="true"
                       className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-white/45 to-transparent"
                       animate={{ x: ['-100%', '300%'] }}
-                      transition={{ duration: 2.2, ease: 'easeInOut', repeat: Infinity, repeatDelay: 1.1 }}
+                      transition={{ duration: 1.4, ease: 'easeInOut', repeat: Infinity, repeatDelay: 0.6 }}
                     />
                   </motion.div>
                 </div>

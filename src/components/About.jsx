@@ -55,7 +55,7 @@ const About = () => {
             For me, every challenge is an opportunity to learn, every project is a chance to experiment, and every new idea is a step toward becoming a better developer. I believe that progress comes from asking questions, embracing mistakes, and having the determination to keep moving forward.
           </p>
 
-          <p className="text-[1.25rem] sm:text-[1.3rem] text-white font-medium tracking-[1px] my-10 border-l-[3px] border-[#2563eb] pl-6 italic">
+          <p className="text-[1.25rem] sm:text-[1.3rem] text-white font-medium tracking-[1px] my-10 border-l-[3px] border-[#c99aaa] pl-6 italic">
             &ldquo;Curiosity starts the journey; the courage to keep going defines it.&rdquo;
           </p>
 

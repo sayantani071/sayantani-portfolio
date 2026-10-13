@@ -46,7 +46,7 @@ const Education = () => {
           className="mb-20 text-center"
         >
           <h2 className="text-3xl md:text-4xl font-light text-white tracking-wide">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-rose-300 to-pink-200">Journey</span>
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-rose-300 to-pink-200">Education</span>
           </h2>
           <div className="w-12 h-[1px] bg-pink-500/30 mx-auto mt-4"></div>
         </motion.div>

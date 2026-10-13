@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "auto-push": "node scripts/auto-push.js",
+    "auto-push:dry-run": "node scripts/auto-push.js --dry-run"
   },
   "dependencies": {
     "framer-motion": "^10.16.4",

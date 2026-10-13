@@ -25,6 +25,7 @@
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
     scroll-snap-type: y proximity;
+    -webkit-overflow-scrolling: touch;
   }
 
   html,
@@ -38,6 +39,7 @@
     background-color: var(--ink);
     font-feature-settings: 'ss01' on;
     overscroll-behavior-y: none;
+    scroll-behavior: smooth;
   }
 
   section {

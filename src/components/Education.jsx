@@ -23,7 +23,7 @@ const Education = () => {
     };
 
     updateLineHeight();
-    const observer = new ResizeObserver(updateLineHeight);
+    const observer = new window.ResizeObserver(updateLineHeight);
     if (containerRef.current) observer.observe(containerRef.current);
     window.addEventListener('resize', updateLineHeight);
 

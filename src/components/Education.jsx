@@ -1,15 +1,39 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
 
 const Education = () => {
   const containerRef = useRef(null);
+  const thirdDotRef = useRef(null);
+  const [thirdDotLineHeight, setThirdDotLineHeight] = useState(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"]
   });
-  
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+  useEffect(() => {
+    const updateLineHeight = () => {
+      const container = containerRef.current;
+      const thirdDot = thirdDotRef.current;
+      if (!container || !thirdDot) return;
+
+      const containerTop = container.getBoundingClientRect().top;
+      const dotCenter = thirdDot.getBoundingClientRect().top + thirdDot.offsetHeight / 2;
+      setThirdDotLineHeight(Math.max(0, dotCenter - containerTop - 50));
+    };
+
+    updateLineHeight();
+    const observer = new ResizeObserver(updateLineHeight);
+    if (containerRef.current) observer.observe(containerRef.current);
+    window.addEventListener('resize', updateLineHeight);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', updateLineHeight);
+    };
+  }, []);
+
+  const lineHeight = useTransform(scrollYProgress, [0, 0.7], [0, thirdDotLineHeight]);
 
   // Transforms for Step 1 - Minimal & Subtle
   const dot1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.2]);
@@ -153,6 +177,7 @@ const Education = () => {
               </motion.div>
             </div>
             <motion.div 
+              ref={thirdDotRef}
               style={{ x: "-50%", scale: dot3Scale }} 
               className="hidden md:block absolute left-1/2 top-[50px] w-3 h-3 bg-pink-400 rounded-full z-10 shadow-[0_0_15px_rgba(244,114,182,1)]"
             ></motion.div>

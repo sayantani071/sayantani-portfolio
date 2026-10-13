@@ -4,8 +4,8 @@ import { GraduationCap } from 'lucide-react';
 
 const Education = () => {
   const containerRef = useRef(null);
-  const thirdDotRef = useRef(null);
-  const [thirdDotLineHeight, setThirdDotLineHeight] = useState(0);
+  const lastDotRef = useRef(null);
+  const [lastDotLineHeight, setLastDotLineHeight] = useState(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"]
@@ -14,12 +14,12 @@ const Education = () => {
   useEffect(() => {
     const updateLineHeight = () => {
       const container = containerRef.current;
-      const thirdDot = thirdDotRef.current;
-      if (!container || !thirdDot) return;
+      const lastDot = lastDotRef.current;
+      if (!container || !lastDot) return;
 
       const containerTop = container.getBoundingClientRect().top;
-      const dotCenter = thirdDot.getBoundingClientRect().top + thirdDot.offsetHeight / 2;
-      setThirdDotLineHeight(Math.max(0, dotCenter - containerTop - 50));
+      const dotCenter = lastDot.getBoundingClientRect().top + lastDot.offsetHeight / 2;
+      setLastDotLineHeight(Math.max(0, dotCenter - containerTop - 50));
     };
 
     updateLineHeight();
@@ -33,7 +33,7 @@ const Education = () => {
     };
   }, []);
 
-  const lineHeight = useTransform(scrollYProgress, [0, 0.7], [0, thirdDotLineHeight]);
+  const lineHeight = useTransform(scrollYProgress, [0, 1], [0, lastDotLineHeight]);
 
   // Transforms for Step 1 - Minimal & Subtle
   const dot1Scale = useTransform(scrollYProgress, [0, 0.05], [1, 1.2]);
@@ -187,7 +187,7 @@ const Education = () => {
           {/* End of Journey */}
           <div className="relative flex flex-col md:flex-row justify-between w-full items-start">
             <div className="hidden md:block w-5/12 pr-8"></div>
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-[#110619] border-[1.5px] border-pink-400/60 rounded-full z-10 overflow-hidden">
+            <div ref={lastDotRef} className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-[50px] w-3 h-3 bg-[#110619] border-[1.5px] border-pink-400/60 rounded-full z-10 overflow-hidden">
               <motion.div style={{ opacity: dot4Opacity }} className="w-full h-full bg-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.8)]" />
             </div>
             <div className="md:w-5/12 md:pl-8 w-full">

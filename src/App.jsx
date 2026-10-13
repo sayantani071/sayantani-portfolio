@@ -7,6 +7,7 @@ import Contact from './components/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SakuraPetals from './components/SakuraPetals';
+import BackgroundGlitters from './components/BackgroundGlitters';
 import GithubActivity from './components/GithubActivity';
 import CinemaCurtainOpening from './components/CinemaCurtainOpening';
 
@@ -16,7 +17,7 @@ function App() {
       <CinemaCurtainOpening />
 
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="starlight-field absolute inset-0 opacity-70" />
+        <BackgroundGlitters />
         <SakuraPetals />
       </div>
 

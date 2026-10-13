@@ -4,6 +4,8 @@ const BackgroundGlitters = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -14,39 +16,17 @@ const BackgroundGlitters = () => {
     canvas.height = height;
 
     const particles = [];
-    // Number of glitters (increased for more dense effect)
-    const particleCount = 350;
+    const particleCount = 140;
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        // Make the stars a little smaller
-        radius: Math.random() * 0.9 + 0.2,
-        // Slow drifting movement
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
+        radius: Math.random() * 0.7 + 0.3,
+        vx: (Math.random() - 0.5) * 0.12,
+        vy: (Math.random() - 0.5) * 0.12,
         opacity: Math.random(),
-        // Stronger glow base
-        glow: Math.random() * 10 + 5,
-        // Faster and randomized fade speed for twinkle
-        fadeDirection: Math.random() > 0.5 ? (Math.random() * 0.015 + 0.005) : -(Math.random() * 0.015 + 0.005)
-      });
-    }
-
-    const shootingStars = [];
-    const shootingStarCount = 4;
-
-    for (let i = 0; i < shootingStarCount; i++) {
-      shootingStars.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        length: Math.random() * 80 + 30,
-        speed: Math.random() * 10 + 6,
-        opacity: 0,
-        active: false,
-        angle: Math.PI / 4, // 45 degrees downward
-        waitTimer: Math.random() * 300 + 50 // frames to wait before firing
+        fadeDirection: Math.random() > 0.5 ? (Math.random() * 0.0015 + 0.0005) : -(Math.random() * 0.0015 + 0.0005)
       });
     }
 
@@ -88,7 +68,7 @@ const BackgroundGlitters = () => {
         ctx.fill();
 
         // Fast twinkle cross
-        if (p.opacity > 0.7) {
+        if (p.opacity > 0.94) {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y - p.radius * 2.5);
           ctx.lineTo(p.x, p.y + p.radius * 2.5);
@@ -97,47 +77,6 @@ const BackgroundGlitters = () => {
           ctx.strokeStyle = `rgba(255, 228, 230, ${p.opacity * 0.6})`;
           ctx.lineWidth = 0.4;
           ctx.stroke();
-        }
-      });
-
-      // Render Shooting Stars
-      shootingStars.forEach(star => {
-        if (!star.active) {
-          star.waitTimer--;
-          if (star.waitTimer <= 0) {
-            star.active = true;
-            // Start from top or left edge randomly
-            if (Math.random() > 0.5) {
-              star.x = Math.random() * width;
-              star.y = -50;
-            } else {
-              star.x = -50;
-              star.y = Math.random() * (height / 2);
-            }
-            star.opacity = 1;
-            star.waitTimer = Math.random() * 300 + 100;
-            star.speed = Math.random() * 15 + 10;
-            star.length = Math.random() * 100 + 50;
-          }
-        } else {
-          star.x += Math.cos(star.angle) * star.speed;
-          star.y += Math.sin(star.angle) * star.speed;
-          star.opacity -= 0.012; // Fade out gradually
-
-          if (star.opacity <= 0 || star.x > width + 100 || star.y > height + 100) {
-            star.active = false;
-          } else {
-            ctx.beginPath();
-            ctx.moveTo(star.x, star.y);
-            ctx.lineTo(
-              star.x - Math.cos(star.angle) * star.length, 
-              star.y - Math.sin(star.angle) * star.length
-            );
-            
-            ctx.strokeStyle = `rgba(254, 205, 211, ${star.opacity})`;
-            ctx.lineWidth = 1.0;
-            ctx.stroke();
-          }
         }
       });
 

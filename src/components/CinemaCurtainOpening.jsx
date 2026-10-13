@@ -69,10 +69,10 @@ const CinemaCurtainOpening = () => {
           <motion.div
             key="center-burst"
             initial={{ opacity: 0, scaleY: 0 }}
-            animate={{ opacity: [0, 0.8, 0], scaleY: [0.15, 1, 1.1] }}
+            animate={{ opacity: [0, 0.28, 0], scaleY: [0.15, 1, 1.05] }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.55, ease: 'easeOut' }}
-            className="fixed bottom-0 left-1/2 top-0 z-[30] w-px origin-center bg-[#f6e6eb]"
+            className="fixed bottom-0 left-1/2 top-0 z-[30] w-px origin-center bg-[#f6e6eb]/80"
           />
         )}
       </AnimatePresence>

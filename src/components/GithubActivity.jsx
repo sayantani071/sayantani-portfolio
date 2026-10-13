@@ -19,7 +19,7 @@ const GithubActivity = () => {
   useEffect(() => {
     const fetchRepos = async () => {
       try {
-        const response = await fetch(
+        const response = await globalThis.fetch(
           `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6`
         );
 
@@ -43,7 +43,7 @@ const GithubActivity = () => {
 
         setRepos(publicRepos);
       } catch (error) {
-        console.error('Error fetching GitHub repos:', error);
+        globalThis.console.error('Error fetching GitHub repos:', error);
         setRepos([]);
       } finally {
         setLoading(false);

@@ -81,26 +81,26 @@ const CinemaCurtainOpening = () => {
         initial={{ x: '0%' }}
         animate={isOpen ? { x: '-101%' } : { x: '0%' }}
         transition={{ duration: 1.15, ease: [0.77, 0, 0.175, 1] }}
-        className="fixed inset-y-0 left-0 z-[10] w-1/2 border-r border-[#d9a8b6]/30 bg-[#100d16]"
+        className="fixed inset-y-0 left-0 z-[10] w-1/2 border-r border-[#d9a8b6]/25 bg-[#100d16]"
         style={{
-          backgroundImage: 'linear-gradient(rgba(217, 168, 182, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(217, 168, 182, 0.045) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(217, 168, 182, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(217, 168, 182, 0.025) 1px, transparent 1px)',
           backgroundSize: '64px 64px',
         }}
       >
-        <div className="absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#d9a8b6]/[0.06] to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-[#d9a8b6]/[0.04] to-transparent" />
       </motion.div>
 
       <motion.div
         initial={{ x: '0%' }}
         animate={isOpen ? { x: '101%' } : { x: '0%' }}
         transition={{ duration: 1.15, ease: [0.77, 0, 0.175, 1] }}
-        className="fixed inset-y-0 right-0 z-[10] w-1/2 border-l border-[#d9a8b6]/30 bg-[#100d16]"
+        className="fixed inset-y-0 right-0 z-[10] w-1/2 border-l border-[#d9a8b6]/25 bg-[#100d16]"
         style={{
-          backgroundImage: 'linear-gradient(rgba(217, 168, 182, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(217, 168, 182, 0.045) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(217, 168, 182, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(217, 168, 182, 0.025) 1px, transparent 1px)',
           backgroundSize: '64px 64px',
         }}
       >
-        <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[#d9a8b6]/[0.06] to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-[#d9a8b6]/[0.04] to-transparent" />
       </motion.div>
     </motion.div>
   );

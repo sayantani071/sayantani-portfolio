@@ -196,7 +196,7 @@ const Education = () => {
                   </div>
 
                   <div
-                    className="relative h-1.5 w-full overflow-hidden rounded-full border border-pink-500/20 bg-white/5"
+                    className="relative h-1.5 w-full overflow-hidden rounded-full border border-cyan-400/25 bg-white/5"
                     role="progressbar"
                     aria-label="B.Tech program progress"
                     aria-valuemin={0}
@@ -208,17 +208,17 @@ const Education = () => {
                       whileInView={{ width: '45%' }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-                      className="relative h-full overflow-hidden rounded-full bg-gradient-to-r from-pink-400 to-rose-400 shadow-[0_0_8px_rgba(244,114,182,0.4)]"
+                      className="relative h-full overflow-hidden rounded-full bg-gradient-to-r from-[#c084fc] via-[#00d2ff] to-[#10b981] shadow-[0_0_10px_rgba(0,210,255,0.6)]"
                     >
                       <motion.div
                         aria-hidden="true"
-                        className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-white/45 to-transparent"
+                        className="absolute inset-y-0 left-0 w-3/4 bg-gradient-to-r from-transparent via-[#c084fc]/70 via-[#00d2ff] via-[#10b981]/80 to-transparent"
                         animate={{ x: ['-100%', '300%'] }}
                         transition={{ duration: 1.4, ease: 'easeInOut', repeat: Infinity, repeatDelay: 0.6 }}
                       />
                     </motion.div>
                   </div>
-                  <p className="md:text-right text-left text-[10px] font-mono mt-2 uppercase tracking-widest text-pink-300/70">IN PROGRESS</p>
+                  <p className="md:text-right text-left text-[10px] font-mono mt-2 uppercase tracking-widest text-[#00d2ff]/80">IN PROGRESS</p>
                 </motion.div>
               </div>
             </div>

@@ -16,22 +16,22 @@ const Education = () => {
   // Scroll Transforms for Steps (Subtle scale & glow effects)
   const dot1Scale = useTransform(scrollYProgress, [0, 0.15], [1, 1.25]);
   const box1Scale = useTransform(scrollYProgress, [0, 0.15], [1, 1.01]);
-  const box1Border = useTransform(scrollYProgress, [0, 0.15], ['rgba(255,255,255,0.08)', 'rgba(192,132,252,0.45)']);
-  const box1Shadow = useTransform(scrollYProgress, [0, 0.15], ['0px 0px 0px rgba(0,0,0,0)', '0px 0px 25px rgba(192,132,252,0.15)']);
+  const box1Border = useTransform(scrollYProgress, [0, 0.15], ['rgba(255,255,255,0.08)', 'rgba(244,114,182,0.4)']);
+  const box1Shadow = useTransform(scrollYProgress, [0, 0.15], ['0px 0px 0px rgba(0,0,0,0)', '0px 0px 25px rgba(244,114,182,0.12)']);
 
   const dot2Opacity = useTransform(scrollYProgress, [0.2, 0.4], [0.3, 1]);
   const box2Scale = useTransform(scrollYProgress, [0.2, 0.4], [1, 1.01]);
-  const box2Border = useTransform(scrollYProgress, [0.2, 0.4], ['rgba(255,255,255,0.08)', 'rgba(0,210,255,0.45)']);
-  const box2Shadow = useTransform(scrollYProgress, [0.2, 0.4], ['0px 0px 0px rgba(0,0,0,0)', '0px 0px 25px rgba(0,210,255,0.15)']);
+  const box2Border = useTransform(scrollYProgress, [0.2, 0.4], ['rgba(255,255,255,0.08)', 'rgba(244,114,182,0.4)']);
+  const box2Shadow = useTransform(scrollYProgress, [0.2, 0.4], ['0px 0px 0px rgba(0,0,0,0)', '0px 0px 25px rgba(244,114,182,0.12)']);
 
   const dot3Scale = useTransform(scrollYProgress, [0.5, 0.75], [1, 1.3]);
   const box3Scale = useTransform(scrollYProgress, [0.5, 0.75], [1, 1.01]);
-  const box3Border = useTransform(scrollYProgress, [0.5, 0.75], ['rgba(0,210,255,0.2)', 'rgba(16,185,129,0.5)']);
-  const box3Shadow = useTransform(scrollYProgress, [0.5, 0.75], ['0px 0px 0px rgba(0,0,0,0)', '0px 0px 30px rgba(0,210,255,0.18)']);
+  const box3Border = useTransform(scrollYProgress, [0.5, 0.75], ['rgba(244,114,182,0.2)', 'rgba(244,114,182,0.55)']);
+  const box3Shadow = useTransform(scrollYProgress, [0.5, 0.75], ['0px 0px 0px rgba(0,0,0,0)', '0px 0px 30px rgba(244,114,182,0.18)']);
 
   const box4Scale = useTransform(scrollYProgress, [0.8, 1], [1, 1.01]);
-  const box4Border = useTransform(scrollYProgress, [0.8, 1], ['rgba(255,255,255,0.08)', 'rgba(16,185,129,0.45)']);
-  const box4Shadow = useTransform(scrollYProgress, [0.8, 1], ['0px 0px 0px rgba(0,0,0,0)', '0px 0px 25px rgba(16,185,129,0.15)']);
+  const box4Border = useTransform(scrollYProgress, [0.8, 1], ['rgba(255,255,255,0.08)', 'rgba(244,114,182,0.4)']);
+  const box4Shadow = useTransform(scrollYProgress, [0.8, 1], ['0px 0px 0px rgba(0,0,0,0)', '0px 0px 25px rgba(244,114,182,0.12)']);
 
   return (
     <section id="education" className="py-24 relative z-10 font-sans">
@@ -52,20 +52,18 @@ const Education = () => {
 
         <div ref={containerRef} className="relative max-w-5xl mx-auto">
           {/* Desktop Central Spine Track */}
-          <div className="hidden md:block absolute left-1/2 top-10 bottom-10 w-[3px] -translate-x-1/2 bg-white/10 rounded-full overflow-hidden z-0">
-            {/* Dynamic Line: Lavender -> Neon Blue -> Touch of Green */}
+          <div className="hidden md:block absolute left-1/2 top-10 bottom-10 w-[2px] -translate-x-1/2 bg-white/10 rounded-full overflow-hidden z-0">
             <motion.div 
               style={{ height: lineHeight }}
-              className="w-full bg-gradient-to-b from-[#c084fc] via-[#818cf8] via-[#00d2ff] to-[#10b981] origin-top shadow-[0_0_20px_rgba(0,210,255,0.9),0_0_30px_rgba(192,132,252,0.8)] rounded-full"
+              className="w-full bg-gradient-to-b from-pink-400 via-rose-500 to-pink-400 origin-top shadow-[0_0_20px_rgba(244,114,182,1)]"
             />
           </div>
 
           {/* Mobile Left Spine Track */}
-          <div className="md:hidden absolute left-6 top-10 bottom-10 w-[3px] -translate-x-1/2 bg-white/10 rounded-full overflow-hidden z-0">
-            {/* Dynamic Line: Lavender -> Neon Blue -> Touch of Green */}
+          <div className="md:hidden absolute left-6 top-10 bottom-10 w-[2px] -translate-x-1/2 bg-white/10 rounded-full overflow-hidden z-0">
             <motion.div 
               style={{ height: lineHeight }}
-              className="w-full bg-gradient-to-b from-[#c084fc] via-[#818cf8] via-[#00d2ff] to-[#10b981] origin-top shadow-[0_0_15px_rgba(0,210,255,0.9),0_0_25px_rgba(192,132,252,0.8)] rounded-full"
+              className="w-full bg-gradient-to-b from-pink-400 via-rose-500 to-pink-400 origin-top shadow-[0_0_15px_rgba(244,114,182,1)]"
             />
           </div>
 
@@ -75,7 +73,7 @@ const Education = () => {
             <div className="w-full md:w-1/2 md:pr-10 flex md:justify-end text-left md:text-right pl-12 sm:pl-14 md:pl-0">
               <div className="relative w-full max-w-md">
                 {/* Horizontal Connector to Center Timeline (Desktop) */}
-                <div className="hidden md:block absolute -right-10 top-10 w-10 h-[2px] bg-gradient-to-r from-purple-500/20 via-[#c084fc]/50 to-[#c084fc] group-hover:to-[#d8b4fe] transition-all duration-300 z-0" />
+                <div className="hidden md:block absolute -right-10 top-10 w-10 h-[2px] bg-gradient-to-r from-pink-500/20 via-pink-400/50 to-pink-400 group-hover:via-pink-400 group-hover:to-pink-300 transition-all duration-300 z-0" />
 
                 <motion.div 
                   initial={{ opacity: 0, x: -30 }}
@@ -97,13 +95,13 @@ const Education = () => {
             </div>
 
             {/* Mobile Node & Connector */}
-            <div className="md:hidden absolute left-6 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-[#c084fc] rounded-full z-10 shadow-[0_0_14px_rgba(192,132,252,0.95)]" />
-            <div className="md:hidden absolute left-6 top-10 w-6 sm:w-8 h-[2px] bg-gradient-to-r from-[#c084fc] to-[#c084fc]/30 z-0" />
+            <div className="md:hidden absolute left-6 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-pink-400 rounded-full z-10 shadow-[0_0_12px_rgba(244,114,182,0.9)]" />
+            <div className="md:hidden absolute left-6 top-10 w-6 sm:w-8 h-[2px] bg-gradient-to-r from-pink-400 to-pink-500/40 z-0" />
 
-            {/* Desktop Center Dot (Lavender) */}
+            {/* Desktop Center Dot */}
             <motion.div 
               style={{ scale: dot1Scale }} 
-              className="hidden md:block absolute left-1/2 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-[#c084fc] rounded-full z-10 shadow-[0_0_16px_rgba(192,132,252,1)]"
+              className="hidden md:block absolute left-1/2 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-pink-400 rounded-full z-10 shadow-[0_0_14px_rgba(244,114,182,0.9)]"
             ></motion.div>
 
             {/* Right Spacer (Desktop) */}
@@ -116,21 +114,21 @@ const Education = () => {
             <div className="hidden md:block md:w-1/2 md:pr-10"></div>
 
             {/* Mobile Node & Connector */}
-            <div className="md:hidden absolute left-6 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-[#110619] border-[1.5px] border-[#00d2ff] rounded-full z-10 overflow-hidden">
-              <motion.div style={{ opacity: dot2Opacity }} className="w-full h-full bg-[#00d2ff] shadow-[0_0_12px_rgba(0,210,255,0.95)]" />
+            <div className="md:hidden absolute left-6 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-[#110619] border-[1.5px] border-pink-400 rounded-full z-10 overflow-hidden">
+              <motion.div style={{ opacity: dot2Opacity }} className="w-full h-full bg-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.9)]" />
             </div>
-            <div className="md:hidden absolute left-6 top-10 w-6 sm:w-8 h-[2px] bg-gradient-to-r from-[#00d2ff] to-[#00d2ff]/30 z-0" />
+            <div className="md:hidden absolute left-6 top-10 w-6 sm:w-8 h-[2px] bg-gradient-to-r from-pink-400 to-pink-500/40 z-0" />
 
-            {/* Desktop Center Dot (Neon Blue) */}
-            <div className="hidden md:block absolute left-1/2 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-[#110619] border-[1.5px] border-[#00d2ff] rounded-full z-10 overflow-hidden">
-              <motion.div style={{ opacity: dot2Opacity }} className="w-full h-full bg-[#00d2ff] shadow-[0_0_14px_rgba(0,210,255,1)]" />
+            {/* Desktop Center Dot */}
+            <div className="hidden md:block absolute left-1/2 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-[#110619] border-[1.5px] border-pink-400 rounded-full z-10 overflow-hidden">
+              <motion.div style={{ opacity: dot2Opacity }} className="w-full h-full bg-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.9)]" />
             </div>
 
             {/* Right Box (Desktop) */}
             <div className="w-full md:w-1/2 md:pl-10 flex md:justify-start pl-12 sm:pl-14 md:pl-0">
               <div className="relative w-full max-w-md">
                 {/* Horizontal Connector to Center Timeline (Desktop) */}
-                <div className="hidden md:block absolute -left-10 top-10 w-10 h-[2px] bg-gradient-to-l from-cyan-500/20 via-[#00d2ff]/50 to-[#00d2ff] group-hover:to-[#38bdf8] transition-all duration-300 z-0" />
+                <div className="hidden md:block absolute -left-10 top-10 w-10 h-[2px] bg-gradient-to-l from-pink-500/20 via-pink-400/50 to-pink-400 group-hover:via-pink-400 group-hover:to-pink-300 transition-all duration-300 z-0" />
 
                 <motion.div 
                   initial={{ opacity: 0, x: 30 }}
@@ -158,7 +156,7 @@ const Education = () => {
             <div className="w-full md:w-1/2 md:pr-10 flex md:justify-end text-left md:text-right pl-12 sm:pl-14 md:pl-0">
               <div className="relative w-full max-w-md">
                 {/* Horizontal Connector to Center Timeline (Desktop) */}
-                <div className="hidden md:block absolute -right-10 top-10 w-10 h-[2px] bg-gradient-to-r from-blue-500/20 via-[#00d2ff]/50 to-[#10b981] group-hover:to-[#34d399] transition-all duration-300 z-0" />
+                <div className="hidden md:block absolute -right-10 top-10 w-10 h-[2px] bg-gradient-to-r from-pink-500/20 via-pink-400/50 to-pink-400 group-hover:via-pink-400 group-hover:to-pink-300 transition-all duration-300 z-0" />
 
                 <motion.div 
                   initial={{ opacity: 0, x: -30 }}
@@ -224,13 +222,13 @@ const Education = () => {
             </div>
 
             {/* Mobile Node & Connector */}
-            <div className="md:hidden absolute left-6 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-gradient-to-br from-[#00d2ff] to-[#10b981] rounded-full z-10 shadow-[0_0_16px_rgba(0,210,255,1)]" />
-            <div className="md:hidden absolute left-6 top-10 w-6 sm:w-8 h-[2px] bg-gradient-to-r from-[#00d2ff] to-[#10b981]/40 z-0" />
+            <div className="md:hidden absolute left-6 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-pink-400 rounded-full z-10 shadow-[0_0_15px_rgba(244,114,182,1)]" />
+            <div className="md:hidden absolute left-6 top-10 w-6 sm:w-8 h-[2px] bg-gradient-to-r from-pink-400 to-pink-500/40 z-0" />
 
-            {/* Desktop Center Dot (Cyan / Green blend) */}
+            {/* Desktop Center Dot */}
             <motion.div 
               style={{ scale: dot3Scale }} 
-              className="hidden md:block absolute left-1/2 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-gradient-to-br from-[#00d2ff] to-[#10b981] rounded-full z-10 shadow-[0_0_18px_rgba(0,210,255,1)]"
+              className="hidden md:block absolute left-1/2 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-pink-400 rounded-full z-10 shadow-[0_0_18px_rgba(244,114,182,1)]"
             ></motion.div>
 
             {/* Right Spacer (Desktop) */}
@@ -243,21 +241,18 @@ const Education = () => {
             <div className="hidden md:block md:w-1/2 md:pr-10"></div>
 
             {/* Mobile Node & Connector */}
-            <div className="md:hidden absolute left-6 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-[#110619] border-[1.5px] border-[#10b981] rounded-full z-10 overflow-hidden">
-              <div className="w-full h-full bg-[#10b981] shadow-[0_0_12px_rgba(16,185,129,0.9)]" />
-            </div>
-            <div className="md:hidden absolute left-6 top-10 w-6 sm:w-8 h-[2px] bg-gradient-to-r from-[#10b981] to-[#10b981]/30 z-0" />
+            <div className="md:hidden absolute left-6 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-[#110619] border-[1.5px] border-pink-400/60 rounded-full z-10 overflow-hidden" />
+            <div className="md:hidden absolute left-6 top-10 w-6 sm:w-8 h-[2px] bg-gradient-to-r from-pink-400 to-pink-500/40 z-0" />
 
-            {/* Desktop Center Dot (Neon Green) */}
-            <div className="hidden md:block absolute left-1/2 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-[#110619] border-[1.5px] border-[#10b981] rounded-full z-10 overflow-hidden shadow-[0_0_12px_rgba(16,185,129,0.7)]">
-              <div className="w-full h-full bg-[#10b981] shadow-[0_0_10px_rgba(16,185,129,0.9)]" />
+            {/* Desktop Center Dot */}
+            <div className="hidden md:block absolute left-1/2 top-10 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-[#110619] border-[1.5px] border-pink-400/60 rounded-full z-10 overflow-hidden">
             </div>
 
             {/* Right Box (Desktop) */}
             <div className="w-full md:w-1/2 md:pl-10 flex md:justify-start pl-12 sm:pl-14 md:pl-0">
               <div className="relative w-full max-w-md">
                 {/* Horizontal Connector to Center Timeline (Desktop) */}
-                <div className="hidden md:block absolute -left-10 top-10 w-10 h-[2px] bg-gradient-to-l from-emerald-500/20 via-[#10b981]/50 to-[#10b981] group-hover:to-[#34d399] transition-all duration-300 z-0" />
+                <div className="hidden md:block absolute -left-10 top-10 w-10 h-[2px] bg-gradient-to-l from-pink-500/20 via-pink-400/50 to-pink-400 group-hover:via-pink-400 group-hover:to-pink-300 transition-all duration-300 z-0" />
 
                 <motion.div 
                   initial={{ opacity: 0, x: 30 }}

@@ -10,9 +10,9 @@ const educationData = [
     status: 'origin',
     title: 'Born',
     institution: 'The Beginning of the Journey',
-    description: 'Where every line of this story began. Taking the first steps into the world with curiosity and a passion for discovering how things work.',
+    description: 'Where every line of this journey began. Taking the first steps into the world with curiosity and a lifelong passion for discovery.',
     icon: Sparkles,
-    tags: ['Origin', 'Curiosity'],
+    tags: ['Origin', 'First Milestone'],
   },
   {
     id: 'schooling',
@@ -21,9 +21,9 @@ const educationData = [
     status: 'completed',
     title: 'Higher Secondary Education',
     institution: 'Gaighata High School',
-    description: 'Completed primary, secondary, and higher secondary education with a strong academic grounding in Science, Mathematics, and Computer Science.',
+    description: 'Completed primary, secondary, and higher secondary education with a strong academic foundation in Science, Mathematics, and Computer Science.',
     icon: BookOpen,
-    tags: ['Science Stream', 'High School Graduate', 'Mathematics'],
+    tags: ['Science Stream', 'High School Graduate', 'Gaighata'],
   },
   {
     id: 'btech',
@@ -32,13 +32,13 @@ const educationData = [
     status: 'active',
     title: 'B.Tech CSE (AI & ML)',
     institution: 'JIS COLLEGE OF ENGINEERING',
-    description: 'Deep diving into Artificial Intelligence, Machine Learning, and Database Management Systems. Actively participating in hackathons and building practical applications.',
+    description: 'Deep diving into Artificial Intelligence, Machine Learning, and Database Management Systems. Active participant in hackathons, competitive programming, and practical application building.',
     icon: GraduationCap,
     progress: {
       percentage: 45,
       label: 'IN PROGRESS',
     },
-    tags: ['AI & Machine Learning', 'DBMS', 'Hackathons', 'App Dev'],
+    tags: ['AI & Machine Learning', 'DBMS', 'Hackathons', 'Python & C++'],
   },
   {
     id: 'future',
@@ -242,7 +242,7 @@ const Education = () => {
         {/* Timeline Container */}
         <div ref={containerRef} className="relative max-w-5xl mx-auto">
           {/* Desktop Timeline Track & Glowing Progress Line */}
-          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-10 bottom-10 w-[2px] bg-white/10 overflow-hidden rounded-full z-0">
+          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-[38px] bottom-[38px] w-[2px] bg-white/10 overflow-hidden rounded-full z-0">
             <motion.div
               style={{ height: lineHeight }}
               className="w-full bg-gradient-to-b from-pink-400 via-rose-400 to-pink-500 shadow-[0_0_16px_rgba(244,114,182,0.9)] origin-top rounded-full"
@@ -250,7 +250,7 @@ const Education = () => {
           </div>
 
           {/* Mobile Timeline Track & Glowing Progress Line */}
-          <div className="md:hidden absolute left-6 -translate-x-1/2 top-8 bottom-8 w-[2px] bg-white/10 overflow-hidden rounded-full z-0">
+          <div className="md:hidden absolute left-6 -translate-x-1/2 top-[38px] bottom-[38px] w-[2px] bg-white/10 overflow-hidden rounded-full z-0">
             <motion.div
               style={{ height: lineHeight }}
               className="w-full bg-gradient-to-b from-pink-400 via-rose-400 to-pink-500 shadow-[0_0_16px_rgba(244,114,182,0.9)] origin-top rounded-full"
@@ -272,15 +272,15 @@ const Education = () => {
                   className="relative flex flex-col md:flex-row items-start md:items-center w-full group"
                 >
                   {/* Mobile Node */}
-                  <div className="md:hidden absolute left-6 top-8 -translate-x-1/2 -translate-y-1/2 z-20">
+                  <div className="md:hidden absolute left-6 top-[38px] sm:top-[42px] -translate-x-1/2 -translate-y-1/2 z-20">
                     <TimelineNode item={item} />
                   </div>
 
                   {/* Mobile Connector Line */}
-                  <div className="md:hidden absolute left-6 top-8 w-6 h-[2px] bg-gradient-to-r from-pink-400 to-pink-500/40 z-10" />
+                  <div className="md:hidden absolute left-6 top-[38px] sm:top-[42px] w-6 sm:w-8 h-[2px] bg-gradient-to-r from-pink-400 to-pink-500/40 z-10" />
 
                   {/* Desktop Center Node */}
-                  <div className="hidden md:flex absolute left-1/2 top-8 -translate-x-1/2 -translate-y-1/2 z-20">
+                  <div className="hidden md:flex absolute left-1/2 top-[38px] sm:top-[42px] -translate-x-1/2 -translate-y-1/2 z-20">
                     <TimelineNode item={item} />
                   </div>
 
@@ -293,7 +293,7 @@ const Education = () => {
                     {isEven && (
                       <div className="relative w-full max-w-[460px] ml-12 sm:ml-14 md:ml-0">
                         {/* Desktop Connector from Card to Center Node */}
-                        <div className="hidden md:block absolute -right-10 top-8 w-10 h-[2px] bg-gradient-to-r from-pink-500/30 via-pink-400/60 to-pink-400 group-hover:from-pink-400 group-hover:to-rose-300 transition-all duration-300 shadow-[0_0_8px_rgba(244,114,182,0.3)] z-10" />
+                        <div className="hidden md:block absolute -right-10 top-[38px] sm:top-[42px] w-10 h-[2px] bg-gradient-to-r from-pink-500/30 via-pink-400/60 to-pink-400 group-hover:from-pink-400 group-hover:to-rose-300 transition-all duration-300 shadow-[0_0_8px_rgba(244,114,182,0.3)] z-10" />
                         <EducationCard item={item} />
                       </div>
                     )}
@@ -308,7 +308,7 @@ const Education = () => {
                     {!isEven && (
                       <div className="relative w-full max-w-[460px] ml-12 sm:ml-14 md:ml-0">
                         {/* Desktop Connector from Center Node to Card */}
-                        <div className="hidden md:block absolute -left-10 top-8 w-10 h-[2px] bg-gradient-to-l from-pink-500/30 via-pink-400/60 to-pink-400 group-hover:from-pink-400 group-hover:to-rose-300 transition-all duration-300 shadow-[0_0_8px_rgba(244,114,182,0.3)] z-10" />
+                        <div className="hidden md:block absolute -left-10 top-[38px] sm:top-[42px] w-10 h-[2px] bg-gradient-to-l from-pink-500/30 via-pink-400/60 to-pink-400 group-hover:from-pink-400 group-hover:to-rose-300 transition-all duration-300 shadow-[0_0_8px_rgba(244,114,182,0.3)] z-10" />
                         <EducationCard item={item} />
                       </div>
                     )}
